@@ -1,0 +1,205 @@
+.perangkat {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Poppins", system-ui, sans-serif;
+  color: #f4efe4;
+  padding: 6vh 4vw 8vh;
+}
+
+.perangkat__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 45%;
+}
+
+.perangkat__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(10, 36, 22, 0.9) 0%,
+    rgba(18, 56, 34, 0.55) 60%,
+    rgba(18, 56, 34, 0.35) 100%
+  );
+}
+
+.perangkat__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.perangkat__badge {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 1rem 1.8rem;
+  border-radius: 999px;
+  background: rgba(80, 110, 80, 0.4);
+  backdrop-filter: blur(6px);
+  margin-bottom: 5vh;
+}
+
+.perangkat__badge strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.perangkat__badge span {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.orgchart-scroll {
+  overflow-x: auto;
+  padding-bottom: 2rem;
+}
+
+/* ---------- Struktur inti org chart ---------- */
+
+.orgchart,
+.orgchart ul,
+.orgchart li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.orgchart {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.orgchart ul {
+  display: table;
+  width: 100%;
+}
+
+.orgchart li {
+  display: table-cell;
+  vertical-align: top;
+  padding: 46px 14px 0;
+}
+
+/* garis horizontal & vertikal penghubung antar-saudara */
+.orgchart li::before,
+.orgchart li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  height: 46px;
+  border-top: 2px solid rgba(244, 239, 228, 0.45);
+}
+
+.orgchart li::after {
+  right: auto;
+  left: 50%;
+  border-left: 2px solid rgba(244, 239, 228, 0.45);
+}
+
+.orgchart li:first-child::before {
+  border: 0 none;
+}
+
+.orgchart li:last-child::after {
+  border: 0 none;
+}
+
+.orgchart li:last-child::before {
+  border-right: 2px solid rgba(244, 239, 228, 0.45);
+  border-radius: 0 6px 0 0;
+}
+
+.orgchart li:first-child::after {
+  border-radius: 6px 0 0 0;
+}
+
+.orgchart li:only-child {
+  padding-top: 0;
+}
+
+.orgchart li:only-child::before,
+.orgchart li:only-child::after {
+  display: none;
+}
+
+/* garis vertikal dari parent turun ke grup anak */
+.orgchart > ul > li > ul::before {
+  content: "";
+  position: absolute;
+  top: -46px;
+  left: 50%;
+  width: 0;
+  height: 46px;
+  border-left: 2px solid rgba(244, 239, 228, 0.45);
+}
+
+/* ---------- Kartu orang ---------- */
+
+.org-person {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+}
+
+.org-photo {
+  width: 130px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid rgba(244, 239, 228, 0.9);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.org-person--lead .org-photo {
+  width: 150px;
+  height: 170px;
+}
+
+.org-badge {
+  display: flex;
+  flex-direction: column;
+  margin-top: -18px;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: rgba(150, 180, 140, 0.55);
+  backdrop-filter: blur(4px);
+  min-width: 140px;
+}
+
+.org-badge strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.org-badge small {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  line-height: 1.2;
+}
+
+/* Reveal animation, dikontrol lewat perangkatdesa.js */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

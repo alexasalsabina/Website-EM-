@@ -1,0 +1,110 @@
+.lembaga {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Poppins", system-ui, sans-serif;
+  padding: 10vh 6vw 10vh;
+  color: #f4efe4;
+}
+
+.lembaga__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 60%;
+}
+
+.lembaga__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 36, 22, 0.85) 0%,
+    rgba(18, 56, 34, 0.7) 100%
+  );
+}
+
+.lembaga__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lembaga__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.6rem;
+}
+
+.lembaga__title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  margin: 0 0 4rem;
+}
+
+.lembaga__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+}
+
+.lembaga__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 2.2rem 1.6rem;
+  border-radius: 20px;
+  background: rgba(120, 150, 110, 0.28);
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  color: #f4efe4;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.lembaga__card:hover {
+  transform: translateY(-6px);
+  background: rgba(120, 150, 110, 0.45);
+}
+
+.lembaga__icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-bottom: 0.4rem;
+}
+
+.lembaga__name {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.lembaga__desc {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* Reveal animation, dikontrol lewat lembagadesa.js */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

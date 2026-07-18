@@ -22,7 +22,6 @@
                 <a href="{{ route('profil.desa') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.desa') ? 'is-active' : '' }}">Profil Desa</a>
                 <a href="{{ route('profil.visi-misi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.visi-misi') ? 'is-active' : '' }}">Visi Misi</a>
                 <a href="{{ route('profil.rangkup') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.rangkup') ? 'is-active' : '' }}">Rangkup</a>
-                <a href="{{ route('profil.sejarah') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.sejarah') ? 'is-active' : '' }}">Sejarah</a>
                 <a href="{{ route('profil.perangkat-desa') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.perangkat-desa') ? 'is-active' : '' }}">Perangkat Desa</a>
             </div>
         </div>
