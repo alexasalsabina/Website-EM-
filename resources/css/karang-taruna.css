@@ -1,7 +1,7 @@
 .kt-hero {
     position: relative;
     min-height: 550px;
-    background-image: url('/images/karang-taruna-bg.jpg');
+    background-image: url('/public/images/jatisari.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -25,10 +25,11 @@
 .kt-hero__content {
     position: relative;
     z-index: 1;
-    max-width: 850px;
-    text-align: center;
+    max-width: 900px;
+    padding: 0 80px;
     opacity: 0;
-    transform: scale(0.96);
+    transform: translateY(24px);
+    animation: lpmFadeUp 0.9s ease forwards;
 }
 
 .kt-hero__content.is-visible {

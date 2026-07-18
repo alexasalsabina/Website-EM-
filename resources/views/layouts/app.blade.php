@@ -15,9 +15,11 @@
 
 <body>
 
+    @include('components.homepage.header')
+
     @yield('content')
 
     @include('components.homepage.footer')
-    
+
 </body>
 </html>
