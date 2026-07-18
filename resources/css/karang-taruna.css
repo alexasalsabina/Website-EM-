@@ -1,0 +1,62 @@
+.kt-hero {
+    position: relative;
+    min-height: 550px;
+    background-image: url('/images/karang-taruna-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 60px;
+    overflow: hidden;
+}
+
+.kt-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 40, 20, 0.55) 0%,
+        rgba(10, 40, 20, 0.3) 50%,
+        rgba(10, 40, 20, 0.55) 100%
+    );
+}
+
+.kt-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+.kt-hero__content.is-visible {
+    animation: ktFadeIn 0.8s ease forwards;
+}
+
+.kt-hero__title {
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 0 0 20px;
+}
+
+.kt-hero__desc {
+    font-size: 17px;
+    color: #f0f0f0;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@keyframes ktFadeIn {
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .kt-hero { padding: 0 24px; min-height: 460px; }
+    .kt-hero__title { font-size: 28px; letter-spacing: 1px; }
+    .kt-hero__desc { font-size: 14px; }
+}

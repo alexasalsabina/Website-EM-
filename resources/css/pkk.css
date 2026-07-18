@@ -1,0 +1,80 @@
+.pkk-hero {
+    position: relative;
+    min-height: 550px;
+    background-image: url('/images/pkk-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    overflow: hidden;
+}
+
+.pkk-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 40, 20, 0.7) 0%,
+        rgba(10, 40, 20, 0.3) 40%,
+        rgba(10, 40, 20, 0.75) 100%
+    );
+}
+
+.pkk-hero__title-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    opacity: 0;
+    transform: translateY(-16px);
+}
+
+.pkk-hero__title-wrap.is-visible {
+    animation: pkkFadeDown 0.8s ease forwards;
+}
+
+.pkk-hero__title {
+    font-size: 44px;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.15;
+    margin: 0;
+}
+
+.pkk-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    align-self: flex-end;
+    text-align: right;
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.pkk-hero__content.is-visible {
+    animation: pkkFadeUp 0.8s ease 0.2s forwards;
+}
+
+.pkk-hero__desc {
+    font-size: 17px;
+    color: #f0f0f0;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@keyframes pkkFadeDown {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pkkFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .pkk-hero { padding: 24px; min-height: 480px; }
+    .pkk-hero__title { font-size: 28px; }
+    .pkk-hero__content { text-align: left; align-self: flex-start; }
+    .pkk-hero__desc { font-size: 14px; }
+}
