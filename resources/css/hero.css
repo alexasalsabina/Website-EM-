@@ -1,0 +1,158 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 900px;
+    min-height: 480px;
+    overflow: hidden;
+    background: #111;
+}
+
+.hero__slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease;
+}
+
+.hero__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.3) 100%);
+}
+
+.hero__caption {
+    position: absolute;
+    left: 40px;
+    bottom: 50px;
+    color: #fff;
+    z-index: 2;
+}
+
+.hero__title {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+}
+
+.hero__location {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.hero__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    transition: background 0.2s;
+    z-index: 3;
+}
+
+.hero__nav:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.hero__nav svg {
+    width: 22px;
+    height: 22px;
+}
+
+.hero__nav--prev { left: 24px; }
+.hero__nav--next { right: 24px; }
+
+.hero__controls {
+    position: absolute;
+    right: 40px;
+    bottom: 55px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    z-index: 2;
+}
+
+.hero__control-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__control-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.hero__counter {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.hero__dots {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+}
+
+.hero__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.hero__dot.is-active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .hero__caption { left: 20px; bottom: 40px; }
+    .hero__controls { right: 20px; bottom: 44px; }
+    .hero__nav { width: 36px; height: 36px; }
+}

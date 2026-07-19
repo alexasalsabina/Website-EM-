@@ -17,10 +17,10 @@
 </head>
 <body>
 
-    @include('components.homepage.header')
+    @include('partials.header')
 
     <section class="visimisi" id="visimisi">
-        <div class="visimisi__bg" style="background-image: url('{{ asset('images/visi-misi-bg.jpg') }}');"></div>
+        <div class="visimisi__bg" style="background-image: url('{{ asset('images/jatisari.png') }}');"></div>
         <div class="visimisi__overlay"></div>
 
         <div class="visimisi__content">
@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    @include('components.homepage.footer')
+    @include('partials.footer')
 
 </body>
 </html>

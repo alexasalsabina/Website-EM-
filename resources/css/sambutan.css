@@ -1,0 +1,103 @@
+.sambutan {
+    padding: 80px 40px;
+    background: #fff;
+}
+
+.sambutan__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sambutan__heading {
+    color: #2ba84a;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.sambutan__content {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.sambutan__photo {
+    width: 100%;
+}
+
+.sambutan__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #e6e6e6;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.sambutan__text {
+    padding-top: 10px;
+}
+
+.sambutan__quote-icon {
+    font-size: 3.5rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+    margin-bottom: 10px;
+    font-family: Georgia, serif;
+}
+
+.sambutan__paragraph {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.sambutan__signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.6rem;
+    color: #1a1a1a;
+    margin: 0 0 6px 0;
+}
+
+.sambutan__role {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #444;
+    margin-bottom: 28px;
+}
+
+.sambutan__btn {
+    display: inline-block;
+    background: #e8523f;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 12px 32px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.sambutan__btn:hover {
+    background: #d1432f;
+}
+
+@media (max-width: 900px) {
+    .sambutan {
+        padding: 50px 20px;
+    }
+    .sambutan__content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .sambutan__photo {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}

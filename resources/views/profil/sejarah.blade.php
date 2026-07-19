@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sejarah Desa - Desa Jatisari</title>
+@extends('layouts.app')
 
+@section('title', 'Sejarah Desa')
+
+@push('styles')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     @vite([
-        'resources/css/homepage.css',
         'resources/css/sejarah.css',
-        'resources/js/homepage.js',
-        'resources/js/sejarah.js',
     ])
-</head>
-<body>
+@endpush
 
-    @include('components.homepage.header')
-
+@section('content')
     <section class="sejarah" id="sejarah">
         <div class="sejarah__bg" style="background-image: url('{{ asset('images/sejarah-bg.jpg') }}');"></div>
         <div class="sejarah__overlay"></div>
@@ -49,8 +42,8 @@
             </div>
         </div>
     </section>
+@endsection
 
-    @include('components.homepage.footer')
-
-</body>
-</html>
+@push('scripts')
+    @vite(['resources/js/sejarah.js'])
+@endpush

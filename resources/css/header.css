@@ -188,6 +188,43 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
+.navbar__profile {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.navbar__profile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar__profile-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.navbar__dropdown--profile {
+    right: 0;
+    left: auto;
+}
+
+.navbar__dropdown-link--btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font: inherit;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .navbar {

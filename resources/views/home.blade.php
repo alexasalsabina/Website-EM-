@@ -1,18 +1,21 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda')
-
-@vite([
-    'resources/css/home.css',
-    'resources/js/home.js'
-])
+@push('styles')
+    @vite([
+        'resources/css/hero.css',
+        'resources/css/quick-menu.css',
+        'resources/css/sambutan.css',
+        'resources/css/statistik.css',
+    ])
+@endpush
 
 @section('content')
-
-@include('components.header')
-
-@include('homepage')
-
-@include('components.footer')
-
+    @include('partials.hero')
+    @include('partials.quick-menu')
+    @include('partials.sambutan')
+    @include('data.statistik')
 @endsection
+
+@push('scripts')
+    @vite(['resources/js/hero.js'])
+@endpush
