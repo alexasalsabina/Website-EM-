@@ -1,0 +1,129 @@
+.profil-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--jt-cream, #f4efe4);
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+.profil-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 55%;
+  transform: scale(1.06);
+  will-change: transform;
+}
+
+.profil-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(10, 36, 22, 0.85) 0%,
+      rgba(10, 36, 22, 0.55) 30%,
+      rgba(10, 36, 22, 0.15) 55%,
+      rgba(10, 36, 22, 0.05) 75%
+    ),
+    linear-gradient(180deg,
+      rgba(10, 36, 22, 0.1) 0%,
+      rgba(10, 36, 22, 0.05) 40%,
+      rgba(10, 36, 22, 0.6) 100%
+    );
+}
+
+.profil-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 16vh 4vw 12vh;
+}
+
+.profil-hero__eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+}
+
+.profil-hero__title {
+  margin: 0 0 1.4rem;
+  font-size: clamp(3.4rem, 9vw, 6.8rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.profil-hero__desc {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.65;
+  color: rgba(244, 239, 228, 0.9);
+  max-width: 60ch;
+  margin-bottom: 2.6rem;
+}
+
+.profil-hero__search {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(244, 239, 228, 0.55);
+  background: rgba(244, 239, 228, 0.08);
+  color: var(--jt-cream, #f4efe4);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.profil-hero__search:hover {
+  background: rgba(244, 239, 228, 0.18);
+  transform: translateY(-2px);
+}
+
+.profil-hero__search-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.profil-hero__search-form {
+  max-width: 360px;
+  margin-top: 0.8rem;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.profil-hero__search-form.is-open {
+  max-height: 60px;
+  opacity: 1;
+}
+
+.profil-hero__search-input {
+  width: 100%;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(244, 239, 228, 0.55);
+  background: rgba(10, 36, 22, 0.45);
+  color: var(--jt-cream, #f4efe4);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.profil-hero__search-input::placeholder {
+  color: rgba(244, 239, 228, 0.6);
+}
+
+@media (max-width: 560px) {
+  .profil-hero__content {
+    padding: 12vh 6vw 8vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profil-hero__bg {
+    transform: none !important;
+  }
+}

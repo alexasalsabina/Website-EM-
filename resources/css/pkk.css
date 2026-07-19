@@ -1,0 +1,85 @@
+.pkk-hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('/public/images/jatisari.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px 80px;
+    overflow: hidden;
+}
+
+.pkk-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(6, 30, 15, 0.75) 0%,
+        rgba(6, 30, 15, 0.3) 40%,
+        rgba(6, 30, 15, 0.8) 100%
+    );
+}
+
+.pkk-hero__title-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    opacity: 0;
+    transform: translateY(-16px);
+    animation: pkkFadeDown 0.8s ease forwards;
+}
+
+.pkk-hero__title {
+    font-size: 44px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.pkk-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    align-self: flex-end;
+    text-align: right;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: pkkFadeUp 0.8s ease 0.2s forwards;
+}
+
+.pkk-hero__desc {
+    font-size: 17px;
+    color: #f0f0f0;
+    line-height: 1.6;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes pkkFadeDown {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pkkFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .pkk-hero {
+        padding: 40px 24px;
+        min-height: 70vh;
+    }
+    .pkk-hero__title {
+        font-size: 28px !important;
+    }
+    .pkk-hero__content {
+        text-align: left;
+        align-self: flex-start;
+    }
+    .pkk-hero__desc {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,61 @@
+.bumdes-hero {
+    position: relative;
+    min-height: 550px;
+    background-image: url('/images/bumdes-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    overflow: hidden;
+}
+
+.bumdes-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 40, 20, 0.85) 0%,
+        rgba(10, 40, 20, 0.45) 50%,
+        rgba(10, 40, 20, 0.05) 100%
+    );
+}
+
+.bumdes-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    opacity: 0;
+    transform: translateX(-24px);
+}
+
+.bumdes-hero__content.is-visible {
+    animation: bumdesFadeIn 0.8s ease forwards;
+}
+
+.bumdes-hero__title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.15;
+    margin: 0 0 20px;
+}
+
+.bumdes-hero__desc {
+    font-size: 18px;
+    color: #f0f0f0;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 0;
+}
+
+@keyframes bumdesFadeIn {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    .bumdes-hero { padding: 0 24px; min-height: 420px; }
+    .bumdes-hero__title { font-size: 32px; }
+    .bumdes-hero__desc { font-size: 15px; }
+}
