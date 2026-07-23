@@ -1,6 +1,6 @@
 .quick-menu {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     background: #f7f3ec;
     border-bottom: 4px solid #111;
 }
