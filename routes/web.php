@@ -1,10 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\DataDesaController;
+use App\Http\Controllers\ProfilDesaController;
 
 Route::get('/', fn () => view('home'))->name('home');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -144,11 +150,39 @@ Route::get('/galeri', fn () => view('galeri'))
 Route::get('/kontak', fn () => view('kontak'))
     ->name('kontak');
 
+/*
+|--------------------------------------------------------------------------
+| Admin Dashboard
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])
-->name('dashboard');
+Route::middleware(['auth', 'verified'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
 
+        // Dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
 
+        // Berita
+        Route::resource('berita', BeritaController::class);
+
+        // Agenda
+        Route::resource('agenda', AgendaController::class);
+
+        // Galeri
+        Route::resource('galeri', GaleriController::class);
+
+        // Profil Desa
+        Route::resource('profil', ProfilDesaController::class);
+
+        // Data Desa
+        Route::resource('data-desa', DataDesaController::class);
+
+        // Aspirasi
+        Route::get('/aspirasi', [AspirasiController::class, 'admin'])
+            ->name('aspirasi.index');
+    });
+    
 require __DIR__.'/auth.php';

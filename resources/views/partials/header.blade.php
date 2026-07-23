@@ -98,7 +98,7 @@
                     </svg>
                 </button>
                 <div class="navbar__dropdown navbar__dropdown--profile">
-                    <a href="{{ route('dashboard') }}" class="navbar__dropdown-link">Dashboard</a>
+                    <a href="{{ route('admin.dashboard') }}" class="navbar__dropdown-link">Dashboard</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="navbar__dropdown-link navbar__dropdown-link--btn">Logout</button>

@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+}
+
+.admin-wrapper{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#284139;
+    color:white;
+    padding:30px 20px;
+}
+
+.sidebar-logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar-logo img{
+    width:70px;
+    margin-bottom:10px;
+}
+
+.sidebar-logo h2{
+    font-size:22px;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.sidebar nav a{
+    color:white;
+    text-decoration:none;
+    padding:12px 15px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.sidebar nav a:hover{
+    background:#809076;
+}
+
+.sidebar form{
+    margin-top:40px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#BB6B30;
+    color:white;
+    cursor:pointer;
+}
+
+.content{
+    flex:1;
+    padding:40px;
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+    width:270px;
+    min-height:100vh;
+    background:#284139;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:30px 20px;
+}
+
+.sidebar-header{
+    text-align:center;
+}
+
+.sidebar-header img{
+    width:85px;
+    height:85px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.sidebar-header h2{
+    font-size:24px;
+    font-weight:700;
+}
+
+.sidebar-header span{
+    color:#d9d9d9;
+    font-size:14px;
+}
+
+.sidebar-menu{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.sidebar-menu a{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 16px;
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    transition:.3s;
+    font-size:16px;
+}
+
+.sidebar-menu a:hover{
+    background:#3d5b51;
+}
+
+.sidebar-menu a span{
+    font-weight:500;
+}
+
+.sidebar-footer{
+    margin-top:40px;
+}
+
+.sidebar-footer button{
+    width:100%;
+    padding:14px;
+    background:#BB6B30;
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.sidebar-footer button:hover{
+    background:#d17d3d;
+}
