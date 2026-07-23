@@ -1,13 +1,4 @@
 <section class="quick-menu">
-    <a href="{{ route('profil.sejarah') }}" class="quick-menu__item">
-        <span class="quick-menu__icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 9h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </span>
-        <span class="quick-menu__label">PROFILE</span>
-    </a>
-
     <a href="{{ route('berita.agenda') }}" class="quick-menu__item">
         <span class="quick-menu__icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,25 +21,14 @@
         <span class="quick-menu__label">ASPIRASI WARGA</span>
     </a>
 
-    <a href="{{ route('kontak') }}" class="quick-menu__item">
-        <span class="quick-menu__icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 4l2.5 1.2c.5.2.8.7.9 1.2l1.9 9.4c.2 1 1 1.7 2 1.7h7.4c1 0 1.8-.7 2-1.6l1.3-6a1 1 0 00-1-1.2H7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="10" cy="21" r="1.4" stroke="currentColor" stroke-width="1.4"/>
-                <circle cx="18" cy="21" r="1.4" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-        </span>
-        <span class="quick-menu__label">HALLO DESA</span>
-    </a>
-
-    <a href="{{ route('galeri') }}" class="quick-menu__item">
+        <a href="{{ route('galeri') }}" class="quick-menu__item">
         <span class="quick-menu__icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 9h16l-1.5 10.5a1.5 1.5 0 01-1.5 1.3H7a1.5 1.5 0 01-1.5-1.3L4 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
                 <path d="M9 9V7a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.6"/>
             </svg>
         </span>
-        <span class="quick-menu__label">LAPAK DESA</span>
+        <span class="quick-menu__label">GALERI</span>
     </a>
 
     <a href="{{ route('profil.potensi') }}" class="quick-menu__item">
@@ -70,4 +50,16 @@
         </span>
         <span class="quick-menu__label">WISATA</span>
     </a>
+
+    <a href="{{ route('kontak') }}" class="quick-menu__item">
+        <span class="quick-menu__icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4l2.5 1.2c.5.2.8.7.9 1.2l1.9 9.4c.2 1 1 1.7 2 1.7h7.4c1 0 1.8-.7 2-1.6l1.3-6a1 1 0 00-1-1.2H7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="10" cy="21" r="1.4" stroke="currentColor" stroke-width="1.4"/>
+                <circle cx="18" cy="21" r="1.4" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+        </span>
+        <span class="quick-menu__label">HALLO DESA</span>
+    </a>
+   
 </section>
