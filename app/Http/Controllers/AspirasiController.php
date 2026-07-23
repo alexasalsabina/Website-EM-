@@ -13,6 +13,10 @@ class AspirasiController extends Controller
 
     public function store(Request $request)
     {
-        //
+        // Simpan ke Supabase
+
+        return redirect()
+            ->route('aspirasi.index')
+            ->with('success', 'Terima kasih! Aspirasi Anda berhasil dikirim.');
     }
 }

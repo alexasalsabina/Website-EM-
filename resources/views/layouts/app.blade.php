@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@yield('title', 'Desa Jatisari')</title>
+
+    {{-- Logo di tab browser --}}
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
     {{-- CSS global --}}
     @vite(['resources/css/app.css', 'resources/css/header.css'])
