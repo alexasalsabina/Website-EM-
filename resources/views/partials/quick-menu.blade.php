@@ -19,7 +19,7 @@
         <span class="quick-menu__label">PENGUMUMAN</span>
     </a>
     
-    <a href="{{ route('kontak') }}" class="quick-menu__item">
+    <a href="{{ route('aspirasi.index') }}" class="quick-menu__item">
         <span class="quick-menu__icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="1.6"/>
