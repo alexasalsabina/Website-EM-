@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Karang Taruna Desa Jatisari')
+@section('title', 'LPM Desa Jatisari')
 
 @section('content')
 <!-- Import Bootstrap & Font Langsung agar CSS-nya PASTI ter-load -->
@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
-    .karang-taruna-wrapper {
+    .lpm-wrapper {
         font-family: 'Plus Jakarta Sans', sans-serif;
         padding-top: 40px;
         padding-bottom: 60px;
@@ -16,8 +16,8 @@
     }
 
     /* Judul Utama Atas */
-    .title-karang-taruna {
-        color: #198754 !important; /* Warna hijau persis gambar */
+    .title-lpm {
+        color: #198754 !important; /* Warna hijau khas */
         font-weight: 800;
         font-size: 2.3rem;
         margin-bottom: 2rem;
@@ -135,10 +135,10 @@
     }
 </style>
 
-<div class="karang-taruna-wrapper">
+<div class="lpm-wrapper">
     <div class="container">
         <!-- Judul Atas -->
-        <h1 class="title-karang-taruna">Karang Taruna Desa Jatisari</h1>
+        <h1 class="title-lpm">LPM Desa Jatisari</h1>
 
         <div class="row g-5 align-items-center">
             <!-- Kolom Kiri: Tempat Foto Garis Putus-putus -->
@@ -147,7 +147,7 @@
                     <div class="camera-icon-wrapper">
                         <div class="camera-lens"></div>
                     </div>
-                    <div class="photo-text">Tempat Foto Karang Taruna</div>
+                    <div class="photo-text">Tempat Foto LPM</div>
                 </div>
             </div>
 
@@ -158,12 +158,12 @@
 
                 <!-- Isi Deskripsi -->
                 <p class="desc-text">
-                    Karang Taruna merupakan organisasi sosial kemasyarakatan yang menjadi wadah pengembangan generasi muda di Desa Jatisari. Organisasi ini berperan aktif dalam berbagai kegiatan sosial, kepemudaan, olahraga, seni budaya, pemberdayaan masyarakat, hingga kegiatan kemanusiaan demi mewujudkan pemuda yang kreatif, mandiri, dan berdaya saing.
+                    Lembaga Pemberdayaan Masyarakat (LPM) merupakan mitra strategis Pemerintah Desa Jatisari dalam menampung dan menyalurkan aspirasi serta kebutuhan masyarakat. LPM berperan aktif dalam merencanakan, melaksanakan, dan mengendalikan pembangunan desa secara partisipatif guna meningkatkan keswadayaan dan gotong royong warga.
                 </p>
 
                 <!-- Teks Hand-written & Label Sub -->
-                <div class="sub-title-handwritten">Karang Taruna Jatisari</div>
-                <div class="sub-category-label">LEMBAGA KEPEMUDAAN DESA</div>
+                <div class="sub-title-handwritten">LPM Jatisari</div>
+                <div class="sub-category-label">LEMBAGA PEMBERDAYAAN MASYARAKAT DESA</div>
 
                 <!-- Tombol -->
                 <div>

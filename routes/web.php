@@ -14,7 +14,15 @@ Route::prefix('berita')->name('berita.')->group(function () {
 Route::prefix('profil')->name('profil.')->group(function () {
     Route::get('/sejarah', fn () => view('profil.sejarah'))->name('sejarah');
     Route::get('/visi-misi', fn () => view('profil.visi-misi'))->name('visi-misi');
+    
+    // --- UTAMA: Halaman Pilihan Kelembagaan (3 Kartu) ---
     Route::get('/kelembagaan', fn () => view('profil.kelembagaan'))->name('kelembagaan');
+    
+    // --- SUB-HALAMAN DETAIL KELEMBAGAAN ---
+    Route::get('/kelembagaan/karang-taruna', fn () => view('profil.kelembagaan.karangtaruna'))->name('kelembagaan.karangtaruna');
+    Route::get('/kelembagaan/lpm', fn () => view('profil.kelembagaan.lpm'))->name('kelembagaan.lpm');
+    Route::get('/kelembagaan/pkk', fn () => view('profil.kelembagaan.pkk'))->name('kelembagaan.pkk');
+
     Route::get('/monografi', fn () => view('profil.monografi'))->name('monografi');
     Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
     Route::get('/inovasi', fn () => view('profil.inovasi'))->name('inovasi');
