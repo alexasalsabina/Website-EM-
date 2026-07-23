@@ -304,7 +304,7 @@ body {
   border: 1.5px solid rgba(244, 239, 228, 0.55);
   background: rgba(10, 36, 22, 0.45);
   color: var(--jt-cream);
-  font-family: inherit;
+  font-family: "Darker Grotesque", sans-serif;
   font-size: 0.95rem;
 }
 
