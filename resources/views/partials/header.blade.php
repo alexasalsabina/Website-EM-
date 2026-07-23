@@ -91,26 +91,14 @@
 
     <div class="navbar__profile">
         @auth
-            <div class="navbar__item navbar__item--dropdown" id="profileDropdown">
-                <button type="button" class="navbar__profile-btn" aria-expanded="false">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-                    </svg>
-                </button>
-                <div class="navbar__dropdown navbar__dropdown--profile">
-                    <a href="{{ route('admin.dashboard') }}" class="navbar__dropdown-link">Dashboard</a>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="navbar__dropdown-link navbar__dropdown-link--btn">Logout</button>
-                    </form>
-                </div>
-            </div>
+            <a href="{{ route('admin.dashboard') }}" class="navbar__profile-btn">
         @else
             <a href="{{ route('login') }}" class="navbar__profile-btn">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-                </svg>
-            </a>
         @endauth
+
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+            </svg>
+        </a>
     </div>
 </header>

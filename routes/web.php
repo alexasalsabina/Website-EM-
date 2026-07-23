@@ -156,7 +156,7 @@ Route::get('/kontak', fn () => view('kontak'))
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth', 'verified'])
+Route::middleware(['auth'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
@@ -184,5 +184,5 @@ Route::middleware(['auth', 'verified'])
         Route::get('/aspirasi', [AspirasiController::class, 'admin'])
             ->name('aspirasi.index');
     });
-    
+
 require __DIR__.'/auth.php';
