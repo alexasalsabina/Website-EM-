@@ -4,8 +4,8 @@
         <!-- BARIS ATAS: Kiri, Tengah, Kanan Sejajar -->
         <div class="flex flex-col md:flex-row justify-between items-start gap-8">
 
-            <!-- 1. POJOK KIRI: Logo rapat kiri & Teks pas di tengah vertikal -->
-            <div class="flex-1 flex items-center gap-2.5 min-w-[200px]">
+            <!-- 1. POJOK KIRI: Logo (Agak Geser ke Kanan) & Nama Desa -->
+            <div class="flex-1 flex items-center gap-4 pl-2 min-w-[220px]">
                 <img src="{{ asset('images/logo-malang.png') }}" alt="Logo Kabupaten Malang" class="h-14 w-auto flex-shrink-0 object-contain">
                 <div class="flex flex-col justify-center">
                     <h3 class="text-base font-bold text-gray-900 leading-tight">Desa Jatisari</h3>
