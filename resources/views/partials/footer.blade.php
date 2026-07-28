@@ -4,14 +4,14 @@
         <!-- BARIS ATAS: Kiri, Tengah, Kanan Sejajar -->
         <div class="flex flex-col md:flex-row justify-between items-start gap-8">
 
-            <!-- 1. POJOK KIRI: Logo & Nama Desa (Rata Kiri) -->
-            <div class="flex-1 flex items-center gap-3 min-w-[220px]">
-                <img src="{{ asset('images/logo-malang.png') }}" alt="Logo Kabupaten Malang" class="h-14 w-auto flex-shrink-0 object-contain">
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-base font-bold text-gray-900 leading-tight">Desa Jatisari</h3>
-                    <p class="text-xs text-gray-600 mt-0.5">Kecamatan Tajinan, Kabupaten Malang, Jawa Timur</p>
-                </div>
-            </div>
+          <!-- 1. POJOK KIRI: Logo & Nama Desa (Berdampingan, Teks Pas di Tengah Vertikal) -->
+<div class="flex-1 flex items-center gap-3 min-w-[220px]">
+    <img src="{{ asset('images/logo-malang.png') }}" alt="Logo Kabupaten Malang" class="h-14 w-auto flex-shrink-0 object-contain">
+    <div class="flex flex-col justify-center">
+        <h3 class="text-base font-bold text-gray-900 leading-tight">Desa Jatisari</h3>
+        <p class="text-xs text-gray-600 mt-0.5">Kecamatan Tajinan, Kabupaten Malang, Jawa Timur</p>
+    </div>
+</div>
 
             <!-- 2. TENGAH: Kantor Desa, Alamat, Email & Telp -->
             <div class="flex-1 text-xs text-gray-700 space-y-2.5 min-w-[280px]">
