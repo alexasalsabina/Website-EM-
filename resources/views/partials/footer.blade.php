@@ -38,8 +38,7 @@
 
         <!-- Copyright -->
         <div class="pt-2 text-sm text-gray-700">
-            <p>© {{ date('Y') }} Jatisari - Website ini dibangun oleh Himpunan Departemen Teknik Elektro dan dan dikelola oleh <strong class="font-bold text-gray-900">PSID Jatisari</strong></p>
+            <p>© {{ date('Y') }} Jatisari - Website ini dibangun oleh dan dikelola oleh <strong class="font-bold text-gray-900">Himpunan Departemen Teknik Elektro dan Informatika PSID Jatisari</strong></p>
         </div>
-
     </div>
 </footer>
