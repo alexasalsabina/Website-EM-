@@ -68,8 +68,23 @@ Route::prefix('profil')->name('profil.')->group(function () {
     Route::get('/visi-misi', fn () => view('profil.visi-misi'))
         ->name('visi-misi');
 
+    // Parent kelembagaan (kalau masih perlu halaman index-nya)
     Route::get('/kelembagaan', fn () => view('profil.kelembagaan'))
         ->name('kelembagaan');
+
+    // Sub-route kelembagaan
+    Route::prefix('kelembagaan')->name('kelembagaan.')->group(function () {
+
+        Route::get('/karang-taruna', fn () => view('profil.kelembagaan.karang-taruna'))
+            ->name('karangtaruna');
+
+        Route::get('/lpm', fn () => view('profil.kelembagaan.lpm'))
+            ->name('lpm');
+
+        Route::get('/pkk', fn () => view('profil.kelembagaan.pkk'))
+            ->name('pkk');
+
+    });
 
     Route::get('/monografi', fn () => view('profil.monografi'))
         ->name('monografi');
@@ -84,7 +99,6 @@ Route::prefix('profil')->name('profil.')->group(function () {
         ->name('prestasi');
 
 });
-
 
 /*
 |--------------------------------------------------------------------------
