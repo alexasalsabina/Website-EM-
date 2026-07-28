@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Desa Jatisari')</title>
 
-    {{-- CSS global --}}
-    @vite(['resources/css/app.css', 'resources/css/header.css'])
+    {{-- CSS & JS Global --}}
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js'
+    ])
 
     {{-- CSS tambahan per halaman --}}
     @stack('styles')
 </head>
-<body>
+<body style="background:red;">
 
     @include('partials.header')
 
@@ -20,9 +23,6 @@
     </main>
 
     @include('partials.footer')
-
-    {{-- JS global --}}
-    @vite(['resources/js/header.js'])
 
     {{-- JS tambahan per halaman --}}
     @stack('scripts')

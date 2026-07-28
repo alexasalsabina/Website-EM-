@@ -1,3 +1,11 @@
+@import './header.css';
+@import './hero.css';
+@import './homepage.css';
+@import './quick-menu.css';
+@import './sambutan.css';
+@import './statistik.css';
+@import './footer.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
