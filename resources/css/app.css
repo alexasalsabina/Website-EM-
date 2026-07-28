@@ -4,8 +4,73 @@
 @import './quick-menu.css';
 @import './sambutan.css';
 @import './statistik.css';
+@import './header.css';
+@import './hero.css';
+@import './homepage.css';
+@import './quick-menu.css';
+@import './sambutan.css';
+@import './statistik.css';
 @import './footer.css';
+@import './components.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.global-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 24, 16, 0.97);
+  color: #f4efe4;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.global-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.global-loader__inner {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.global-loader__ring {
+  width: 76px;
+  height: 76px;
+  border: 4px solid rgba(244, 239, 228, 0.18);
+  border-top-color: #b8de9a;
+  border-radius: 999px;
+  animation: globalLoaderSpin 1.05s linear infinite;
+}
+
+.global-loader__text {
+  margin: 0;
+  color: rgba(244, 239, 228, 0.88);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+@keyframes globalLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-content {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.app-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

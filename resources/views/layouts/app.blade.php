@@ -16,17 +16,24 @@
     @stack('styles')
 </head>
 <body>
+    <div id="globalLoader" class="global-loader">
+        <div class="global-loader__inner">
+            <div class="global-loader__ring"></div>
+            <p class="global-loader__text">Memuat halaman...</p>
+        </div>
+    </div>
 
-    @include('partials.header')
+    <div id="appContent" class="app-content">
+        @include('partials.header')
 
-    <main>
-        @yield('content')
-    </main>
+        <main>
+            @yield('content')
+        </main>
 
-    @include('partials.footer')
+        @include('partials.footer')
+    </div>
 
     {{-- JS tambahan per halaman --}}
     @stack('scripts')
-
 </body>
 </html>
