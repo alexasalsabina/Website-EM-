@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@yield('title', 'Desa Jatisari')</title>
 
     {{-- CSS & JS Global --}}
@@ -14,7 +15,7 @@
     {{-- CSS tambahan per halaman --}}
     @stack('styles')
 </head>
-<body style="background:red;">
+<body>
 
     @include('partials.header')
 

@@ -25,7 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.navbar__item--dropdown.is-open').forEach(function (item) {
                 if (item !== parentItem) {
                     item.classList.remove('is-open');
-                    item.querySelector('.navbar__dropdown-toggle').setAttribute('aria-expanded', false);
+                    const toggle = item.querySelector('.navbar__dropdown-toggle');
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', false);
+                    }
                 }
             });
 
