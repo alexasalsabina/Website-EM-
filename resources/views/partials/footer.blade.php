@@ -4,12 +4,12 @@
         <!-- BARIS ATAS: Kiri, Tengah, Kanan Sejajar -->
         <div class="flex flex-col md:flex-row justify-between items-start gap-8">
 
-            <!-- 1. POJOK KIRI: Logo (Kiri) & Nama Desa (Kanan) Berdampingan -->
-            <div class="flex-1 flex items-center gap-3 min-w-[220px]">
-                <img src="{{ asset('images/logo-malang.png') }}" alt="Logo Kabupaten Malang" class="h-14 w-auto flex-shrink-0">
-                <div>
+            <!-- 1. POJOK KIRI: Logo rapat kiri & Teks pas di tengah vertikal -->
+            <div class="flex-1 flex items-center gap-2.5 min-w-[200px]">
+                <img src="{{ asset('images/logo-malang.png') }}" alt="Logo Kabupaten Malang" class="h-14 w-auto flex-shrink-0 object-contain">
+                <div class="flex flex-col justify-center">
                     <h3 class="text-base font-bold text-gray-900 leading-tight">Desa Jatisari</h3>
-                    <p class="text-xs text-gray-600">Kecamatan Tajinan, Kabupaten Malang, Jawa Timur</p>
+                    <p class="text-xs text-gray-600 mt-0.5">Kecamatan Tajinan, Kabupaten Malang, Jawa Timur</p>
                 </div>
             </div>
 
