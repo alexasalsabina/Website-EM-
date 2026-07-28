@@ -4,16 +4,16 @@
         <!-- BARIS ATAS: Kiri, Tengah, Kanan Sejajar -->
         <div class="flex flex-col md:flex-row justify-between items-start gap-8">
 
-            <!-- 1. POJOK KIRI: Logo & Nama Desa -->
-            <div class="flex-1 space-y-2 min-w-[200px]">
-                <img src="{{ asset('images/logo-malang.png') }}" alt="Logo Kabupaten Malang" class="h-14 w-auto mb-2">
+            <!-- 1. POJOK KIRI: Logo (Kiri) & Nama Desa (Kanan) Berdampingan -->
+            <div class="flex-1 flex items-center gap-3 min-w-[220px]">
+                <img src="{{ asset('images/logo-malang.png') }}" alt="Logo Kabupaten Malang" class="h-14 w-auto flex-shrink-0">
                 <div>
                     <h3 class="text-base font-bold text-gray-900 leading-tight">Desa Jatisari</h3>
                     <p class="text-xs text-gray-600">Kecamatan Tajinan, Kabupaten Malang, Jawa Timur</p>
                 </div>
             </div>
 
-            <!-- 2. TENGAH: Kantor Desa, Alamat, Email & Telp (Disusun Ke Bawah dengan Ikon) -->
+            <!-- 2. TENGAH: Kantor Desa, Alamat, Email & Telp -->
             <div class="flex-1 text-xs text-gray-700 space-y-2.5 min-w-[280px]">
                 <h4 class="font-bold text-gray-900 text-sm">Kantor Desa Jatisari :</h4>
                 
@@ -28,7 +28,7 @@
                     </p>
                 </div>
 
-                <!-- Email (Ke bawah dengan Ikon) -->
+                <!-- Email -->
                 <div class="flex items-center gap-2.5">
                     <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -38,7 +38,7 @@
                     </a>
                 </div>
 
-                <!-- Telepon (Ke bawah dengan Ikon) -->
+                <!-- Telepon -->
                 <div class="flex items-center gap-2.5">
                     <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
