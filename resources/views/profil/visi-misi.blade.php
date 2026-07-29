@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visi & Misi - Desa Jatisari</title>
+@extends('layouts.app')
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+@section('title', 'Visi & Misi - Desa Jatisari')
 
-    @vite([
-        'resources/css/homepage.css',
-        'resources/css/visimisi.css',
-        'resources/js/homepage.js',
-        'resources/js/visimisi.js',
-    ])
-</head>
-<body>
+@push('styles')
+    @vite(['resources/css/homepage.css', 'resources/css/visimisi.css'])
+@endpush
 
-    @include('partials.header')
-
+@section('content')
     <section class="visimisi" id="visimisi">
         <div class="visimisi__bg" style="background-image: url('{{ asset('images/jatisari.png') }}');"></div>
         <div class="visimisi__overlay"></div>
@@ -122,8 +110,8 @@
 
         </div>
     </section>
+@endsection
 
-    @include('partials.footer')
-
-</body>
-</html>
+@push('scripts')
+    @vite(['resources/js/homepage.js', 'resources/js/visimisi.js'])
+@endpush

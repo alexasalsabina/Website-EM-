@@ -7,16 +7,34 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(10, 20, 12, 0.35);
-    backdrop-filter: blur(6px);
-    transition: background 0.3s ease, padding 0.3s ease;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px clamp(20px, 4vw, 40px);
+    background: rgba(18, 38, 26, 0.24);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    transition: background 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar.is-scrolled {
-    background: rgba(8, 18, 10, 0.95);
-    padding: 10px 40px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    background: rgba(14, 30, 20, 0.88);
+    padding: 10px clamp(18px, 3vw, 40px);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navbar__link,
+.navbar__item--dropdown {
+    flex: 0 0 auto;
+    white-space: nowrap;
 }
 
 /* Brand */
@@ -29,7 +47,7 @@
 }
 
 .navbar__logo {
-    height: 42px;
+    height: clamp(34px, 4vw, 42px);
     width: auto;
 }
 
@@ -40,15 +58,25 @@
 }
 
 .navbar__brand-text strong {
-    font-size: 15px;
+    font-size: clamp(14px, 1.05vw, 17px);
     font-weight: 700;
     color: #ffffff;
 }
 
 .navbar__brand-text small {
-    font-size: 12px;
-    color: #cfd8d0;
+    font-size: clamp(11px, 0.9vw, 13px);
+    color: #d8e2d6;
     font-weight: 400;
+}
+
+main {
+    padding-top: calc(84px + env(safe-area-inset-top));
+}
+
+@media (max-width: 992px) {
+    main {
+        padding-top: calc(112px + env(safe-area-inset-top));
+    }
 }
 
 /* Menu */
@@ -249,13 +277,13 @@
         top: 0;
         right: -100%;
         height: 100vh;
-        width: min(320px, 80vw);
-        background: #0a140c;
+        width: min(340px, 85vw);
+        background: rgba(10, 20, 12, 0.98);
         flex-direction: column;
         align-items: flex-start;
         padding: 90px 24px 24px;
         gap: 4px;
-        transition: right 0.3s ease;
+        transition: right 0.3s ease, background 0.3s ease;
         overflow-y: auto;
     }
 
@@ -267,6 +295,7 @@
     .navbar__link {
         width: 100%;
         justify-content: space-between;
+        padding: 14px 16px;
     }
 
     .navbar__item--dropdown {
@@ -281,8 +310,9 @@
         display: none;
         box-shadow: none;
         border: none;
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.05);
         margin-top: 4px;
+        border-radius: 12px;
     }
 
     .navbar__item--dropdown.is-open .navbar__dropdown {
