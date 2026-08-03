@@ -61,7 +61,7 @@
                 <div class="flex items-center justify-center gap-4 pt-1">
                     
                     <!-- Instagram -->
-                    <a href="https://www.instagram.com/nama_akun_instagram_desa" 
+                    <a href="https://www.instagram.com/pemdesjatisari_tajinan?igsh=MTk0YWI5czQ3Mm9rbA==" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     class="text-gray-600 hover:text-pink-600 transition-colors" 
