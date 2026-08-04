@@ -1,7 +1,7 @@
 .details-wrapper {
   min-height: 100vh;
   padding: 4rem 1.5rem 5rem;
-  background: linear-gradient(180deg, #0a2416 0%, #132b1f 38%, #182f1e 100%);
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 38%, #12395A 100%);
   color: #f4efe4;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
@@ -71,7 +71,7 @@
   width: 26px;
   height: 26px;
   background-color: #ffffff;
-  border: 4px solid #29421f;
+  border: 4px solid #0D2A45;
   border-radius: 50%;
 }
 
@@ -91,7 +91,7 @@
   font-size: 4rem;
   line-height: 0.8;
   margin: 0;
-  color: rgba(184, 222, 154, 0.96);
+  color: rgba(127, 177, 221, 0.96);
 }
 
 .desc-text {
@@ -124,8 +124,8 @@
   min-width: 220px;
   padding: 0.95rem 1.4rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #b8de9a, #edf4cf);
-  color: #11220d;
+  background: linear-gradient(135deg, #7fb1dd, #d9eaf7);
+  color: #071C34;
   font-weight: 700;
   text-decoration: none;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);

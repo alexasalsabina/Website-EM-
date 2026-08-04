@@ -2,7 +2,7 @@
   position: relative;
   min-height: 100vh;
   padding: 5rem 1.5rem 5rem;
-  background: linear-gradient(180deg, #0a2416 0%, #123822 38%, #183623 100%);
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 38%, #12395A 100%);
   color: #f4efe4;
   font-family: "Poppins", system-ui, sans-serif;
   overflow: hidden;
@@ -13,7 +13,7 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at top left, rgba(244, 239, 228, 0.12), transparent 22%),
-    radial-gradient(circle at 90% 10%, rgba(190, 238, 140, 0.12), transparent 18%);
+    radial-gradient(circle at 90% 10%, rgba(127, 177, 221, 0.16), transparent 18%);
   pointer-events: none;
 }
 
@@ -115,7 +115,7 @@
 .inovasi__card:hover {
   transform: translateY(-5px);
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
-  border-color: rgba(190, 238, 140, 0.24);
+  border-color: rgba(127, 177, 221, 0.28);
 }
 
 .inovasi__card-icon {
@@ -124,8 +124,8 @@
   display: grid;
   place-items: center;
   border-radius: 18px;
-  background: rgba(190, 238, 140, 0.18);
-  color: #16341f;
+  background: rgba(127, 177, 221, 0.2);
+  color: #071C34;
 }
 
 .inovasi__card-title {

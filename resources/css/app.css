@@ -23,7 +23,7 @@
   z-index: 9999;
   display: grid;
   place-items: center;
-  background: rgba(10, 24, 16, 0.97);
+  background: rgba(7, 28, 52, 0.97);
   color: #f4efe4;
   transition: opacity 0.45s ease, visibility 0.45s ease;
 }
@@ -45,7 +45,7 @@
   width: 76px;
   height: 76px;
   border: 4px solid rgba(244, 239, 228, 0.18);
-  border-top-color: #b8de9a;
+  border-top-color: #7fb1dd;
   border-radius: 999px;
   animation: globalLoaderSpin 1.05s linear infinite;
 }

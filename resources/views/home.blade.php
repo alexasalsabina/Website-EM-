@@ -8,5 +8,5 @@
 @endsection
 
 @push('scripts')
-    @vite(['resources/js/hero.js'])
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
 @endpush

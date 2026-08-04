@@ -2,7 +2,7 @@
   position: relative;
   min-height: 100vh;
   padding: 5rem 1.5rem 5rem;
-  background: linear-gradient(180deg, #0a2416 0%, #123822 36%, #172f24 100%);
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 36%, #12395A 100%);
   color: #f4efe4;
   overflow: hidden;
   font-family: "Poppins", system-ui, sans-serif;
@@ -54,7 +54,7 @@
 
 .berita__tab.is-active,
 .berita__tab:hover {
-  color: #16341f;
+  color: #071C34;
 }
 
 .berita__tab:focus-visible {
