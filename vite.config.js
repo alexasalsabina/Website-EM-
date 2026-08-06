@@ -8,4 +8,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        host: '127.0.0.1',   // <-- tambahkan ini, paksa IPv4
+        port: 5173,
+    },
 });

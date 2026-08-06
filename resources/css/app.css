@@ -74,3 +74,7 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/*admin*/
+@import './admin/agenda.css';
+@import './admin/berita.css';

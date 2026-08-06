@@ -113,6 +113,14 @@
                 title="Gerakan Kebersihan Desa: Gotong Royong Menuju Lingkungan Sehat"
                 excerpt="Warga desa bekerja sama membersihkan lingkungan, mengelola sampah, dan menghidupkan ruang publik hijau untuk anak-anak dan keluarga."
             />
+
+            <x-article-card
+                href="javascript:void(0)"
+                image="images/jatisari.png"
+                date="30 Januari 2026"
+                title="Pencanangan Ruang Publik Baru untuk Belajar dan Olahraga"
+                excerpt="Pencanangan ruang publik baru di desa bertujuan untuk memberikan tempat yang nyaman bagi warga untuk belajar dan berolahraga."
+            />
         </div>
     </div>
 </section>
