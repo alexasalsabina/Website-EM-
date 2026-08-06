@@ -61,8 +61,8 @@
   display: grid;
   place-items: center;
   border-radius: 18px;
-  background: rgba(190, 238, 140, 0.2);
-  color: #16341f;
+  background: rgba(127, 177, 221, 0.24);
+  color: #071C34;
 }
 
 .feature-card__icon img {

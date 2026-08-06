@@ -23,6 +23,7 @@
     border-color: rgba(255, 255, 255, 0.12);
 }
 
+/* Menu (Sudah digabung & dihapus overflow: hidden-nya) */
 .navbar__menu {
     display: flex;
     align-items: center;
@@ -31,7 +32,6 @@
     min-width: 0;
     flex-wrap: wrap;
     justify-content: center;
-    overflow: hidden;
 }
 
 .navbar__brand,
@@ -88,13 +88,6 @@ main {
     }
 }
 
-/* Menu */
-.navbar__menu {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .navbar__link {
     position: relative;
     display: inline-flex;
@@ -127,7 +120,7 @@ main {
     right: 14px;
     bottom: 4px;
     height: 2px;
-    background: #7cc576;
+    background: #ffffff;
     border-radius: 2px;
 }
 
@@ -151,13 +144,15 @@ main {
     top: calc(100% + 8px);
     left: 0;
     min-width: 200px;
-    background: #10241a;
+    background: #071C34;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     padding: 8px;
     display: flex;
     flex-direction: column;
     gap: 2px;
+    z-index: 1102;
+    pointer-events: auto;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -187,7 +182,7 @@ main {
 }
 
 .navbar__dropdown-link.is-active {
-    color: #7cc576;
+    color: #7fb1dd;
     font-weight: 700;
 }
 
@@ -293,7 +288,7 @@ main {
         padding: 90px 24px 24px;
         gap: 4px;
         transition: right 0.3s ease, background 0.3s ease;
-        overflow-y: auto;
+        overflow-y: auto; /* overflow-y tetap dipertahankan khusus tampilan mobile */
     }
 
     .navbar__menu.is-open {

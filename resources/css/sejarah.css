@@ -1,3 +1,8 @@
+/* ==========================================================================
+   SEJARAH DESA SECTION - STYLING RAPI & KONTRAS
+   ========================================================================== */
+
+/* Container Utama Section */
 .sejarah {
   position: relative;
   min-height: 100vh;
@@ -5,233 +10,197 @@
   font-family: "Poppins", system-ui, sans-serif;
   color: #f4efe4;
   padding: 8vh 6vw 10vh;
+  background-color: #051326;
+  box-sizing: border-box;
 }
 
+/* Background Blur & Overlay Pattern */
 .sejarah__bg {
   position: absolute;
   inset: 0;
+  background-image: url('./images/sawah-blur.jpg'); /* Pastikan path gambar benar */
   background-size: cover;
   background-position: center 55%;
+  filter: blur(8px) brightness(0.5);
+  transform: scale(1.08);
 }
 
 .sejarah__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 36, 22, 0.55) 0%,
-    rgba(10, 36, 22, 0.2) 35%,
-    rgba(10, 36, 22, 0.6) 100%
-  );
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(5, 19, 38, 0.88) 0%, rgba(2, 10, 20, 0.96) 100%);
+  background-size: 28px 28px, 100% 100%;
 }
 
 .sejarah__inner {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
+/* Header & Judul */
 .sejarah__heading {
-  max-width: 880px;
-  margin: 0 auto 2.4rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
   text-align: center;
 }
 
+.sejarah__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 18px;
+  border-radius: 99px;
+  background: rgba(127, 177, 221, 0.15);
+  border: 1px solid rgba(127, 177, 221, 0.35);
+  color: #7fb1dd;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
 .sejarah__title {
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
   font-weight: 800;
-  margin: 0 0 1rem;
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+  margin: 0 0 0.8rem;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .sejarah__subtitle {
   margin: 0;
-  color: rgba(244, 239, 228, 0.88);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  line-height: 1.7;
+  color: rgba(244, 239, 228, 0.85);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
 }
 
-.sejarah__card,
-.sejarah__card-header,
-.sejarah__story,
-.sejarah__quote-panel {
-  text-align: left;
-}
-
+/* Card Utama (Gelap Navy Transparan) */
 .sejarah__card {
   position: relative;
-  width: min(1040px, 96vw);
-  padding: 3rem 3.2rem 3.3rem;
-  border-radius: 36px;
-  background: linear-gradient(180deg, rgba(28, 52, 27, 0.96), rgba(18, 34, 18, 0.85));
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(190, 238, 140, 0.18);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
-  margin-bottom: 5vh;
-  overflow: hidden;
-}
-
-.sejarah__card--story {
-  margin: 0 auto;
-}
-
-.sejarah__card-header {
-  display: grid;
-  grid-template-columns: minmax(140px, 200px) minmax(260px, 1fr);
-  gap: 1.6rem;
-  align-items: start;
-  margin-bottom: 2rem;
-}
-
-.sejarah__asset {
   width: 100%;
-  max-width: 200px;
+  padding: 2.8rem 3rem;
+  border-radius: 28px;
+  background: rgba(8, 26, 48, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(127, 177, 221, 0.22);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  box-sizing: border-box;
+  opacity: 1 !important; /* Dipastikan selalu muncul */
+}
+
+/* 1. Teks Cerita (Bagian Atas) */
+.sejarah__story {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.2rem;
+}
+
+.sejarah__story-line {
+  margin: 0;
+  color: rgba(244, 239, 228, 0.95);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* 2. Container Bawah (Foto & Quote berdampingan rapi) */
+.sejarah__bottom {
+  display: flex;
+  align-items: stretch; /* Tinggi foto dan quote seimbang */
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Foto (Di Kiri) */
+.sejarah__asset {
+  flex: 0 0 230px; /* Ukuran foto terkunci presisi di 230px */
+  max-width: 230px;
 }
 
 .sejarah__asset img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  object-fit: cover; /* Foto proporsional tidak tertarik */
+  border-radius: 18px;
+  border: 2px solid rgba(127, 177, 221, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
+/* Kotak Kutipan (Di Kanan - Warna Kontras Beda dari Card Utama) */
 .sejarah__quote-panel {
+  flex: 1; /* Mengisi sisa ruang secara otomatis */
   position: relative;
-  top: 0;
-  right: 0;
-  max-width: 100%;
-  padding: 1.35rem 1.5rem;
-  border-radius: 28px;
-  background: rgba(18, 38, 20, 0.96);
-  border: 1px solid rgba(210, 245, 145, 0.18);
-  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(10px);
+  padding: 1.6rem 2rem;
+  border-radius: 18px;
+  /* Warna Background Gradasi Lebih Terang + Border Emas */
+  background: linear-gradient(135deg, rgba(16, 44, 77, 0.95) 0%, rgba(10, 30, 56, 0.95) 100%);
+  border-left: 5px solid #e2b866; /* Garis aksen emas di kiri */
+  border-top: 1px solid rgba(226, 184, 102, 0.3);
+  border-right: 1px solid rgba(226, 184, 102, 0.2);
+  border-bottom: 1px solid rgba(226, 184, 102, 0.2);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.sejarah__quote-panel p {
-  margin: 0 0 0.9rem;
-  color: rgba(238, 245, 225, 0.98);
-  font-size: 0.95rem;
-  line-height: 1.8;
-  font-style: italic;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
-}
-
-.sejarah__quote-panel p:last-child {
-  margin-bottom: 0;
-}
-
-.sejarah__quote-panel p {
-  margin: 0 0 0.9rem;
-  color: rgba(238, 245, 225, 0.98);
-  font-size: 0.95rem;
-  line-height: 1.8;
-  font-style: italic;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-}
-
-.sejarah__quote-panel p:last-child {
-  margin-bottom: 0;
-}
-
-.sejarah__story {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  position: relative;
-  z-index: 2;
-  padding-top: 0;
-}
-
-.sejarah__story-line,
-.sejarah__story-list li {
-  margin: 0;
-  color: rgba(244, 239, 228, 0.95);
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
-  line-height: 1.8;
-  min-height: 1.5em;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
-
-.sejarah__story-line.is-visible,
-.sejarah__story-list li.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.sejarah__story-list {
-  margin: 0;
-  padding: 0 0 0 1.3rem;
-  list-style: none;
-  color: rgba(244, 239, 228, 0.95);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.sejarah__story-list li {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-.sejarah__story-list li::marker {
-  content: none;
-}
-
-.sejarah__card::before,
-.sejarah__card::after {
-  content: "";
+/* Watermark Tanda Kutip (Di Pojok Kanan Bawah) */
+.sejarah__quote-panel::before {
+  content: "”";
   position: absolute;
-  border-radius: 50%;
-  z-index: 0;
+  bottom: -22px;
+  right: 15px;
+  font-size: 6rem;
+  font-family: Georgia, serif;
+  color: rgba(226, 184, 102, 0.18); /* Warna watermark keemasan transparan */
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
-.sejarah__card::before {
-  width: 140px;
-  height: 140px;
-  top: -32px;
-  left: -32px;
-  background: radial-gradient(circle at center, rgba(190, 225, 145, 0.35), transparent 60%);
+.sejarah__quote-panel p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.8rem;
+  color: #fff9ed; /* Warna teks kutipan cerah */
+  font-size: 0.96rem;
+  line-height: 1.7;
+  font-style: italic;
 }
 
-.sejarah__card::after {
-  width: 96px;
-  height: 96px;
-  bottom: -28px;
-  right: -28px;
-  background: radial-gradient(circle at center, rgba(170, 210, 120, 0.28), transparent 55%);
+.sejarah__quote-panel p:last-child {
+  margin-bottom: 0;
 }
 
-/* Reveal animation, dikontrol lewat sejarah.js */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-[data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 720px) {
+/* Responsive untuk Layar HP (Stacked Atas-Bawah) */
+@media (max-width: 768px) {
   .sejarah__card {
-    width: 100%;
-    padding: 1.8rem 1.6rem;
+    padding: 1.8rem 1.4rem;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .sejarah__bottom {
+    flex-direction: column; /* Di HP ditumpuk ke bawah */
+    gap: 1.5rem;
+  }
+
+  .sejarah__asset {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    height: 180px;
+  }
+
+  .sejarah__story-line {
+    text-align: left;
   }
 }

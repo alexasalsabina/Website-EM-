@@ -14,7 +14,7 @@
 .hero-overlay{
     position:absolute;
     inset:0;
-    background:rgba(22,53,36,.60);
+    background:rgba(7,28,52,.65);
 }
 
 .hero-content{
@@ -105,7 +105,7 @@
 
     border-radius:50%;
 
-    background:#284139;
+    background:#0D2A45;
     color:white;
 
     display:flex;

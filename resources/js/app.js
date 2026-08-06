@@ -9,6 +9,7 @@ import './header.js';
 import './back-to-top.js';
 import './components-init.js';
 import './berita-tabs.js';
+import './hero.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('globalLoader');

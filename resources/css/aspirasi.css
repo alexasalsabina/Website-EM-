@@ -11,7 +11,7 @@
 
 .aspirasi-header h1 {
     font-size: 40px;
-    color: #284139;
+    color: #0D2A45;
     margin-bottom: 15px;
 }
 
@@ -40,7 +40,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #284139;
+    color: #0D2A45;
 }
 
 .form-group input,
@@ -64,7 +64,7 @@ button {
     padding: 15px;
     border: none;
     border-radius: 12px;
-    background: #284139;
+    background: #0D2A45;
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -73,7 +73,7 @@ button {
 }
 
 button:hover {
-    background: #809076;
+    background: #12395A;
 }
 
 @media (max-width:768px) {

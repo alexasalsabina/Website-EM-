@@ -2,7 +2,7 @@
   position: relative;
   min-height: 100vh;
   padding: 6rem 2rem 5rem;
-  background: linear-gradient(180deg, #0a2416 0%, #123822 36%, #172f24 100%);
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 36%, #12395A 100%);
   overflow: hidden;
   color: #f4efe4;
   font-family: "Poppins", system-ui, sans-serif;
@@ -13,7 +13,7 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at top left, rgba(244, 239, 228, 0.14), transparent 28%),
-    radial-gradient(circle at 85% 20%, rgba(190, 238, 140, 0.2), transparent 18%);
+    radial-gradient(circle at 85% 20%, rgba(127, 177, 221, 0.22), transparent 18%);
   pointer-events: none;
 }
 
@@ -111,7 +111,7 @@
   display: grid;
   place-items: center;
   border-radius: 26px;
-  background: linear-gradient(135deg, rgba(220, 242, 197, 0.95), rgba(244, 239, 228, 0.85));
+  background: linear-gradient(135deg, rgba(199, 221, 244, 0.95), rgba(244, 239, 228, 0.85));
   border: 1px solid rgba(18, 34, 18, 0.18);
 }
 
@@ -122,11 +122,11 @@
 }
 
 .kelembagaan__icon--pkk {
-  background: linear-gradient(135deg, rgba(214, 237, 212, 0.96), rgba(192, 224, 179, 0.48));
+  background: linear-gradient(135deg, rgba(205, 226, 245, 0.96), rgba(127, 177, 221, 0.36));
 }
 
 .kelembagaan__icon--kt {
-  background: linear-gradient(135deg, rgba(241, 232, 218, 0.98), rgba(194, 220, 175, 0.4));
+  background: linear-gradient(135deg, rgba(241, 232, 218, 0.98), rgba(127, 177, 221, 0.3));
 }
 
 .kelembagaan__icon-placeholder {
@@ -185,7 +185,7 @@
 }
 
 .kelembagaan__card:focus-within {
-  outline: 3px solid rgba(190, 238, 140, 0.55);
+  outline: 3px solid rgba(127, 177, 221, 0.55);
   outline-offset: 4px;
 }
 

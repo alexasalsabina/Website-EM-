@@ -3,7 +3,7 @@
 ==========================*/
 
 .site-footer{
-    background:#123822;
+    background:#0D2A45;
     color:#fff;
     position:relative;
     margin-top:80px;
@@ -76,7 +76,7 @@
     width:46px;
     height:46px;
     border-radius:50%;
-    background:#1f5b38;
+    background:#12395A;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -87,7 +87,7 @@
 }
 
 .social-icon a:hover{
-    background:#2d8a52;
+    background:#1B4C74;
     transform:translateY(-5px);
 }
 
@@ -118,7 +118,7 @@
     height:50px;
     border:none;
     border-radius:50%;
-    background:#2d8a52;
+    background:#12395A;
     color:#fff;
     cursor:pointer;
     font-size:18px;
@@ -126,7 +126,7 @@
 }
 
 #backToTop:hover{
-    background:#46a96c;
+    background:#1B4C74;
     transform:translateY(-5px);
 }
 @media(max-width:768px){
