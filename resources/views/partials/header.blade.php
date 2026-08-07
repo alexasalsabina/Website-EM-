@@ -65,7 +65,7 @@
 
         <a href="{{ route('produkhukum') }}" class="navbar__link {{ request()->routeIs('produkhukum') ? 'is-active' : '' }}">PRODUK HUKUM</a>
         <a href="{{ route('ppdi') }}" class="navbar__link {{ request()->routeIs('ppdi') ? 'is-active' : '' }}">PPDI</a>
-        <a href="{{ route('galeri') }}" class="navbar__link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">GALERI</a>
+        <a href="{{ route('galeri.index') }}" class="navbar__link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">GALERI</a>
 
         <div class="navbar__item navbar__item--dropdown">
             <button type="button" class="navbar__link navbar__dropdown-toggle {{ request()->routeIs('event.*') ? 'is-active' : '' }}" aria-expanded="false">

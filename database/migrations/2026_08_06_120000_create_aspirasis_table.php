@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('aspirasis', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('kategori')->nullable();
+            $table->text('isi_aspirasi');
+            $table->string('foto')->nullable();
+            $table->enum('status', ['baru', 'diproses', 'selesai'])->default('baru');
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('aspirasis');
+    }
+};

@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\GaleriController; // <-- Galeri publik
+use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
+use App\Http\Controllers\Admin\GaleriKategoriController;
+use App\Http\Controllers\Admin\GaleriFotoController;
 use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\DataDesaController;
 use App\Http\Controllers\ProfilDesaController;
@@ -14,22 +17,17 @@ Route::get('/', fn () => view('home'))->name('home');
 
 /*
 |--------------------------------------------------------------------------
-| Aspirasi Warga
+| Aspirasi
 |--------------------------------------------------------------------------
 */
 
 Route::prefix('aspirasi')->name('aspirasi.')->group(function () {
 
-    // Halaman form warga
-    Route::get('/', [AspirasiController::class, 'index'])
-        ->name('index');
+    Route::get('/', [AspirasiController::class, 'index'])->name('index');
 
-    // Simpan aspirasi
-    Route::post('/store', [AspirasiController::class, 'store'])
-        ->name('store');
+    Route::post('/store', [AspirasiController::class, 'store'])->name('store');
 
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -39,20 +37,17 @@ Route::prefix('aspirasi')->name('aspirasi.')->group(function () {
 
 Route::prefix('berita')->name('berita.')->group(function () {
 
-    Route::get('/berita', fn () => view('berita.berita'))
-        ->name('berita');
+    Route::get('/berita', fn () => view('berita.berita'))->name('berita');
 
-    Route::get('/artikel', fn () => view('berita.artikel'))
-        ->name('artikel');
+    Route::get('/artikel', fn () => view('berita.artikel'))->name('artikel');
 
-    Route::get('/opini', fn () => view('berita.opini'))
-        ->name('opini');
+    Route::get('/opini', fn () => view('berita.opini'))->name('opini');
 
-    Route::get('/agenda', fn () => view('berita.agenda'))
-        ->name('agenda');
+    Route::get('/agenda', [AgendaController::class, 'publicIndex'])->name('agenda');
+
+    Route::get('/agenda/{slug}', [AgendaController::class, 'show'])->name('agenda.show');
 
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -62,41 +57,27 @@ Route::prefix('berita')->name('berita.')->group(function () {
 
 Route::prefix('profil')->name('profil.')->group(function () {
 
-    Route::get('/sejarah', fn () => view('profil.sejarah'))
-        ->name('sejarah');
+    Route::get('/sejarah', fn () => view('profil.sejarah'))->name('sejarah');
 
-    Route::get('/visi-misi', fn () => view('profil.visi-misi'))
-        ->name('visi-misi');
+    Route::get('/visi-misi', fn () => view('profil.visi-misi'))->name('visi-misi');
 
-    // Parent kelembagaan (kalau masih perlu halaman index-nya)
-    Route::get('/kelembagaan', fn () => view('profil.kelembagaan'))
-        ->name('kelembagaan');
+    Route::get('/kelembagaan', fn () => view('profil.kelembagaan'))->name('kelembagaan');
 
-    // Sub-route kelembagaan
     Route::prefix('kelembagaan')->name('kelembagaan.')->group(function () {
 
-        Route::get('/karang-taruna', fn () => view('profil.kelembagaan.karang-taruna'))
-            ->name('karangtaruna');
+        Route::get('/karang-taruna', fn () => view('profil.kelembagaan.karang-taruna'))->name('karangtaruna');
 
-        Route::get('/lpm', fn () => view('profil.kelembagaan.lpm'))
-            ->name('lpm');
+        Route::get('/lpm', fn () => view('profil.kelembagaan.lpm'))->name('lpm');
 
-        Route::get('/pkk', fn () => view('profil.kelembagaan.pkk'))
-            ->name('pkk');
+        Route::get('/pkk', fn () => view('profil.kelembagaan.pkk'))->name('pkk');
 
     });
 
-    Route::get('/monografi', fn () => view('profil.monografi'))
-        ->name('monografi');
+    Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
 
-    Route::get('/potensi', fn () => view('profil.potensi'))
-        ->name('potensi');
+    Route::get('/inovasi', fn () => view('profil.inovasi'))->name('inovasi');
 
-    Route::get('/inovasi', fn () => view('profil.inovasi'))
-        ->name('inovasi');
-
-    Route::get('/prestasi', fn () => view('profil.prestasi'))
-        ->name('prestasi');
+    Route::get('/prestasi', fn () => view('profil.prestasi'))->name('prestasi');
 
 });
 
@@ -108,29 +89,21 @@ Route::prefix('profil')->name('profil.')->group(function () {
 
 Route::prefix('data')->name('data.')->group(function () {
 
-    Route::get('/anggaran', fn () => view('data.anggaran'))
-        ->name('anggaran');
+    Route::get('/anggaran', fn () => view('data.anggaran'))->name('anggaran');
 
-    Route::get('/dana-desa', fn () => view('data.dana-desa'))
-        ->name('dana-desa');
+    Route::get('/dana-desa', fn () => view('data.dana-desa'))->name('dana-desa');
 
-    Route::get('/peraturan-desa', fn () => view('data.peraturan-desa'))
-        ->name('peraturan-desa');
+    Route::get('/peraturan-desa', fn () => view('data.peraturan-desa'))->name('peraturan-desa');
 
-    Route::get('/monografi', fn () => view('data.monografi'))
-        ->name('monografi');
+    Route::get('/monografi', fn () => view('data.monografi'))->name('monografi');
 
-    Route::get('/aset-desa', fn () => view('data.aset-desa'))
-        ->name('aset-desa');
+    Route::get('/aset-desa', fn () => view('data.aset-desa'))->name('aset-desa');
 
-    Route::get('/statistik-penduduk', fn () => view('data.statistik-penduduk'))
-        ->name('statistik-penduduk');
+    Route::get('/statistik-penduduk', fn () => view('data.statistik-penduduk'))->name('statistik-penduduk');
 
-    Route::get('/integrasi-data-desa', fn () => view('data.integrasi-data-desa'))
-        ->name('integrasi-data-desa');
+    Route::get('/integrasi-data-desa', fn () => view('data.integrasi-data-desa'))->name('integrasi-data-desa');
 
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -140,63 +113,138 @@ Route::prefix('data')->name('data.')->group(function () {
 
 Route::prefix('event')->name('event.')->group(function () {
 
-    Route::get('/karnaval-kemerdekaan', fn () => view('event.karnaval-kemerdekaan'))
-        ->name('karnaval-kemerdekaan');
+    Route::get('/karnaval-kemerdekaan', fn () => view('event.karnaval-kemerdekaan'))->name('karnaval-kemerdekaan');
 
-    Route::get('/karnaval', fn () => view('event.karnaval'))
-        ->name('karnaval');
+    Route::get('/karnaval', fn () => view('event.karnaval'))->name('karnaval');
 
-    Route::get('/hut-desa', fn () => view('event.hut-desa'))
-        ->name('hut-desa');
+    Route::get('/hut-desa', fn () => view('event.hut-desa'))->name('hut-desa');
 
 });
 
+Route::get('/produk-hukum', fn () => view('produkhukum'))->name('produkhukum');
 
-Route::get('/produk-hukum', fn () => view('produkhukum'))
-    ->name('produkhukum');
-
-Route::get('/ppdi', fn () => view('ppdi'))
-    ->name('ppdi');
-
-Route::get('/galeri', fn () => view('galeri'))
-    ->name('galeri');
-
-Route::get('/kontak', fn () => view('kontak'))
-    ->name('kontak');
+Route::get('/ppdi', fn () => view('ppdi'))->name('ppdi');
 
 /*
 |--------------------------------------------------------------------------
-| Admin Dashboard
+| Galeri Publik
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth'])
+Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
+
+Route::get('/galeri/{slug}', [GaleriController::class, 'show'])->name('galeri.show');
+
+Route::get('/kontak', fn () => view('kontak'))->name('kontak');
+
+/*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
 
-        // Dashboard
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
 
-        // Berita
         Route::resource('berita', BeritaController::class);
 
-        // Agenda
         Route::resource('agenda', AgendaController::class);
 
-        // Galeri
-        Route::resource('galeri', GaleriController::class);
+        /*
+        |----------------------------------------------------------
+        | GALERI
+        |----------------------------------------------------------
+        */
 
-        // Profil Desa
-        Route::resource('profil', ProfilDesaController::class);
+        // Halaman utama Galeri Admin
+        Route::get('/galeri', [AdminGaleriController::class, 'index'])
+            ->name('galeri.index');
 
-        // Data Desa
-        Route::resource('data-desa', DataDesaController::class);
+        // CRUD Kategori Galeri
+        Route::resource('galeri-kategori', GaleriKategoriController::class)
+            ->except(['show']);
 
-        // Aspirasi
-        Route::get('/aspirasi', [AspirasiController::class, 'admin'])
-            ->name('aspirasi.index');
+        Route::prefix('galeri-kategori/{kategori}/foto')
+            ->name('galeri-foto.')
+            ->group(function () {
+
+                Route::get('/', [GaleriFotoController::class, 'index'])->name('index');
+
+                Route::get('/create', [GaleriFotoController::class, 'create'])->name('create');
+
+                Route::post('/', [GaleriFotoController::class, 'store'])->name('store');
+
+                Route::get('/{foto}/edit', [GaleriFotoController::class, 'edit'])->name('edit');
+
+                Route::put('/{foto}', [GaleriFotoController::class, 'update'])->name('update');
+
+                Route::delete('/{foto}', [GaleriFotoController::class, 'destroy'])->name('destroy');
+
+            });
+
+        /*
+        |--------------------------------------------------------------------------
+        | PROFIL DESA
+        |--------------------------------------------------------------------------
+        */
+
+        Route::prefix('profil')
+            ->name('profil.')
+            ->group(function () {
+
+                Route::get('/', [ProfilDesaController::class,'index'])
+                    ->name('index');
+
+                Route::get('/sambutan', [ProfilDesaController::class, 'sambutan'])
+                    ->name('sambutan');
+
+                Route::get('/struktur', [ProfilDesaController::class, 'struktur'])
+                    ->name('struktur');
+
+                Route::get('/potensi', [ProfilDesaController::class, 'potensi'])
+                    ->name('potensi');
+
+                Route::get('/inovasi', [ProfilDesaController::class, 'inovasi'])
+                    ->name('inovasi');
+
+                Route::get('/prestasi', [ProfilDesaController::class, 'prestasi'])
+                    ->name('prestasi');
+            });
+
+        Route::prefix('data-desa')
+            ->name('data-desa.')
+            ->group(function () {
+
+            Route::get('/', [DataDesaController::class, 'index'])->name('index');
+
+            Route::get('/anggaran', [DataDesaController::class, 'anggaran'])->name('anggaran');
+
+            Route::get('/dana-desa', [DataDesaController::class, 'danaDesa'])->name('dana');
+
+            Route::get('/peraturan', [DataDesaController::class, 'peraturan'])->name('peraturan');
+
+            Route::get('/monografi', [DataDesaController::class, 'monografi'])->name('monografi');
+
+            Route::get('/aset', [DataDesaController::class, 'aset'])->name('aset');
+
+            Route::get('/statistik', [DataDesaController::class, 'statistik'])->name('statistik');
+
+            Route::get('/integrasi', [DataDesaController::class, 'integrasi'])->name('integrasi');
+        });
+        
+        Route::prefix('aspirasi')->name('aspirasi.')->group(function () {
+            Route::get('/', [AspirasiController::class, 'admin'])->name('index');
+            Route::get('/export', [AspirasiController::class, 'export'])->name('export');
+            Route::get('/{id}', [AspirasiController::class, 'show'])->name('show');
+            Route::put('/{id}', [AspirasiController::class, 'update'])->name('update');
+            Route::delete('/{id}', [AspirasiController::class, 'destroy'])->name('destroy');
+        });
+
     });
 
 require __DIR__.'/auth.php';

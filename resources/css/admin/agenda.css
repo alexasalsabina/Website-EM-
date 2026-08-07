@@ -1,0 +1,233 @@
+.agenda-container{
+    padding:35px;
+}
+
+
+.agenda-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+
+.agenda-header h1{
+
+    font-size:30px;
+    font-weight:700;
+    color:#284139;
+
+}
+
+
+.agenda-header p{
+
+    color:#777;
+    margin-top:8px;
+
+}
+
+
+
+.btn-tambah{
+
+    background:#284139;
+    color:white;
+    padding:13px 22px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+
+.btn-tambah:hover{
+
+    background:#3c5c4d;
+
+}
+
+
+
+.agenda-card{
+
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.agenda-toolbar{
+
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+
+}
+
+
+.search-input{
+
+    width:300px;
+    padding:12px 15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+
+}
+
+
+
+.btn-cari{
+
+    background:#809076;
+    color:white;
+    border:none;
+    padding:0 25px;
+    border-radius:10px;
+
+}
+
+
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+}
+
+
+.agenda-table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+
+.agenda-table th{
+
+    background:#f5f7f5;
+    padding:16px;
+    text-align:left;
+    color:#284139;
+
+}
+
+
+
+.agenda-table td{
+
+    padding:15px;
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.agenda-img,
+.no-image{
+
+    width:70px;
+    height:55px;
+    border-radius:10px;
+    object-fit:cover;
+
+}
+
+
+
+.no-image{
+
+    background:#eee;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+
+.badge{
+
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+
+}
+
+
+.aktif{
+
+    background:#dff5e5;
+    color:#16753b;
+
+}
+
+
+.selesai{
+
+    background:#e7edf5;
+    color:#31527a;
+
+}
+
+
+.batal{
+
+    background:#ffe1e1;
+    color:#a12828;
+
+}
+
+
+
+.btn-edit{
+
+    color:#284139;
+    text-decoration:none;
+    font-weight:600;
+    margin-right:10px;
+
+}
+
+
+.btn-hapus{
+
+    background:#c11720;
+    color:white;
+    border:none;
+    padding:7px 12px;
+    border-radius:8px;
+
+}
+
+
+
+.empty{
+
+    text-align:center;
+    padding:50px;
+
+}
+
+
+.empty-icon{
+
+    font-size:50px;
+
+}
+
+
+.empty h3{
+
+    margin-top:15px;
+    color:#284139;
+
+}

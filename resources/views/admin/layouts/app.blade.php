@@ -4,74 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@yield('title', 'Dashboard Admin')</title>
+
     @vite([
         'resources/css/app.css',
-        'resources/css/admin.css'
+        'resources/css/admin.css',
+        'resources/js/app.js',
+        'resources/js/admin.js'
     ])
+
+    @stack('styles')
 </head>
 
 <body>
-    <div class="admin-wrapper">
-        {{-- Sidebar --}}
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo Desa">
-                <h2>Desa Jatisari</h2>
-                <span>Administrator</span>
-            </div>
 
-            <nav class="sidebar-menu">
-                <a href="{{ route('admin.dashboard') }}">
-                    🏠
-                    <span>Dashboard</span>
-                </a>
+<div class="admin-wrapper">
 
-                <a href="{{ route('admin.berita.index') }}">
-                    📰
-                    <span>Berita</span>
-                </a>
+    {{-- Sidebar --}}
+    @include('admin.partials.sidebar')
 
-                <a href="{{ route('admin.aspirasi.index') }}">
-                    📨
-                    <span>Aspirasi Warga</span>
-                </a>
+    {{-- Overlay untuk menutup sidebar di mobile --}}
+    <div class="sidebar-overlay"></div>
 
-                <a href="{{ route('admin.agenda.index') }}">
-                    📅
-                    <span>Agenda</span>
-                </a>
+    {{-- Content --}}
+    <div class="content-wrapper">
 
-                <a href="{{ route('admin.galeri.index') }}">
-                    🖼
-                    <span>Galeri</span>
-                </a>
+        {{-- Navbar --}}
+        @include('admin.partials.navbar')
 
-                <a href="{{ route('admin.profil.index') }}">
-                    🏛
-                    <span>Profil Desa</span>
-                </a>
+        {{-- Flash Message --}}
+        @include('admin.partials.alert')
 
-                <a href="{{ route('admin.data-desa.index') }}">
-                    📊
-                    <span>Data Desa</span>
-                </a>
-            </nav>
+        {{-- Isi Halaman --}}
+        <main class="page-content">
 
-            <div class="sidebar-footer">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit">
-                        🚪 Logout
-                    </button>
-                </form>
-            </div>
-        </aside>
-
-        {{-- Content --}}
-        <main class="content">
             @yield('content')
+
         </main>
+
+
+        {{-- Footer --}}
+        @include('admin.partials.footer')
+
     </div>
+
+</div>
+
+@stack('scripts')
+
 </body>
 </html>
