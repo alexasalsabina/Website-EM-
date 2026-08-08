@@ -98,6 +98,10 @@ Route::prefix('profil')->name('profil.')->group(function () {
     Route::get('/prestasi', fn () => view('profil.prestasi'))
         ->name('prestasi');
 
+    // Tokoh-tokoh desa
+    Route::get('/tokoh', fn () => view('profil.tokoh'))
+        ->name('tokoh');
+
 });
 
 /*

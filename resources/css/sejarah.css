@@ -94,6 +94,57 @@
   opacity: 1 !important; /* Dipastikan selalu muncul */
 }
 
+/* Top card two-column layout */
+.sejarah__card-top {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sejarah__card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.sejarah__card-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+}
+
+.sejarah__hero-image {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 22px 40px rgba(0,0,0,0.6);
+}
+
+.sejarah__hero-image img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.hero-badge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background: linear-gradient(90deg,#e2b866,#cfa456);
+  color: #041423;
+  padding: 0.45rem 0.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
 /* 1. Teks Cerita (Bagian Atas) */
 .sejarah__story {
   display: flex;
@@ -154,6 +205,26 @@
   box-sizing: border-box;
 }
 
+.sejarah__quote-panel--large {
+  background: linear-gradient(135deg, rgba(24,44,76,0.98), rgba(10,22,40,0.98));
+  border-left: 6px solid #e2b866;
+  padding: 2rem 2.2rem;
+}
+
+.sejarah__quote-panel--large p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  font-style: italic;
+  color: #fff9e6;
+}
+
+.quote__attribution {
+  margin-top: 0.6rem;
+  font-style: normal;
+  color: rgba(226,184,102,0.95);
+  font-weight: 700;
+}
+
 /* Watermark Tanda Kutip (Di Pojok Kanan Bawah) */
 .sejarah__quote-panel::before {
   content: "”";
@@ -182,6 +253,73 @@
   margin-bottom: 0;
 }
 
+/* Subsection: Dusun (Grid Kartu) */
+.sejarah__subheading {
+  margin: 2.6rem 0 1.2rem;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.sejarah__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 0.8rem;
+}
+
+.sejarah__mini-card {
+  background: linear-gradient(180deg, rgba(6,18,34,0.55), rgba(8,20,38,0.55));
+  border: 1px solid rgba(127,177,221,0.12);
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  color: #f6efd9;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mini-card__icon {
+  font-size: 1.35rem;
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(226,184,102,0.06);
+  border-radius: 10px;
+  border: 1px solid rgba(226,184,102,0.08);
+}
+
+.mini-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffe9b8;
+}
+
+.mini-card__desc {
+  margin: 0;
+  color: rgba(244,239,228,0.85);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  flex: 1 1 auto;
+}
+
+.mini-card__cta {
+  align-self: start;
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.9rem;
+  background: linear-gradient(90deg,#cfa456,#e2b866);
+  color: #041423;
+  border-radius: 9px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
 /* Responsive untuk Layar HP (Stacked Atas-Bawah) */
 @media (max-width: 768px) {
   .sejarah__card {
@@ -203,4 +341,29 @@
   .sejarah__story-line {
     text-align: left;
   }
+
+  .sejarah__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .sejarah__subheading {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sejarah__card-top {
+    grid-template-columns: 1fr 300px;
+  }
+  .sejarah__hero-image img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sejarah__card-top { grid-template-columns: 1fr; }
+  .sejarah__card-right { justify-content: center; }
+  .hero-badge { left: 50%; transform: translateX(-50%); }
+  .sejarah__hero-image img { height: 180px; }
 }

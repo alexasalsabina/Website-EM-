@@ -23,16 +23,14 @@
             </div>
 
             <div class="sejarah__card sejarah__card--story" data-reveal>
-                <div class="sejarah__card-header">
-                    <div class="sejarah__asset">
-                        <img src="{{ asset('images/hutdesa.png') }}" alt="Ilustrasi Desa Jatisari" />
-                    </div>
-                    <div class="sejarah__quote-panel">
-                        <p>“Berdasarkan cerita rakyat, kampung ini masih berupa hutan belantara penuh pohon jati.”</p>
-                        <p>“Desa Jatisari dinamakan demikian karena mengambil nama dari Hutan Jati, alas jati yang tergundul.”</p>
-                    </div>
-                </div>
-                <div class="sejarah__story">
+                <div class="sejarah__card-top">
+                    <div class="sejarah__card-left">
+                        <div class="sejarah__quote-panel sejarah__quote-panel--large">
+                            <p>“Berdasarkan cerita rakyat, kampung ini masih berupa hutan belantara penuh pohon jati.”</p>
+                            <p class="quote__attribution">— Cerita Rakyat Desa Jatisari</p>
+                        </div>
+
+                        <div class="sejarah__story">
                     <p class="sejarah__story-line" data-reveal>Berdasarkan cerita rakyat, pada masa/zaman kerajaan Belanda yang dipimpin seorang Ratu bernama Yuliana, anak Wihelmina dari Belanda, kampung ini masih berupa hutan belantara penuh pohon jati.</p>
                     <p class="sejarah__story-line" data-reveal>Kemudian datang beberapa orang dari Pati Jawa Tengah: KH. Abdul Wahab (Buyut Timah), Buyut Sareh, dan Buyut Marwie. Mereka membabat alas bersama sampai berkembang menjadi sebuah perkampungan.</p>
                     <p class="sejarah__story-line" data-reveal>Setelah hutan habis dibabat dan situasi berubah menjadi kampung, datang lagi Buyut Jum'ah, Mbah Landou, Mbah Sambisari, dan yang terakhir Syeh Mahmudi bin Yusuf yang lebih dikenal sebagai Mbah Jagopati dari Serang Banten.</p>
@@ -49,6 +47,47 @@
                         <li data-reveal>Mbah Sambisari</li>
                         <li data-reveal>Mbah Jagopati (Syeh Mahmudi bin Yusuf)</li>
                     </ul>
+                </div>
+                    </div>
+
+                    <div class="sejarah__card-right">
+                        <div class="sejarah__hero-image">
+                            <img src="{{ asset('images/sejarah-hero.jpg') }}" alt="Perayaan HUT Desa" />
+                            <span class="hero-badge">HUT DESA JATISARI TAHUNAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sejarah__section-dusun">
+        <div class="sejarah__inner">
+            <h2 class="sejarah__subheading" data-reveal>Dusun di Desa Jatisari</h2>
+
+            <div class="sejarah__grid">
+                <div class="sejarah__mini-card" data-reveal>
+                    <div class="mini-card__icon">🏛️</div>
+                    <h3 class="mini-card__title">Dusun Krajan</h3>
+                    <p class="mini-card__desc">Menjadi pusat pemerintahan desa dan kumpulan beberapa kampung seperti Kampung Tengah, Kampung Jaten, dan Kampung Santren.</p>
+                </div>
+
+                <div class="sejarah__mini-card" data-reveal>
+                    <div class="mini-card__icon">🌾</div>
+                    <h3 class="mini-card__title">Dusun Mulyojati</h3>
+                    <p class="mini-card__desc">Merupakan kumpulan kampung seperti Kampung Japanan, Kampung Telon, Kampung Etan Kali, dan Kampung Kandangan.</p>
+                </div>
+
+                <div class="sejarah__mini-card" data-reveal>
+                    <div class="mini-card__icon">👥</div>
+                    <h3 class="mini-card__title">Tokoh-tokoh di Desa Jatisari</h3>
+                    <p class="mini-card__desc">Berikut adalah tokoh-tokoh yang berperan besar dalam sejarah Desa Jatisari.</p>
+                    <a href="{{ route('profil.tokoh') }}" class="mini-card__cta">Lihat Daftar Tokoh</a>
+                </div>
+
+                <div class="sejarah__mini-card" data-reveal>
+                    <div class="mini-card__icon">📜</div>
+                    <h3 class="mini-card__title">Warisan dan Nilai</h3>
+                    <p class="mini-card__desc">Nilai-nilai luhur yang diwariskan oleh para leluhur terus dijaga dan dilestarikan hingga saat ini.</p>
                 </div>
             </div>
         </div>
