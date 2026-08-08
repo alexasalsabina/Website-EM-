@@ -1,0 +1,212 @@
+.berita-container{
+
+    padding:35px;
+
+}
+
+
+
+.berita-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+
+
+.berita-header h1{
+
+    font-size:30px;
+    color:#284139;
+    font-weight:700;
+
+}
+
+
+
+.berita-header p{
+
+    color:#777;
+    margin-top:8px;
+
+}
+
+
+
+.berita-card{
+
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.berita-toolbar{
+
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+
+}
+
+
+
+.search-input{
+
+    width:320px;
+    padding:12px 15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+
+}
+
+
+
+.btn-cari{
+
+    background:#809076;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:0 25px;
+
+}
+
+
+
+
+.berita-table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+
+
+.berita-table th{
+
+    background:#f5f7f5;
+    padding:16px;
+    color:#284139;
+    text-align:left;
+
+}
+
+
+
+.berita-table td{
+
+    padding:15px;
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+
+.berita-img,
+.no-image{
+
+    width:80px;
+    height:60px;
+    border-radius:12px;
+    object-fit:cover;
+
+}
+
+
+
+.no-image{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eee;
+    font-size:25px;
+
+}
+
+
+
+.badge{
+
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+
+}
+
+
+
+.aktif{
+
+    background:#dcf5e3;
+    color:#16753b;
+
+}
+
+
+
+.batal{
+
+    background:#ffe0e0;
+    color:#a12828;
+
+}
+
+
+
+.btn-edit{
+
+    text-decoration:none;
+    color:#284139;
+    font-weight:600;
+    margin-right:10px;
+
+}
+
+
+
+.btn-hapus{
+
+    background:#c11720;
+    color:white;
+    border:none;
+    padding:7px 12px;
+    border-radius:8px;
+
+}
+
+
+
+.empty{
+
+    text-align:center;
+    padding:50px;
+
+}
+
+
+
+.empty-icon{
+
+    font-size:50px;
+
+}
+
+
+
+.empty h3{
+
+    color:#284139;
+    margin-top:15px;
+
+}

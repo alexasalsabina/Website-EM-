@@ -37,7 +37,7 @@
                 <a href="{{ route('profil.sejarah') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.sejarah') ? 'is-active' : '' }}">SEJARAH</a>
                 <a href="{{ route('profil.visi-misi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.visi-misi') ? 'is-active' : '' }}">VISI & MISI</a>
                 <a href="{{ route('profil.kelembagaan') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.kelembagaan') ? 'is-active' : '' }}">KELEMBAGAAN</a>
-                <a href="{{ route('profil.monografi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.monografi') ? 'is-active' : '' }}">MONOGRAFI</a>
+               Route::get('/profil/monografi', [ProfilController::class, 'monografi'])->name('profil.monografi');
                 <a href="{{ route('profil.potensi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.potensi') ? 'is-active' : '' }}">POTENSI</a>
                 <a href="{{ route('profil.inovasi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.inovasi') ? 'is-active' : '' }}">INOVASI</a>
                 <a href="{{ route('profil.prestasi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.prestasi') ? 'is-active' : '' }}">PRESTASI</a>
@@ -65,7 +65,7 @@
 
         <a href="{{ route('produkhukum') }}" class="navbar__link {{ request()->routeIs('produkhukum') ? 'is-active' : '' }}">PRODUK HUKUM</a>
         <a href="{{ route('ppdi') }}" class="navbar__link {{ request()->routeIs('ppdi') ? 'is-active' : '' }}">PPDI</a>
-        <a href="{{ route('galeri') }}" class="navbar__link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">GALERI</a>
+        <a href="{{ route('galeri.index') }}" class="navbar__link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">GALERI</a>
 
         <div class="navbar__item navbar__item--dropdown">
             <button type="button" class="navbar__link navbar__dropdown-toggle {{ request()->routeIs('event.*') ? 'is-active' : '' }}" aria-expanded="false">

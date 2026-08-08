@@ -2,37 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\GaleriKategori;
 
 class GaleriController extends Controller
 {
+    /**
+     * Halaman galeri publik
+     */
     public function index()
     {
-        return view('admin.galeri.index');
+        $kategoris = GaleriKategori::withCount('foto')->get();
+
+        return view('galeri.index', compact('kategoris'));
     }
 
-    public function create()
+    /**
+     * Detail galeri berdasarkan kategori
+     */
+    public function show($slug)
     {
-        return view('admin.galeri.create');
-    }
+        $kategori = GaleriKategori::where('slug', $slug)
+            ->with('foto')
+            ->firstOrFail();
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        return view('admin.galeri.edit');
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        return view('galeri.show', compact('kategori'));
     }
 }

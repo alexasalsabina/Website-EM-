@@ -31,7 +31,7 @@
         <span class="quick-menu__label">ASPIRASI WARGA</span>
     </a>
 
-    <a href="{{ route('galeri') }}" class="quick-menu__item">
+    <a href="{{ route('galeri.index') }}" class="quick-menu__item">
         <span class="quick-menu__icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="3" y="4" width="18" height="16" rx="2"

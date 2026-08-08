@@ -1,3 +1,7 @@
+/* ==========================================================
+   Styling untuk halaman berita
+   ========================================================== */
+
 .berita {
   position: relative;
   min-height: 100vh;
@@ -13,7 +17,7 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 12% 14%, rgba(244, 239, 228, 0.14), transparent 18%),
-    radial-gradient(circle at 88% 12%, rgba(190, 238, 140, 0.12), transparent 16%);
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.12), transparent 16%);
   pointer-events: none;
 }
 
@@ -58,7 +62,7 @@
 }
 
 .berita__tab:focus-visible {
-  outline: 2px solid rgba(190, 238, 140, 0.8);
+  outline: 2px solid rgba(255, 255, 255, 0.8);
   outline-offset: 4px;
 }
 
@@ -68,17 +72,13 @@
   top: 4px;
   height: calc(100% - 8px);
   border-radius: 999px;
-  background: rgba(190, 238, 140, 0.25);
+  background: rgba(255, 255, 255, 0.25);
   transition: left 0.28s ease, width 0.28s ease;
   pointer-events: none;
 }
 
 .berita__tabbar:focus-within .berita__tab-indicator {
-  box-shadow: 0 0 0 2px rgba(190, 238, 140, 0.18);
-}
-
-.berita__tabbar:focus-within .berita__tab-indicator {
-  box-shadow: 0 0 0 2px rgba(190, 238, 140, 0.18);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.18);
 }
 
 .berita__top {
@@ -138,111 +138,30 @@
   padding: 1rem 1rem 1rem 1.2rem;
   border-radius: 24px;
   background: rgba(10, 24, 16, 0.85);
-  border: 1px solid rgba(244, 239, 228, 0.12);
-  transition: transform 0.26s ease, background 0.26s ease, box-shadow 0.26s ease;
-  color: inherit;
+  color: #f4efe4;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .berita__headline-item:hover,
 .berita__headline-item:focus-visible {
-  transform: translateX(4px);
-  background: rgba(244, 239, 228, 0.12);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
+  background: rgba(16, 34, 24, 0.95);
+  transform: translateY(-1px);
 }
 
 .berita__headline-date {
   display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.78rem;
-  color: rgba(244, 239, 228, 0.7);
+  margin-bottom: 0.35rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .berita__cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.4rem;
-  margin-top: 2rem;
-}
-
-.article-card {
-  background: rgba(244, 239, 228, 0.08);
-  border: 1px solid rgba(244, 239, 228, 0.16);
-  border-radius: 30px;
-  overflow: hidden;
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
-}
-
-.article-card--hero {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.article-card--hero .article-card__media {
-  min-height: 420px;
-}
-
-.article-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.16);
-  border-color: rgba(190, 238, 140, 0.24);
-  background: rgba(244, 239, 228, 0.12);
-}
-
-.article-card__media {
-  min-height: 240px;
-  overflow: hidden;
-}
-
-.article-card__content {
-  padding: 1.8rem;
-}
-
-.article-card__title {
-  margin: 0.8rem 0 0.85rem;
-  font-size: 1.35rem;
-}
-
-.article-card__excerpt {
-  color: rgba(244, 239, 228, 0.88);
-}
-
-.article-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.16);
-  border-color: rgba(190, 238, 140, 0.24);
-  background: rgba(244, 239, 228, 0.12);
-}
-
-.article-card__media {
-  min-height: 240px;
-  overflow: hidden;
-}
-
-.article-card__content {
-  padding: 1.8rem;
-}
-
-.article-card__title {
-  margin: 0.8rem 0 0.85rem;
-  font-size: 1.35rem;
-}
-
-.article-card__excerpt {
-  color: rgba(244, 239, 228, 0.88);
-}
-
-@media (max-width: 960px) {
-  .berita__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 720px) {
-  .berita {
-    padding: 3.5rem 1.2rem 3.5rem;
-  }
-
-  .article-card__media {
-    min-height: 220px;
-  }
+  margin-top: 1.8rem;
 }
