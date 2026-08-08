@@ -9,25 +9,10 @@ use App\Http\Controllers\GaleriController; // <-- Galeri publik
 use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
 use App\Http\Controllers\Admin\GaleriKategoriController;
 use App\Http\Controllers\Admin\GaleriFotoController;
-use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\DataDesaController;
 use App\Http\Controllers\ProfilDesaController;
 
 Route::get('/', fn () => view('home'))->name('home');
-
-/*
-|--------------------------------------------------------------------------
-| Aspirasi
-|--------------------------------------------------------------------------
-*/
-
-Route::prefix('aspirasi')->name('aspirasi.')->group(function () {
-
-    Route::get('/', [AspirasiController::class, 'index'])->name('index');
-
-    Route::post('/store', [AspirasiController::class, 'store'])->name('store');
-
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -237,14 +222,6 @@ Route::middleware('auth')
             Route::get('/integrasi', [DataDesaController::class, 'integrasi'])->name('integrasi');
         });
         
-        Route::prefix('aspirasi')->name('aspirasi.')->group(function () {
-            Route::get('/', [AspirasiController::class, 'admin'])->name('index');
-            Route::get('/export', [AspirasiController::class, 'export'])->name('export');
-            Route::get('/{id}', [AspirasiController::class, 'show'])->name('show');
-            Route::put('/{id}', [AspirasiController::class, 'update'])->name('update');
-            Route::delete('/{id}', [AspirasiController::class, 'destroy'])->name('destroy');
-        });
-
     });
 
 require __DIR__.'/auth.php';

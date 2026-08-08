@@ -37,7 +37,6 @@
                 <a href="{{ route('profil.sejarah') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.sejarah') ? 'is-active' : '' }}">SEJARAH</a>
                 <a href="{{ route('profil.visi-misi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.visi-misi') ? 'is-active' : '' }}">VISI & MISI</a>
                 <a href="{{ route('profil.kelembagaan') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.kelembagaan') ? 'is-active' : '' }}">KELEMBAGAAN</a>
-                <a href="{{ route('profil.monografi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.monografi') ? 'is-active' : '' }}">MONOGRAFI</a>
                 <a href="{{ route('profil.potensi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.potensi') ? 'is-active' : '' }}">POTENSI</a>
                 <a href="{{ route('profil.inovasi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.inovasi') ? 'is-active' : '' }}">INOVASI</a>
                 <a href="{{ route('profil.prestasi') }}" class="navbar__dropdown-link {{ request()->routeIs('profil.prestasi') ? 'is-active' : '' }}">PRESTASI</a>

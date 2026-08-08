@@ -57,41 +57,6 @@
 
         </a>
 
-
-        {{-- Aspirasi --}}
-        <a href="{{ route('admin.aspirasi.index') }}"
-           class="relative bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition duration-300">
-
-            @if($stats['aspirasi']['baru'] > 0)
-                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
-                    {{ $stats['aspirasi']['baru'] }} baru
-                </span>
-            @endif
-
-            <div class="flex justify-between items-start">
-
-                <div>
-                    <h3 class="text-xl font-semibold">📨 Aspirasi</h3>
-
-                    <p class="text-3xl font-bold text-green-800 mt-3">
-                        {{ $stats['aspirasi']['total'] }}
-                    </p>
-                    <p class="text-gray-500 text-sm">
-                        {{ $stats['aspirasi']['label'] }}
-                    </p>
-                </div>
-
-                <span class="text-4xl">📨</span>
-
-            </div>
-
-            <div class="mt-5">
-                <span class="text-green-700 font-semibold">Lihat →</span>
-            </div>
-
-        </a>
-
-
         {{-- Agenda --}}
         <a href="{{ route('admin.agenda.index') }}"
            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition duration-300">
