@@ -1,206 +1,606 @@
-/* ==========================================================================
-   SEJARAH DESA SECTION - STYLING RAPI & KONTRAS
-   ========================================================================== */
+/* =========================================================
+   SEJARAH DESA — styles
+   Palet: navy gelap + gold, mengikuti desain referensi
+   ========================================================= */
 
-/* Container Utama Section */
+:root {
+    --sejarah-navy: #0d1b2f;
+    --sejarah-navy-soft: #13233c;
+    --sejarah-navy-card: #16283f;
+    --sejarah-border: rgba(255, 255, 255, 0.08);
+    --sejarah-gold: #d9a441;
+    --sejarah-gold-soft: #e8c47c;
+    --sejarah-text: #e8ecf1;
+    --sejarah-text-muted: #a9b4c4;
+    --sejarah-radius: 18px;
+}
+
 .sejarah {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  font-family: "Poppins", system-ui, sans-serif;
-  color: #f4efe4;
-  padding: 8vh 6vw 10vh;
-  background-color: #051326;
-  box-sizing: border-box;
-}
-
-/* Background Blur & Overlay Pattern */
-.sejarah__bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('./images/sawah-blur.jpg'); /* Pastikan path gambar benar */
-  background-size: cover;
-  background-position: center 55%;
-  filter: blur(8px) brightness(0.5);
-  transform: scale(1.08);
-}
-
-.sejarah__overlay {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(5, 19, 38, 0.88) 0%, rgba(2, 10, 20, 0.96) 100%);
-  background-size: 28px 28px, 100% 100%;
+    position: relative;
+    background: var(--sejarah-navy);
+    padding: 64px 0 96px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--sejarah-text);
+    /* PENTING: jangan pakai overflow:hidden di sini.
+       overflow:hidden pada parent akan meng-clip elemen position:fixed
+       di dalamnya (modal daftar tokoh) mengikuti posisi scroll section ini,
+       makanya sebelumnya modal terlihat "kepotong"/nyangkut saat halaman discroll. */
 }
 
 .sejarah__inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
-  margin: 0 auto;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
-/* Header & Judul */
-.sejarah__heading {
-  max-width: 800px;
-  margin: 0 auto 2.5rem;
-  text-align: center;
+/* ---------- HERO ---------- */
+.sejarah__hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
 }
 
-.sejarah__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 18px;
-  border-radius: 99px;
-  background: rgba(127, 177, 221, 0.15);
-  border: 1px solid rgba(127, 177, 221, 0.35);
-  color: #7fb1dd;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
+.sejarah__hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .sejarah__title {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  font-weight: 800;
-  margin: 0 0 0.8rem;
-  color: #ffffff;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--sejarah-text);
+}
+
+.sejarah__title span {
+    color: var(--sejarah-gold);
 }
 
 .sejarah__subtitle {
-  margin: 0;
-  color: rgba(244, 239, 228, 0.85);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.6;
+    font-size: 1rem;
+    color: var(--sejarah-text-muted);
+    max-width: 42ch;
+    margin: 0;
+    line-height: 1.6;
 }
 
-/* Card Utama (Gelap Navy Transparan) */
-.sejarah__card {
-  position: relative;
-  width: 100%;
-  padding: 2.8rem 3rem;
-  border-radius: 28px;
-  background: rgba(8, 26, 48, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(127, 177, 221, 0.22);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-  margin: 0 auto;
-  box-sizing: border-box;
-  opacity: 1 !important; /* Dipastikan selalu muncul */
+.sejarah__quote {
+    position: relative;
+    background: var(--sejarah-navy-soft);
+    border: 1px solid var(--sejarah-border);
+    border-radius: var(--sejarah-radius);
+    padding: 28px 28px 22px;
+    margin-top: 8px;
 }
 
-/* 1. Teks Cerita (Bagian Atas) */
-.sejarah__story {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 2.2rem;
+.sejarah__quote-mark {
+    display: block;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--sejarah-gold);
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
-.sejarah__story-line {
-  margin: 0;
-  color: rgba(244, 239, 228, 0.95);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  text-align: justify;
+.sejarah__quote-text {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--sejarah-text);
+    margin: 0 0 14px;
 }
 
-/* 2. Container Bawah (Foto & Quote berdampingan rapi) */
-.sejarah__bottom {
-  display: flex;
-  align-items: stretch; /* Tinggi foto dan quote seimbang */
-  gap: 2rem;
-  width: 100%;
-  box-sizing: border-box;
+.sejarah__quote-source {
+    display: block;
+    color: var(--sejarah-gold-soft);
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
-/* Foto (Di Kiri) */
-.sejarah__asset {
-  flex: 0 0 230px; /* Ukuran foto terkunci presisi di 230px */
-  max-width: 230px;
+.sejarah__hero-right {
+    position: relative;
 }
 
-.sejarah__asset img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Foto proporsional tidak tertarik */
-  border-radius: 18px;
-  border: 2px solid rgba(127, 177, 221, 0.35);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+.sejarah__photo {
+    position: relative;
+    border-radius: var(--sejarah-radius);
+    overflow: hidden;
+    height: 100%;
+    min-height: 260px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Kotak Kutipan (Di Kanan - Warna Kontras Beda dari Card Utama) */
-.sejarah__quote-panel {
-  flex: 1; /* Mengisi sisa ruang secara otomatis */
-  position: relative;
-  padding: 1.6rem 2rem;
-  border-radius: 18px;
-  /* Warna Background Gradasi Lebih Terang + Border Emas */
-  background: linear-gradient(135deg, rgba(16, 44, 77, 0.95) 0%, rgba(10, 30, 56, 0.95) 100%);
-  border-left: 5px solid #e2b866; /* Garis aksen emas di kiri */
-  border-top: 1px solid rgba(226, 184, 102, 0.3);
-  border-right: 1px solid rgba(226, 184, 102, 0.2);
-  border-bottom: 1px solid rgba(226, 184, 102, 0.2);
-  box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-/* Watermark Tanda Kutip (Di Pojok Kanan Bawah) */
-.sejarah__quote-panel::before {
-  content: "”";
-  position: absolute;
-  bottom: -22px;
-  right: 15px;
-  font-size: 6rem;
-  font-family: Georgia, serif;
-  color: rgba(226, 184, 102, 0.18); /* Warna watermark keemasan transparan */
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
-.sejarah__quote-panel p {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 0.8rem;
-  color: #fff9ed; /* Warna teks kutipan cerah */
-  font-size: 0.96rem;
-  line-height: 1.7;
-  font-style: italic;
-}
-
-.sejarah__quote-panel p:last-child {
-  margin-bottom: 0;
-}
-
-/* Responsive untuk Layar HP (Stacked Atas-Bawah) */
-@media (max-width: 768px) {
-  .sejarah__card {
-    padding: 1.8rem 1.4rem;
-  }
-
-  .sejarah__bottom {
-    flex-direction: column; /* Di HP ditumpuk ke bawah */
-    gap: 1.5rem;
-  }
-
-  .sejarah__asset {
-    flex: none;
-    max-width: 100%;
+.sejarah__photo img {
     width: 100%;
-    height: 180px;
-  }
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
-  .sejarah__story-line {
-    text-align: left;
-  }
+.sejarah__photo-badge {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(13, 27, 47, 0.85);
+    backdrop-filter: blur(4px);
+    color: var(--sejarah-gold-soft);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- CARD: ASAL-USUL ---------- */
+.sejarah__card {
+    background: var(--sejarah-navy-card);
+    border: 1px solid var(--sejarah-border);
+    border-radius: var(--sejarah-radius);
+    padding: 34px;
+}
+
+.sejarah__card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 26px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--sejarah-border);
+}
+
+.sejarah__card-title span::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--sejarah-gold);
+    border-radius: 2px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.sejarah__origin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.sejarah__origin-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.sejarah__origin-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.sejarah__origin-icon {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid var(--sejarah-gold);
+    color: var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sejarah__origin-item p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--sejarah-text-muted);
+}
+
+.sejarah__origin-text {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+}
+
+.sejarah__origin-text p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--sejarah-text-muted);
+}
+
+/* ---------- DUSUN SECTION ---------- */
+.sejarah__section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 22px;
+}
+
+.sejarah__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.sejarah__grid-item {
+    background: var(--sejarah-navy-card);
+    border: 1px solid var(--sejarah-border);
+    border-radius: var(--sejarah-radius);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sejarah__grid-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(217, 164, 65, 0.12);
+    color: var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.sejarah__grid-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--sejarah-text);
+}
+
+.sejarah__grid-item p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--sejarah-text-muted);
+    margin: 0;
+}
+
+.sejarah__tokoh-btn {
+    align-self: flex-start;
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--sejarah-gold);
+    color: var(--sejarah-navy);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.82rem;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sejarah__tokoh-btn:hover {
+    background: var(--sejarah-gold-soft);
+    transform: translateY(-1px);
+}
+
+.sejarah__tokoh-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.sejarah__tokoh-btn.is-open svg {
+    transform: rotate(90deg);
+}
+
+/* =========================================================
+   MODAL: DAFTAR TOKOH (overlay blur + carousel geser)
+   ========================================================= */
+.tokoh-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.tokoh-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tokoh-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 18, 32, 0.55);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.tokoh-modal__panel {
+    position: relative;
+    width: 100%;
+    max-width: 1040px;
+    max-height: 85vh;
+    /* sengaja tanpa background/border/shadow di sini —
+       jadi yang terlihat cuma halaman blur + kartu tokoh mengambang */
+    padding: 26px 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: translateY(24px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.32s ease, opacity 0.32s ease;
+}
+
+.tokoh-modal.is-open .tokoh-modal__panel {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.tokoh-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 26px;
+}
+
+.tokoh-modal__header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sejarah-text);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tokoh-modal__close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--sejarah-border);
+    background: rgba(13, 27, 47, 0.6);
+    color: var(--sejarah-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tokoh-modal__close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--sejarah-text);
+}
+
+.tokoh-modal__track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    /* padding kiri/kanan = setengah lebar viewport track dikurangi setengah lebar kartu,
+       supaya kartu pertama & terakhir tetap bisa berada tepat di tengah */
+    padding: 40px calc(50% - 105px) 44px;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    user-select: none;
+    flex: 1 1 auto;
+    scrollbar-width: none;
+}
+
+.tokoh-modal__track::-webkit-scrollbar {
+    display: none;
+}
+
+.tokoh-modal__track.is-dragging {
+    cursor: grabbing;
+}
+
+/* ---------- Kartu bertahap: tengah besar & terang, makin ke pinggir
+   makin kecil & gelap (mirip referensi gambar carousel) ---------- */
+.tokoh-card {
+    flex: 0 0 auto;
+    width: 165px;
+    height: 250px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    background: #1c3350;
+    border: 1px solid var(--sejarah-border);
+    border-radius: 18px;
+    padding: 20px 16px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    opacity: 0.55;
+    transform: scale(0.88);
+    transform-origin: center center;
+    transition: width 0.32s ease, height 0.32s ease, transform 0.32s ease,
+        opacity 0.32s ease, background 0.32s ease, box-shadow 0.32s ease;
+    will-change: transform, opacity;
+}
+
+/* satu langkah dari tengah */
+.tokoh-card.step-1 {
+    width: 182px;
+    height: 280px;
+    opacity: 0.8;
+    background: #274468;
+    transform: scale(0.95);
+}
+
+/* tepat di tengah / aktif */
+.tokoh-card.step-0,
+.tokoh-card.is-active {
+    width: 210px;
+    height: 320px;
+    opacity: 1;
+    background: linear-gradient(160deg, #2d5480, #1c3350);
+    border-color: var(--sejarah-gold);
+    box-shadow: 0 24px 46px rgba(0, 0, 0, 0.45);
+    transform: scale(1);
+}
+
+.tokoh-card__photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(217, 164, 65, 0.1);
+    flex: 0 0 auto;
+    transition: width 0.32s ease, height 0.32s ease;
+}
+
+.tokoh-card.step-0 .tokoh-card__photo,
+.tokoh-card.is-active .tokoh-card__photo {
+    width: 112px;
+    height: 112px;
+}
+
+.tokoh-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.tokoh-card__placeholder {
+    color: var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tokoh-card__name {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--sejarah-text);
+    line-height: 1.35;
+}
+
+.tokoh-card.step-0 .tokoh-card__name,
+.tokoh-card.is-active .tokoh-card__name {
+    font-size: 1.15rem;
+}
+
+.tokoh-card__role {
+    font-size: 0.88rem;
+    color: var(--sejarah-text-muted);
+}
+
+.tokoh-modal__hint {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--sejarah-text-muted);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 560px) {
+    .tokoh-modal__panel {
+        padding: 20px 18px 18px;
+    }
+
+    .tokoh-card {
+        width: 130px;
+    }
+}
+
+/* ---------- reveal animation hook (dipakai sejarah.js) ---------- */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+    .sejarah__hero {
+        grid-template-columns: 1fr;
+    }
+
+    .sejarah__photo {
+        min-height: 220px;
+    }
+
+    .sejarah__origin {
+        grid-template-columns: 1fr;
+    }
+
+    .sejarah__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .sejarah {
+        padding: 40px 0 64px;
+    }
+
+    .sejarah__card {
+        padding: 24px;
+    }
+
+    .sejarah__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* kartu tokoh dikecilkan lagi khusus di layar sempit
+       supaya tidak overflow / kepotong di HP */
+    .tokoh-card {
+        width: 130px;
+        height: 200px;
+        padding: 16px 12px 18px;
+    }
+
+    .tokoh-card.step-1 {
+        width: 145px;
+        height: 220px;
+    }
+
+    .tokoh-card.step-0,
+    .tokoh-card.is-active {
+        width: 168px;
+        height: 258px;
+    }
+
+    .tokoh-card__photo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tokoh-card.step-0 .tokoh-card__photo,
+    .tokoh-card.is-active .tokoh-card__photo {
+        width: 88px;
+        height: 88px;
+    }
+
+    .tokoh-modal__track {
+        padding: 30px calc(50% - 84px) 34px;
+    }
 }

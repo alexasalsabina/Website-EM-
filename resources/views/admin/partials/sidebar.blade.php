@@ -46,12 +46,6 @@
             Data Desa
         </a>
 
-        <a href="{{ route('admin.aspirasi.index') }}"
-            class="{{ request()->routeIs('admin.aspirasi.*') ? 'active' : '' }}">
-            <span>📨</span>
-            Aspirasi Warga
-        </a>
-
     </nav>
 
     <div class="sidebar-footer">

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
-use App\Models\Aspirasi;
 use App\Models\Berita;
 use App\Models\DataDesa;
 use App\Models\GaleriFoto;
@@ -18,18 +17,6 @@ class DashboardController extends Controller
             'berita' => [
                 'total'   => $this->safeCount(Berita::class),
                 'label'   => 'berita dipublikasikan',
-            ],
-            'aspirasi' => [
-                'total'   => $this->safeCount(Aspirasi::class),
-                'baru'    => $this->safeCount(Aspirasi::class, function ($query) {
-                    // Sesuaikan nama kolom status jika berbeda di tabel kamu
-                    if (Schema::hasColumn('aspirasis', 'status')) {
-                        $query->where('status', 'baru');
-                    } elseif (Schema::hasColumn('aspirasis', 'dibaca')) {
-                        $query->where('dibaca', false);
-                    }
-                }),
-                'label'   => 'aspirasi masuk',
             ],
             'agenda' => [
                 'total'      => $this->safeCount(Agenda::class),

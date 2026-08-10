@@ -19,18 +19,6 @@
         <span class="quick-menu__label">PENGUMUMAN</span>
     </a>
     
-    <a href="{{ route('aspirasi.index') }}" class="quick-menu__item">
-        <span class="quick-menu__icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="17" cy="8" r="2.5" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M15.5 13.5c2.6.3 4.5 2.3 4.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
-        </span>
-        <span class="quick-menu__label">ASPIRASI WARGA</span>
-    </a>
-
     <a href="{{ route('galeri.index') }}" class="quick-menu__item">
         <span class="quick-menu__icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
