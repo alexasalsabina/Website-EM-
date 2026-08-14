@@ -58,6 +58,8 @@ Route::prefix('profil')->name('profil.')->group(function () {
 
     });
 
+    Route::get('/monografi', fn () => view('profil.monografi'))->name('monografi'); // <-- Route ditambahkan di sini
+
     Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
 
     Route::get('/inovasi', fn () => view('profil.inovasi'))->name('inovasi');

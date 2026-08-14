@@ -1,19 +1,20 @@
 <section class="hero" id="hero">
     <div class="hero__slides">
         <a href="{{ route('event.hut-desa') }}" class="hero__slide is-active" data-index="0">
-            <img src="{{ asset('images/hutdesa.png') }}" alt="HUT Desa Jatisari" class="hero__img">
+            <img src="{{ asset('images/wisata.jpg') }}" alt="HUT Desa Jatisari" class="hero__img">
             <div class="hero__overlay"></div>
             <div class="hero__caption">
-                <h2 class="hero__title">HUT DESA JATISARI</h2>
+                <h2 class="hero__title">DESA JATISARI</h2>
                 <p class="hero__location">Dusun <strong>Jatisari</strong></p>
             </div>
         </a>
 
-        <a href="{{ route('event.karnaval') }}" class="hero__slide" data-index="1">
-            <img src="{{ asset('images/karnaval.png') }}" alt="Karnaval Desa Jatisari" class="hero__img">
+        <!-- SLIDE 2: Diubah menjadi SAWAH -->
+        <a href="{{ route('profil.potensi') }}" class="hero__slide" data-index="1">
+            <img src="{{ asset('images/sawah.jpg') }}" alt="Sawah Desa Jatisari" class="hero__img">
             <div class="hero__overlay"></div>
             <div class="hero__caption">
-                <h2 class="hero__title">KARNAVAL DESA JATISARI</h2>
+                <h2 class="hero__title">DESA JATISARI</h2>
                 <p class="hero__location">Dusun <strong>Jatisari</strong></p>
             </div>
         </a>

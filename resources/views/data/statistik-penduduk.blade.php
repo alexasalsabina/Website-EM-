@@ -49,15 +49,15 @@
             <h2 class="text-xl font-semibold mb-2">Sample table</h2>
             <div class="grid grid-cols-3 gap-4">
                 <div class="p-4 bg-white border">
-                    <div class="text-3xl font-bold">0</div>
+                    <div class="text-3xl font-bold">3.118</div>
                     <div class="text-sm text-gray-600">Penduduk</div>
                 </div>
                 <div class="p-4 bg-white border">
-                    <div class="text-3xl font-bold">0</div>
+                    <div class="text-3xl font-bold">1.247</div>
                     <div class="text-sm text-gray-600">Laki-laki</div>
                 </div>
                 <div class="p-4 bg-white border">
-                    <div class="text-3xl font-bold">0</div>
+                    <div class="text-3xl font-bold">1.871</div>
                     <div class="text-sm text-gray-600">Perempuan</div>
                 </div>
             </div>

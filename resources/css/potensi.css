@@ -161,7 +161,7 @@
 }
 
 .potensi__list-item {
-  padding-left: 1.4rem;
+  padding-left: 1.1rem;
   color: rgba(244, 239, 228, 0.9);
   font-size: 0.98rem;
   line-height: 1.75;
@@ -171,10 +171,10 @@
 .potensi__list-item::before {
   content: "•";
   position: absolute;
-  left: 0;
-  top: 0.25rem;
+  left: 0.05rem;
+  top: 0.2rem;
   color: #b8de9a;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 
 .potensi__footer {
