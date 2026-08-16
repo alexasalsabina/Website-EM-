@@ -67,19 +67,10 @@
         <a href="{{ route('ppdi') }}" class="navbar__link {{ request()->routeIs('ppdi') ? 'is-active' : '' }}">PPDI</a>
         <a href="{{ route('galeri.index') }}" class="navbar__link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">GALERI</a>
 
-        <div class="navbar__item navbar__item--dropdown">
-            <button type="button" class="navbar__link navbar__dropdown-toggle {{ request()->routeIs('event.*') ? 'is-active' : '' }}" aria-expanded="false">
+        <div class="navbar__item">
+            <a href="{{ route('event.karnaval') }}" class="navbar__link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
                 EVENT
-                <svg class="navbar__caret" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-
-            <div class="navbar__dropdown">
-                <a href="{{ route('event.karnaval-kemerdekaan') }}" class="navbar__dropdown-link {{ request()->routeIs('event.karnaval-kemerdekaan') ? 'is-active' : '' }}">KARNAVAL KEMERDEKAAN</a>
-                <a href="{{ route('event.karnaval') }}" class="navbar__dropdown-link {{ request()->routeIs('event.karnaval') ? 'is-active' : '' }}">KARNAVAL</a>
-                <a href="{{ route('event.hut-desa') }}" class="navbar__dropdown-link {{ request()->routeIs('event.hut-desa') ? 'is-active' : '' }}">HUT DESA</a>
-            </div>
+            </a>
         </div>
 
         <a href="{{ route('kontak') }}" class="navbar__link {{ request()->routeIs('kontak') ? 'is-active' : '' }}">KONTAK</a>
