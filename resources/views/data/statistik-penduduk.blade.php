@@ -3,8 +3,8 @@
 @section('title', 'Statistik Penduduk')
 
 @section('content')
-    <div class="container mx-auto py-8">
-        <h1 class="text-2xl font-bold mb-4">Statistik Penduduk Desa Jatisari</h1>
+    <div class="statistik-penduduk-page container mx-auto px-4 py-8 text-white sm:px-8">
+        <h1 class="mb-4 text-center text-3xl font-extrabold text-white">Statistik Penduduk Desa Jatisari</h1>
 
         @php
             $jsonPath = storage_path('app/statistik.json');
@@ -36,31 +36,58 @@
                     </tbody>
                 </table>
             </div>
-        @else
-            <p class="mb-4">Data file not found. To display the Excel data here, export the spreadsheet to JSON and place it at <code>storage/app/statistik.json</code>.</p>
-
-            <p class="mb-2">Example instructions:</p>
-            <ol class="list-decimal pl-6 mb-6">
-                <li>Open the Excel file and save/export it as CSV or JSON.</li>
-                <li>Convert CSV to JSON with your preferred tool (many online converters or use Excel / Python / LibreOffice).</li>
-                <li>Save the JSON file as <code>storage/app/statistik.json</code> in the project root.</li>
-            </ol>
-
-            <h2 class="text-xl font-semibold mb-2">Sample table</h2>
-            <div class="grid grid-cols-3 gap-4">
-                <div class="p-4 bg-white border">
-                    <div class="text-3xl font-bold">3.118</div>
-                    <div class="text-sm text-gray-600">Penduduk</div>
-                </div>
-                <div class="p-4 bg-white border">
-                    <div class="text-3xl font-bold">1.247</div>
-                    <div class="text-sm text-gray-600">Laki-laki</div>
-                </div>
-                <div class="p-4 bg-white border">
-                    <div class="text-3xl font-bold">1.871</div>
-                    <div class="text-sm text-gray-600">Perempuan</div>
-                </div>
-            </div>
         @endif
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div class="p-4 bg-white/90 border border-white/20 rounded-xl shadow-sm text-center">
+                <div class="statistik__number text-3xl font-bold text-[#08233a]" data-target="3118">0</div>
+                <div class="text-sm text-[#38617b]">Penduduk</div>
+            </div>
+            <div class="p-4 bg-white/90 border border-white/20 rounded-xl shadow-sm text-center">
+                <div class="statistik__number text-3xl font-bold text-[#08233a]" data-target="1247">0</div>
+                <div class="text-sm text-[#38617b]">Laki-laki</div>
+            </div>
+            <div class="p-4 bg-white/90 border border-white/20 rounded-xl shadow-sm text-center">
+                <div class="statistik__number text-3xl font-bold text-[#08233a]" data-target="1871">0</div>
+                <div class="text-sm text-[#38617b]">Perempuan</div>
+            </div>
+        </div>
+
+        <section class="statistik-poin" aria-labelledby="statistik-poin-title">
+            <h2 id="statistik-poin-title" class="statistik-poin__title text-center font-extrabold">Data yang Tersedia</h2>
+            <div class="statistik-poin__grid">
+                <a href="{{ route('data.statistik-penduduk.kategori', 'demografi') }}" class="statistik-poin__card">
+                    <span class="statistik-poin__icon" aria-hidden="true">&#128101;</span>
+                    <span class="statistik-poin__badge" aria-hidden="true">01</span>
+                    <h3>1. Demografi Penduduk</h3>
+                    <p class="statistik-poin__description">Informasi jumlah, komposisi, dan persebaran penduduk desa.</p>
+                    <span class="statistik-poin__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="{{ route('data.statistik-penduduk.kategori', 'sosial-pendidikan') }}" class="statistik-poin__card">
+                    <span class="statistik-poin__icon" aria-hidden="true">&#127891;</span>
+                    <span class="statistik-poin__badge" aria-hidden="true">02</span>
+                    <h3>2. Status Sosial &amp; Pendidikan</h3>
+                    <p class="statistik-poin__description">Data tingkat pendidikan, status perkawinan, agama, dan kondisi sosial.</p>
+                    <span class="statistik-poin__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="{{ route('data.statistik-penduduk.submenu', ['kategori' => 'ekonomi', 'submenu' => 'mata-pencaharian']) }}" class="statistik-poin__card">
+                    <span class="statistik-poin__icon" aria-hidden="true">&#128188;</span>
+                    <span class="statistik-poin__badge" aria-hidden="true">03</span>
+                    <h3>3. Pekerjaan / Mata Pencaharian</h3>
+                    <p class="statistik-poin__description">Informasi jenis pekerjaan dan mata pencaharian utama penduduk desa.</p>
+                    <span class="statistik-poin__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="{{ route('data.statistik-penduduk.submenu', ['kategori' => 'inklusi', 'submenu' => 'penyandang-disabilitas']) }}" class="statistik-poin__card">
+                    <span class="statistik-poin__icon" aria-hidden="true">&#9855;</span>
+                    <span class="statistik-poin__badge" aria-hidden="true">04</span>
+                    <h3>4. Penyandang Disabilitas</h3>
+                    <p class="statistik-poin__description">Data penyandang disabilitas berdasarkan jenis dan tingkat kebutuhan.</p>
+                    <span class="statistik-poin__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </section>
     </div>
 @endsection

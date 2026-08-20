@@ -10,6 +10,7 @@ import './back-to-top.js';
 import './components-init.js';
 import './berita-tabs.js';
 import './hero.js';
+import './statistik.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('globalLoader');
