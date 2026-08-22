@@ -11,7 +11,10 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        $kategoris = GaleriKategori::withCount('foto')->get();
+        // Diubah dari 'foto' menjadi 'fotos'
+        $kategoris = GaleriKategori::with('fotos')
+            ->withCount('fotos')
+            ->get();
 
         return view('galeri.index', compact('kategoris'));
     }
@@ -21,8 +24,9 @@ class GaleriController extends Controller
      */
     public function show($slug)
     {
+        // Diubah dari 'foto' menjadi 'fotos'
         $kategori = GaleriKategori::where('slug', $slug)
-            ->with('foto')
+            ->with('fotos')
             ->firstOrFail();
 
         return view('galeri.show', compact('kategori'));

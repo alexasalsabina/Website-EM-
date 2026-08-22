@@ -186,7 +186,6 @@
                 <a href="{{ route('profil.sejarah') }}" class="custom-dropdown-item {{ request()->routeIs('profil.sejarah') ? 'is-active' : '' }}">Sejarah</a>
                 <a href="{{ route('profil.visi-misi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.visi-misi') ? 'is-active' : '' }}">Visi & Misi</a>
                 <a href="{{ route('profil.kelembagaan') }}" class="custom-dropdown-item {{ request()->routeIs('profil.kelembagaan') ? 'is-active' : '' }}">Kelembagaan</a>
-                <a href="{{ route('profil.monografi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.monografi') ? 'is-active' : '' }}">Monografi</a>
                 <a href="{{ route('profil.potensi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.potensi') ? 'is-active' : '' }}">Potensi</a>
                 <a href="{{ route('profil.inovasi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.inovasi') ? 'is-active' : '' }}">Inovasi</a>
                 <a href="{{ route('profil.prestasi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.prestasi') ? 'is-active' : '' }}">Prestasi</a>

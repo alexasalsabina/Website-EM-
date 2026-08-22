@@ -2,7 +2,10 @@
     <div class="hero__slides">
         <a href="{{ route('event.hut-desa') }}" class="hero__slide is-active" data-index="0">
             <img src="{{ asset('images/wisata.jpg') }}" alt="HUT Desa Jatisari" class="hero__img">
-            <div class="hero__overlay"></div>
+            
+            <!-- Gradasi pudar merata dari kiri ke kanan -->
+            <div class="hero__overlay" style="background: linear-gradient(to right, rgba(15, 32, 67, 0.45) 0%, rgba(15, 32, 67, 0.15) 100%); opacity: 1;"></div>
+            
             <div class="hero__caption">
                 <h2 class="hero__title">DESA JATISARI</h2>
                 <p class="hero__location">Dusun <strong>Jatisari</strong></p>
@@ -12,7 +15,10 @@
         <!-- SLIDE 2: Diubah menjadi SAWAH -->
         <a href="{{ route('profil.potensi') }}" class="hero__slide" data-index="1">
             <img src="{{ asset('images/sawah.jpg') }}" alt="Sawah Desa Jatisari" class="hero__img">
-            <div class="hero__overlay"></div>
+            
+            <!-- Gradasi pudar merata dari kiri ke kanan -->
+            <div class="hero__overlay" style="background: linear-gradient(to right, rgba(15, 32, 67, 0.45) 0%, rgba(15, 32, 67, 0.15) 100%); opacity: 1;"></div>
+            
             <div class="hero__caption">
                 <h2 class="hero__title">DESA JATISARI</h2>
                 <p class="hero__location">Dusun <strong>Jatisari</strong></p>
