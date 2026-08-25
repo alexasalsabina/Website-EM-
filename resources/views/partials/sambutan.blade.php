@@ -4,7 +4,7 @@
 
         <div class="sambutan__content">
             <div class="sambutan__photo">
-                <img src="{{ asset('images/kepala-desa.png') }}" alt="Kepala Desa Jatisari" class="sambutan__img">
+                <img src="{{ asset('images/kepala desa.png') }}" alt="Kepala Desa Jatisari" class="sambutan__img">
             </div>
 
             <div class="sambutan__text">
@@ -19,7 +19,7 @@
                     yang lebih baik.
                 </p>
 
-                <p class="sambutan__signature">Nama Kepala Desa</p>
+                <p class="sambutan__signature">Bapak M.Baihaqi</p>
                 <p class="sambutan__role">KEPALA DESA JATISARI</p>
 
                 <a href="{{ route('profil.sejarah') }}" class="sambutan__btn">Profile</a>

@@ -42,7 +42,11 @@
                         <p class="folder-card__desc">Dokumentasi perlombaan, jalan sehat, dan upacara peringatan kemerdekaan.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
+<<<<<<< HEAD
                             <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+=======
+                            <a href="{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
                         </div>
                     </div>
                 </div>
@@ -61,7 +65,11 @@
                         <p class="folder-card__desc">Penampilan pertunjukan tarian tradisional dan musik warga desa.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
+<<<<<<< HEAD
                             <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+=======
+                            <a href="{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
                         </div>
                     </div>
                 </div>
@@ -80,7 +88,11 @@
                         <p class="folder-card__desc">Aksi kebersihan rutin lingkungan RT/RW Desa Jatisari.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
+<<<<<<< HEAD
                             <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+=======
+                            <a href="{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
                         </div>
                     </div>
                 </div>
@@ -95,12 +107,9 @@
     <div class="gallery-modal__overlay" onclick="closeGalleryModal()"></div>
 
     <div class="gallery-modal__content">
-        {{-- Tombol Close --}}
         <button type="button" class="gallery-modal__close" onclick="closeGalleryModal()" aria-label="Tutup Galeri">&times;</button>
 
-        {{-- Area Foto Utama --}}
         <div class="gallery-modal__viewer">
-            {{-- Tombol Prev --}}
             <button type="button" class="gallery-modal__nav gallery-modal__nav--prev" onclick="changeSlide(-1)" aria-label="Sebelumnya">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="15 18 9 12 15 6"></polyline>
@@ -111,7 +120,6 @@
                 <img id="modalImage" src="" alt="Foto Galeri">
             </div>
 
-            {{-- Tombol Next --}}
             <button type="button" class="gallery-modal__nav gallery-modal__nav--next" onclick="changeSlide(1)" aria-label="Berikutnya">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -119,7 +127,6 @@
             </button>
         </div>
 
-        {{-- Caption, Counter, & Tombol Lihat Berita --}}
         <div class="gallery-modal__footer">
             <div class="gallery-modal__details">
                 <span id="modalCounter" class="gallery-modal__counter">Foto 1 dari 3</span>
@@ -139,19 +146,31 @@
                 src: "{{ asset('images/lapangan.jpeg') }}",
                 title: "HUT KEMERDEKAAN RI - KARNAVAL DESA",
                 caption: "Kemeriahan pawai dan karnaval warga dalam memperingati HUT Kemerdekaan RI.",
+<<<<<<< HEAD
                 newsUrl: "{{ route('event.index') }}"
+=======
+                newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "LOMBA RAKYAT ANTAR RT",
                 caption: "Keseruan lomba balap karung dan makan kerupuk anak-anak desa.",
+<<<<<<< HEAD
                 newsUrl: "{{ route('event.index') }}"
+=======
+                newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "MALAM PUNCAK HUT RI",
                 caption: "Penyerahan hadiah lomba dan panggung hiburan masyarakat.",
+<<<<<<< HEAD
                 newsUrl: "{{ route('event.index') }}"
+=======
+                newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             }
         ],
         'album-pentas-seni': [
@@ -159,13 +178,21 @@
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "PENTAS SENI - TARI TRADISIONAL",
                 caption: "Pertunjukan seni tari daerah oleh pemuda-pemudi Desa Jatisari.",
+<<<<<<< HEAD
                 newsUrl: "{{ route('event.index') }}"
+=======
+                newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "PERTUNJUKAN MUSIK BAMBU",
                 caption: "Alunan musik tradisional kreasi seni warga desa.",
+<<<<<<< HEAD
                 newsUrl: "{{ route('event.index') }}"
+=======
+                newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             }
         ],
         'album-kerja-bakti': [
@@ -173,7 +200,11 @@
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "GOTONG ROYONG LINGKUNGAN",
                 caption: "Kegiatan kerja bakti serentak membersihkan fasilitas umum desa.",
+<<<<<<< HEAD
                 newsUrl: "{{ route('event.index') }}"
+=======
+                newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             }
         ]
     };
@@ -190,17 +221,23 @@
         updateModalContent();
 
         const modal = document.getElementById('galleryModal');
-        modal.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
+        if (modal) {
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     function closeGalleryModal() {
         const modal = document.getElementById('galleryModal');
-        modal.classList.remove('is-open');
-        document.body.style.overflow = '';
+        if (modal) {
+            modal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
     }
 
     function changeSlide(direction) {
+        if (!currentAlbum.length) return;
+        
         currentIndex += direction;
         
         if (currentIndex < 0) {
@@ -214,17 +251,24 @@
 
     function updateModalContent() {
         const item = currentAlbum[currentIndex];
+        if (!item) return;
+
+        const imgEl = document.getElementById('modalImage');
+        const titleEl = document.getElementById('modalTitle');
+        const captionEl = document.getElementById('modalCaption');
+        const newsBtnEl = document.getElementById('modalNewsBtn');
+        const counterEl = document.getElementById('modalCounter');
         
-        document.getElementById('modalImage').src = item.src;
-        document.getElementById('modalTitle').textContent = item.title;
-        document.getElementById('modalCaption').textContent = item.caption;
-        document.getElementById('modalNewsBtn').href = item.newsUrl;
-        document.getElementById('modalCounter').textContent = `Foto ${currentIndex + 1} dari ${currentAlbum.length}`;
+        if (imgEl) imgEl.src = item.src;
+        if (titleEl) titleEl.textContent = item.title;
+        if (captionEl) captionEl.textContent = item.caption;
+        if (newsBtnEl) newsBtnEl.href = item.newsUrl;
+        if (counterEl) counterEl.textContent = `Foto ${currentIndex + 1} dari ${currentAlbum.length}`;
     }
 
     document.addEventListener('keydown', function(e) {
         const modal = document.getElementById('galleryModal');
-        if (!modal.classList.contains('is-open')) return;
+        if (!modal || !modal.classList.contains('is-open')) return;
 
         if (e.key === 'Escape') closeGalleryModal();
         if (e.key === 'ArrowLeft') changeSlide(-1);

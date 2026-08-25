@@ -60,8 +60,9 @@ Route::prefix('profil')->name('profil.')->group(function () {
 
     });
 
-    Route::get('/monografi', fn () => view('profil.monografi'))->name('monografi'); // <-- Route ditambahkan di sini
-
+   
+    Route::get('/monografi', fn () => view('profil.monografi'))->name('monografi');
+    
     Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
 
     Route::get('/inovasi', fn () => view('profil.inovasi'))->name('inovasi');
@@ -93,6 +94,65 @@ Route::prefix('data')->name('data.')->group(function () {
     Route::get('/aset-desa', fn () => view('data.aset-desa'))->name('aset-desa');
 
     Route::get('/statistik-penduduk', fn () => view('data.statistik-penduduk'))->name('statistik-penduduk');
+
+    Route::get('/statistik-penduduk/{kategori}', function (string $kategori) {
+        $categories = [
+            'demografi' => [
+                'title' => 'Demografi Penduduk',
+                'items' => ['Kelompok Usia', 'Jumlah Kepala Keluarga (KK)'],
+            ],
+            'sosial-pendidikan' => [
+                'title' => 'Status Sosial & Pendidikan',
+                'items' => ['Tingkat Pendidikan', 'Status Perkawinan'],
+            ],
+            'ekonomi' => [
+                'title' => 'Pekerjaan / Mata Pencaharian',
+                'items' => ['Mata Pencaharian'],
+                'direct' => true,
+                'directLabel' => 'Mata Pencaharian',
+            ],
+            'inklusi' => [
+                'title' => 'Penyandang Disabilitas',
+                'items' => ['Penyandang Disabilitas'],
+                'direct' => true,
+                'directLabel' => 'Penyandang Disabilitas',
+            ],
+        ];
+
+        abort_unless(isset($categories[$kategori]), 404);
+
+        return view('data.statistik-penduduk-pilihan', [
+            'category' => $categories[$kategori],
+            'kategori' => $kategori,
+        ]);
+    })->name('statistik-penduduk.kategori');
+
+    Route::get('/statistik-penduduk/{kategori}/{submenu}', function (string $kategori, string $submenu) {
+        $titles = [
+            'demografi' => 'Demografi Penduduk',
+            'sosial-pendidikan' => 'Status Sosial & Pendidikan',
+            'ekonomi' => 'Pekerjaan / Mata Pencaharian',
+            'inklusi' => 'Penyandang Disabilitas',
+        ];
+
+        $submenuTitles = [
+            'kelompok-usia' => 'Kelompok Usia',
+            'jumlah-kepala-keluarga-kk' => 'Jumlah Kepala Keluarga (KK)',
+            'tingkat-pendidikan' => 'Tingkat Pendidikan',
+            'status-perkawinan' => 'Status Perkawinan',
+            'mata-pencaharian' => 'Mata Pencaharian',
+            'penyandang-disabilitas' => 'Penyandang Disabilitas',
+            'golongan-darah' => 'Golongan Darah',
+        ];
+
+        abort_unless(isset($titles[$kategori]), 404);
+
+        return view('data.statistik-penduduk-data', [
+            'categoryTitle' => $titles[$kategori],
+            'submenuTitle' => $submenuTitles[$submenu] ?? ucwords(str_replace('-', ' ', $submenu)),
+            'kategori' => $kategori,
+        ]);
+    })->name('statistik-penduduk.submenu');
 
     Route::get('/integrasi-data-desa', fn () => view('data.integrasi-data-desa'))->name('integrasi-data-desa');
 
