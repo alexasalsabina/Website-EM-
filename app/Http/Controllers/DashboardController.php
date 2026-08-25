@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Agenda;
 use App\Models\Berita;
-use App\Models\DataDesa;
+use App\Models\StatistikDesa;
 use App\Models\GaleriFoto;
 use App\Models\GaleriKategori;
 use Illuminate\Support\Facades\Schema;
@@ -29,13 +29,17 @@ class DashboardController extends Controller
                 }),
                 'label'      => 'agenda terjadwal',
             ],
+            'event' => [
+                'total' => $this->safeCount(\App\Models\Event::class),  
+                'label' => 'event tersedia',
+            ],
             'galeri' => [
                 'kategori' => $this->safeCount(GaleriKategori::class),
                 'foto'     => $this->safeCount(GaleriFoto::class),
                 'label'    => 'foto & video',
             ],
             'data_desa' => [
-                'total' => $this->safeCount(DataDesa::class),
+                'total' => $this->safeCount(StatistikDesa::class),
                 'label' => 'entri data desa',
             ],
         ];

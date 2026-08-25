@@ -42,7 +42,7 @@
                         <p class="folder-card__desc">Dokumentasi perlombaan, jalan sehat, dan upacara peringatan kemerdekaan.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
-                            <a href="{{ route('event.karnaval') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+                            <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                         <p class="folder-card__desc">Penampilan pertunjukan tarian tradisional dan musik warga desa.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
-                            <a href="{{ route('event.karnaval') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+                            <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <p class="folder-card__desc">Aksi kebersihan rutin lingkungan RT/RW Desa Jatisari.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
-                            <a href="{{ route('event.karnaval') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+                            <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
                         </div>
                     </div>
                 </div>
@@ -139,19 +139,19 @@
                 src: "{{ asset('images/lapangan.jpeg') }}",
                 title: "HUT KEMERDEKAAN RI - KARNAVAL DESA",
                 caption: "Kemeriahan pawai dan karnaval warga dalam memperingati HUT Kemerdekaan RI.",
-                newsUrl: "{{ route('event.karnaval') }}"
+                newsUrl: "{{ route('event.index') }}"
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "LOMBA RAKYAT ANTAR RT",
                 caption: "Keseruan lomba balap karung dan makan kerupuk anak-anak desa.",
-                newsUrl: "{{ route('event.karnaval') }}"
+                newsUrl: "{{ route('event.index') }}"
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "MALAM PUNCAK HUT RI",
                 caption: "Penyerahan hadiah lomba dan panggung hiburan masyarakat.",
-                newsUrl: "{{ route('event.karnaval') }}"
+                newsUrl: "{{ route('event.index') }}"
             }
         ],
         'album-pentas-seni': [
@@ -159,13 +159,13 @@
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "PENTAS SENI - TARI TRADISIONAL",
                 caption: "Pertunjukan seni tari daerah oleh pemuda-pemudi Desa Jatisari.",
-                newsUrl: "{{ route('event.karnaval') }}"
+                newsUrl: "{{ route('event.index') }}"
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "PERTUNJUKAN MUSIK BAMBU",
                 caption: "Alunan musik tradisional kreasi seni warga desa.",
-                newsUrl: "{{ route('event.karnaval') }}"
+                newsUrl: "{{ route('event.index') }}"
             }
         ],
         'album-kerja-bakti': [
@@ -173,7 +173,7 @@
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "GOTONG ROYONG LINGKUNGAN",
                 caption: "Kegiatan kerja bakti serentak membersihkan fasilitas umum desa.",
-                newsUrl: "{{ route('event.karnaval') }}"
+                newsUrl: "{{ route('event.index') }}"
             }
         ]
     };

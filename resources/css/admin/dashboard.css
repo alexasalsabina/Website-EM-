@@ -1,6 +1,6 @@
 .dashboard-container {
     padding: 25px;
-    background: #f5f7f5;
+    background: #f5f7fa;
 }
 
 
@@ -16,14 +16,14 @@
 
 
 .dashboard-header h1 {
-    color:#284139;
+    color:#0D2A45;
     font-size:28px;
     font-weight:700;
 }
 
 
 .dashboard-header p {
-    color:#809076;
+    color:#3F6A93;
 }
 
 
@@ -34,8 +34,8 @@
 
     background:linear-gradient(
         135deg,
-        #284139,
-        #809076
+        #0D2A45,
+        #3F6A93
     );
 
     color:white;
@@ -113,7 +113,7 @@
 
     border-radius:12px;
 
-    background:#809076;
+    background:#3F6A93;
 
     color:white;
 
@@ -134,7 +134,7 @@
 
 .dashboard-card h3 {
 
-    color:#284139;
+    color:#0D2A45;
 
     font-size:18px;
 
@@ -172,7 +172,7 @@
 
     margin-top:15px;
 
-    color:#284139;
+    color:#0D2A45;
 
     font-weight:600;
 

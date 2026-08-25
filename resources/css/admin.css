@@ -10,7 +10,7 @@
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#f6f8f7;
+    background:#f6f8fa;
     overflow:hidden;
 }
 
@@ -91,9 +91,8 @@ body{
     left:0;
     width:270px;
     height:100vh;
-    background:#284139;
-    min-height:100vh;
     background:#0D2A45;
+    min-height:100vh;
     color:#fff;
     display:flex;
     flex-direction:column;
@@ -113,7 +112,7 @@ body{
     height:85px;
     object-fit:contain;
     margin-bottom:15px;
-    display: block; /* pastikan konsisten, dikontrol oleh flex parent */
+    display: block;
 }
 
 .sidebar-header h2{
@@ -155,7 +154,7 @@ body{
 
 .sidebar-menu a:hover,
 .sidebar-menu a.active{
-    background:#3d5b51;
+    background:#12395A;
 }
 .sidebar-menu a:hover{
     background:#12395A;
@@ -210,7 +209,7 @@ body{
 
     overflow:hidden;
 
-    background:#f6f8f7;
+    background:#f6f8fa;
 }
 
 /* =========================================================
@@ -241,7 +240,7 @@ body{
 .topbar-left h2{
 
     font-size:30px;
-    color:#284139;
+    color:#0D2A45;
     margin-bottom:5px;
 }
 
@@ -271,7 +270,7 @@ body{
 
     border-radius:50%;
 
-    background:linear-gradient(135deg,#284139,#4e7d69);
+    background:linear-gradient(135deg,#0D2A45,#2f6690);
 
     color:white;
 
@@ -287,7 +286,7 @@ body{
 
     display:block;
 
-    color:#284139;
+    color:#0D2A45;
 }
 
 .admin-profile small{
@@ -310,6 +309,152 @@ body{
     padding:0 25px 25px;
 }
 
+/* =========================================================
+   CREATE AGENDA
+========================================================= */
+
+.agenda-create{
+    max-width:1180px;
+    margin:0 auto;
+    padding-bottom:24px;
+}
+
+.agenda-create__heading{
+    display:flex;
+    align-items:flex-end !important;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:24px !important;
+}
+
+.agenda-create__heading h2{
+    color:#0D2A45;
+    font-size:clamp(26px, 3vw, 36px);
+    letter-spacing:-.5px;
+    margin-bottom:6px !important;
+}
+
+.agenda-create__heading p{
+    color:#5B7690 !important;
+}
+
+.agenda-create__heading .berita-create__back{
+    background:#fff;
+    border:1px solid #D6E4F0;
+    border-radius:10px;
+    color:#0D2A45;
+    font-weight:700;
+    padding:11px 16px;
+}
+
+.agenda-create__heading .berita-create__back:hover{
+    background:#EAF2FA;
+    border-color:#9CBEDD;
+    color:#0D2A45;
+}
+
+.agenda-create > .alert-danger{
+    background:#fff3f1;
+    border:1px solid #efc9c2;
+    border-left:4px solid #c94f43;
+    border-radius:10px;
+    color:#8b352e;
+    margin:0 0 20px;
+    padding:14px 18px;
+}
+
+.agenda-create > form > .card{
+    background:#fff;
+    border:1px solid #D6E4F0 !important;
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(13, 42, 69, .07) !important;
+    overflow:hidden;
+}
+
+.agenda-create > form > .card > .card-body{
+    padding:28px;
+}
+
+.agenda-create .form-label{
+    color:#14304F;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.agenda-create .form-control,
+.agenda-create .form-select{
+    border:1px solid #D6E4F0;
+    border-radius:9px;
+    color:#0D2A45;
+    min-height:46px;
+    padding:10px 13px;
+    transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+.agenda-create .form-control:focus,
+.agenda-create .form-select:focus{
+    border-color:#2f6690;
+    box-shadow:0 0 0 3px rgba(47, 102, 144, .14);
+}
+
+.agenda-create textarea.form-control{
+    line-height:1.7;
+    min-height:210px;
+    resize:vertical;
+}
+
+.agenda-create input[type="file"]{
+    background:#EEF5FC;
+    border:1px dashed #9CBEDD;
+    padding:14px;
+}
+
+.agenda-create > form > .card > .card-footer{
+    background:#fbfcfd !important;
+    border-top:1px solid #edf1f4;
+    padding:20px 28px;
+}
+
+.agenda-create .card-footer .btn{
+    border-radius:9px;
+    font-weight:700;
+    padding:11px 18px;
+}
+
+.agenda-create .card-footer .btn-success{
+    background:#1F5C8B;
+    border-color:#1F5C8B;
+}
+
+.agenda-create .card-footer .btn-success:hover{
+    background:#164A73;
+    border-color:#164A73;
+}
+
+@media (max-width:576px){
+    .agenda-create__heading{
+        align-items:flex-start !important;
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .agenda-create > form > .card > .card-body,
+    .agenda-create > form > .card > .card-footer{
+        padding:20px;
+    }
+
+    .agenda-create .card-footer .btn{
+        display:block;
+        margin:0 0 10px !important;
+        width:100%;
+    }
+
+    .agenda-create .card-footer .btn:last-child{
+        margin-bottom:0 !important;
+    }
+}
+
 /* Scrollbar */
 
 .page-content::-webkit-scrollbar{
@@ -319,7 +464,7 @@ body{
 
 .page-content::-webkit-scrollbar-thumb{
 
-    background:#9ab2a7;
+    background:#9CBEDD;
     border-radius:20px;
 }
 
@@ -351,11 +496,187 @@ footer{
     flex-shrink:0;
 }
 
+/* =========================================================
+   CREATE BERITA
+========================================================= */
+
+.berita-create{
+    max-width:1180px;
+    margin:0 auto;
+    padding-bottom:24px;
+}
+
+.berita-create__heading{
+    align-items:flex-end;
+    display:flex;
+    gap:24px;
+    justify-content:space-between;
+    margin-bottom:24px;
+}
+
+.berita-create__eyebrow{
+    color:#BB6B30;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.4px;
+    margin-bottom:8px;
+    text-transform:uppercase;
+}
+
+.berita-create__heading h2{
+    color:#0D2A45;
+    font-size:clamp(26px, 3vw, 36px);
+    letter-spacing:-.5px;
+    margin:0 0 6px;
+}
+
+.berita-create__heading p{
+    color:#5B7690;
+    margin:0;
+}
+
+.berita-create__back{
+    align-items:center;
+    border:1px solid #D6E4F0;
+    border-radius:10px;
+    color:#0D2A45;
+    display:inline-flex;
+    font-weight:700;
+    gap:8px;
+    padding:11px 16px;
+    text-decoration:none;
+    transition:.2s ease;
+    white-space:nowrap;
+}
+
+.berita-create__back:hover{
+    background:#EAF2FA;
+    border-color:#9CBEDD;
+    color:#0D2A45;
+}
+
+.berita-create__error{
+    background:#FFF3F1;
+    border:1px solid #EFC9C2;
+    border-left:4px solid #C94F43;
+    border-radius:10px;
+    color:#8B352E;
+    margin:0 0 20px;
+    padding:14px 18px;
+}
+
+.berita-create__error ul{ padding-left:18px; }
+
+.berita-create__card{
+    background:#FFF;
+    border:1px solid #D6E4F0;
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(13,42,69,.07);
+}
+
+.berita-create__card-body{ padding:26px; }
+
+.berita-create__card-title{
+    color:#0D2A45;
+    font-size:17px;
+    font-weight:800;
+    margin:0 0 22px;
+}
+
+.berita-create__field{ margin-bottom:20px; }
+
+.berita-create__field label{
+    color:#14304F;
+    display:block;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.berita-create__field label span{ color:#BB6B30; }
+
+.berita-create .form-control,
+.berita-create .form-select{
+    border:1px solid #D6E4F0;
+    border-radius:9px;
+    color:#0D2A45;
+    min-height:46px;
+    padding:10px 13px;
+    transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+.berita-create .form-control:focus,
+.berita-create .form-select:focus{
+    border-color:#2f6690;
+    box-shadow:0 0 0 3px rgba(47,102,144,.14);
+}
+
+.berita-create textarea.form-control{
+    line-height:1.7;
+    min-height:300px;
+    resize:vertical;
+}
+
+.berita-create__hint{
+    color:#7B93AD;
+    display:block;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.berita-create__upload{
+    background:#EEF5FC;
+    border:1px dashed #9CBEDD;
+    border-radius:11px;
+    padding:14px;
+}
+
+.berita-create__upload .form-control{
+    background:#FFF;
+    font-size:12px;
+}
+
+.berita-create__status{
+    background:#F5F9FC;
+    border-radius:10px;
+    padding:15px;
+}
+
+.berita-create__actions{
+    border-top:1px solid #EDF1F4;
+    display:flex;
+    gap:10px;
+    padding:20px 26px;
+}
+
+.berita-create__actions .btn{
+    border-radius:9px;
+    font-weight:700;
+    padding:11px 18px;
+}
+
+.berita-create__actions .btn-success{
+    background:#1F5C8B;
+    border-color:#1F5C8B;
+}
+
+@media (max-width:900px){
+    .berita-create__layout{ grid-template-columns:1fr !important; }
+    .berita-create__side{ position:static !important; }
+}
+
+@media (max-width:576px){
+    .berita-create__heading{ align-items:flex-start; flex-direction:column; gap:16px; }
+    .berita-create__card-body,
+    .berita-create__actions{ padding:20px; }
+    .berita-create__actions{ flex-direction:column; }
+    .berita-create__actions .btn{ width:100%; }
+}
+
 /* ==========================================================
    RESPONSIVE SIDEBAR (tambahkan di akhir admin.css)
    ========================================================== */
 
-/* Tombol hamburger: default disembunyikan di desktop */
 .sidebar-toggle {
     display: none;
     background: none;
@@ -368,7 +689,6 @@ footer{
     color: inherit;
 }
 
-/* Overlay gelap di belakang sidebar saat terbuka (mobile) */
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -383,7 +703,6 @@ footer{
 
 @media (max-width: 768px) {
 
-    /* Tampilkan tombol hamburger */
     .sidebar-toggle {
         display: inline-flex;
         align-items: center;
@@ -391,7 +710,6 @@ footer{
         flex-shrink: 0;
     }
 
-    /* Sidebar jadi fixed & disembunyikan di luar layar */
     .sidebar {
         position: fixed;
         top: 0;
@@ -407,13 +725,11 @@ footer{
         transform: translateX(0);
     }
 
-    /* PENTING: reset margin-left & width content-wrapper */
     .content-wrapper {
         margin-left: 0;
         width: 100%;
     }
 
-    /* Topbar: tinggi menyesuaikan isi, bukan fixed 90px */
     .topbar {
         height: auto;
         min-height: 70px;
@@ -426,7 +742,7 @@ footer{
         display: flex;
         align-items: center;
         gap: 10px;
-        min-width: 0; /* penting supaya teks bisa truncate, bukan overflow */
+        min-width: 0;
     }
 
     .topbar-left > div {
@@ -442,12 +758,10 @@ footer{
         text-overflow: ellipsis;
     }
 
-    /* Subtitle disembunyikan di layar sempit biar topbar nggak melebar */
     .topbar-left small {
         display: none;
     }
 
-    /* Sembunyikan detail nama/email admin, sisakan avatar saja */
     .admin-profile strong,
     .admin-profile small {
         display: none;

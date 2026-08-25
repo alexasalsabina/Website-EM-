@@ -3,150 +3,72 @@
 @section('title', 'Data Desa')
 @section('page-title', 'Data Desa')
 
-@push('styles')
-    @vite('resources/css/admin/datadesa.css')
-@endpush
-
-@push('scripts')
-    @vite('resources/js/admin/datadesa.js')
-@endpush
-
 @section('content')
+<div class="p-8">
 
-<div class="datadesa-wrapper">
-
-    {{-- Header --}}
-    <div class="datadesa-header">
-        <h1>Kelola Data Desa</h1>
-        <p>
-            Kelola seluruh informasi data Desa Jatisari yang akan ditampilkan pada website.
-        </p>
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-blue-800">Kelola Data Desa</h1>
+        <p class="mt-1 text-gray-500">Kelola seluruh informasi data Desa Jatisari.</p>
     </div>
 
-    {{-- Grid --}}
-    <div class="datadesa-grid">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
 
-        {{-- Anggaran --}}
-        <div class="datadesa-card">
-
-            <div class="datadesa-icon">💰</div>
-
-            <h3>Anggaran</h3>
-
-            <p>
-                Kelola dokumen APBDes, laporan anggaran, dan informasi keuangan desa.
-            </p>
-
-            <a href="{{ route('admin.data-desa.anggaran') }}">
+        {{-- Statistik --}}
+        <div class="rounded-2xl bg-white p-6 text-center shadow-md">
+            <div class="mb-3 text-4xl">📊</div>
+            <h3 class="text-lg font-bold text-gray-800">Statistik</h3>
+            <p class="mt-1 text-sm text-gray-500">Kelola statistik data kependudukan.</p>
+            <a href="{{ route('admin.data-desa.statistik') }}"
+               class="mt-4 inline-block w-full rounded-xl bg-blue-700 px-4 py-2.5 font-semibold text-white transition hover:bg-blue-800">
                 Kelola
             </a>
+        </div>
 
+        {{-- Anggaran --}}
+        <div class="rounded-2xl bg-white p-6 text-center shadow-md">
+            <div class="mb-3 text-4xl">💰</div>
+            <h3 class="text-lg font-bold text-gray-800">Anggaran</h3>
+            <p class="mt-1 text-sm text-gray-500">Kelola data anggaran desa.</p>
+            <a href="#"
+               class="mt-4 inline-block w-full rounded-xl bg-gray-300 px-4 py-2.5 font-semibold text-gray-600 cursor-not-allowed">
+                Segera Hadir
+            </a>
         </div>
 
         {{-- Dana Desa --}}
-        <div class="datadesa-card">
-
-            <div class="datadesa-icon">🏦</div>
-
-            <h3>Dana Desa</h3>
-
-            <p>
-                Kelola informasi dana desa yang diterima beserta dokumen pendukungnya.
-            </p>
-
-            <a href="{{ route('admin.data-desa.dana') }}">
-                Kelola
+        <div class="rounded-2xl bg-white p-6 text-center shadow-md">
+            <div class="mb-3 text-4xl">🏦</div>
+            <h3 class="text-lg font-bold text-gray-800">Dana Desa</h3>
+            <p class="mt-1 text-sm text-gray-500">Kelola data dana desa.</p>
+            <a href="#"
+               class="mt-4 inline-block w-full rounded-xl bg-gray-300 px-4 py-2.5 font-semibold text-gray-600 cursor-not-allowed">
+                Segera Hadir
             </a>
-
         </div>
 
-        {{-- Peraturan Desa --}}
-        <div class="datadesa-card">
-
-            <div class="datadesa-icon">📜</div>
-
-            <h3>Peraturan Desa</h3>
-
-            <p>
-                Kelola seluruh Peraturan Desa (Perdes) yang berlaku.
-            </p>
-
-            <a href="{{ route('admin.data-desa.peraturan') }}">
-                Kelola
+        {{-- Peraturan --}}
+        <div class="rounded-2xl bg-white p-6 text-center shadow-md">
+            <div class="mb-3 text-4xl">📜</div>
+            <h3 class="text-lg font-bold text-gray-800">Peraturan Desa</h3>
+            <p class="mt-1 text-sm text-gray-500">Kelola data peraturan desa.</p>
+            <a href="#"
+               class="mt-4 inline-block w-full rounded-xl bg-gray-300 px-4 py-2.5 font-semibold text-gray-600 cursor-not-allowed">
+                Segera Hadir
             </a>
-
-        </div>
-
-        {{-- Monografi --}}
-        <div class="datadesa-card">
-
-            <div class="datadesa-icon">📊</div>
-
-            <h3>Monografi</h3>
-
-            <p>
-                Kelola data umum desa seperti luas wilayah, dusun, RT/RW, dan informasi lainnya.
-            </p>
-
-            <a href="{{ route('admin.data-desa.monografi') }}">
-                Kelola
-            </a>
-
         </div>
 
         {{-- Aset Desa --}}
-        <div class="datadesa-card">
-
-            <div class="datadesa-icon">🏢</div>
-
-            <h3>Aset Desa</h3>
-
-            <p>
-                Kelola daftar aset yang dimiliki Desa Jatisari beserta kondisinya.
-            </p>
-
-            <a href="{{ route('admin.data-desa.aset') }}">
-                Kelola
+        <div class="rounded-2xl bg-white p-6 text-center shadow-md">
+            <div class="mb-3 text-4xl">🏘️</div>
+            <h3 class="text-lg font-bold text-gray-800">Aset Desa</h3>
+            <p class="mt-1 text-sm text-gray-500">Kelola data aset desa.</p>
+            <a href="#"
+               class="mt-4 inline-block w-full rounded-xl bg-gray-300 px-4 py-2.5 font-semibold text-gray-600 cursor-not-allowed">
+                Segera Hadir
             </a>
-
-        </div>
-
-        {{-- Statistik Penduduk --}}
-        <div class="datadesa-card">
-
-            <div class="datadesa-icon">👥</div>
-
-            <h3>Statistik Penduduk</h3>
-
-            <p>
-                Kelola data statistik penduduk yang akan ditampilkan dalam bentuk grafik dan informasi.
-            </p>
-
-            <a href="{{ route('admin.data-desa.statistik') }}">
-                Kelola
-            </a>
-
-        </div>
-
-        {{-- Integrasi Data --}}
-        <div class="datadesa-card">
-
-            <div class="datadesa-icon">🔗</div>
-
-            <h3>Integrasi Data</h3>
-
-            <p>
-                Kelola tautan menuju sistem dan layanan pemerintah yang terintegrasi.
-            </p>
-
-            <a href="{{ route('admin.data-desa.integrasi') }}">
-                Kelola
-            </a>
-
         </div>
 
     </div>
 
 </div>
-
 @endsection

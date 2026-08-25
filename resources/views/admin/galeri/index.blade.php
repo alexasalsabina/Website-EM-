@@ -18,37 +18,39 @@
     <div class="kategori-grid">
 
         @php
-            $kategori = [
-                ['Masjid','🕌'],
-                ['Kantor Desa','🏢'],
-                ['Sekolah','🏫'],
-                ['Pemakaman','🪦'],
-                ['Lapangan','⚽'],
-                ['Posyandu','🩺'],
-                ['Wisata','🌳'],
-                ['Kopdes','🤝'],
+            $ikonKategori = [
+                'Masjid' => '🕌',
+                'Kantor Desa' => '🏢',
+                'Sekolah' => '🏫',
+                'Pemakaman' => '🪦',
+                'Lapangan' => '⚽',
+                'Posyandu' => '🩺',
+                'Wisata' => '🌳',
+                'Kopdes' => '🤝',
             ];
         @endphp
 
-        @foreach($kategori as $item)
+        @forelse($kategoris as $kategori)
 
         <div class="kategori-card">
 
             <div class="kategori-icon">
-                {{ $item[1] }}
+                {{ $ikonKategori[$kategori->nama] ?? '🖼️' }}
             </div>
 
-            <h4>{{ $item[0] }}</h4>
+            <h4>{{ $kategori->nama }}</h4>
 
-            <p>Kelola foto {{ strtolower($item[0]) }}</p>
+            <p>{{ $kategori->fotos_count }} foto tersimpan</p>
 
-            <a href="#" class="btn-kelola">
+            <a href="{{ route('admin.galeri-foto.index', ['kategori' => $kategori->id]) }}" class="btn-kelola" aria-label="Kelola foto {{ $kategori->nama }}">
                 Kelola
             </a>
 
         </div>
 
-        @endforeach
+        @empty
+            <p class="galeri-empty">Belum ada kategori galeri.</p>
+        @endforelse
 
     </div>
 

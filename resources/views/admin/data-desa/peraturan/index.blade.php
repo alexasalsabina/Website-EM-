@@ -8,8 +8,8 @@
 
     <h2>Kelola Peraturan Desa</h2>
 
-    <a href="#" class="btn btn-success mt-3">
-        + Tambah Peraturan
+    <a href="{{ route('admin.data-desa.index') }}" class="btn btn-success mt-3">
+        Kembali ke Data Desa
     </a>
 
 </div>

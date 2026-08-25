@@ -34,7 +34,7 @@
                 Kelola sambutan Kepala Desa.
             </p>
 
-            <a href="{{ route('admin.profil.sambutan') }}">
+            <a href="{{ route('admin.profil.sambutan.edit') }}" aria-label="Kelola sambutan Kepala Desa">
                 Kelola
             </a>
         </div>
@@ -50,7 +50,7 @@
                 Kelola struktur pemerintahan.
             </p>
 
-            <a href="{{ route('admin.profil.struktur') }}">
+            <a href="{{ route('admin.profil.struktur.index') }}" aria-label="Kelola struktur pemerintahan">
                 Kelola
             </a>
 
@@ -67,7 +67,7 @@
                 Kelola potensi desa.
             </p>
 
-            <a href="{{ route('admin.profil.potensi') }}">
+            <a href="{{ route('admin.profil.potensi') }}" aria-label="Kelola potensi desa">
                 Kelola
             </a>
 
@@ -84,7 +84,7 @@
                 Kelola inovasi desa.
             </p>
 
-            <a href="{{ route('admin.profil.inovasi') }}">
+            <a href="{{ route('admin.profil.inovasi.index') }}" aria-label="Kelola inovasi desa">
                 Kelola
             </a>
 
@@ -101,7 +101,7 @@
                 Kelola prestasi desa.
             </p>
 
-            <a href="{{ route('admin.profil.prestasi') }}">
+            <a href="{{ route('admin.profil.prestasi.index') }}" aria-label="Kelola prestasi desa">
                 Kelola
             </a>
 

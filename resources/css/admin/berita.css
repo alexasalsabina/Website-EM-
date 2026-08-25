@@ -20,7 +20,7 @@
 .berita-header h1{
 
     font-size:30px;
-    color:#284139;
+    color:#0D2A45;
     font-weight:700;
 
 }
@@ -70,7 +70,7 @@
 
 .btn-cari{
 
-    background:#809076;
+    background:#3F6A93;
     color:white;
     border:none;
     border-radius:10px;
@@ -92,9 +92,9 @@
 
 .berita-table th{
 
-    background:#f5f7f5;
+    background:#f0f4f8;
     padding:16px;
-    color:#284139;
+    color:#0D2A45;
     text-align:left;
 
 }
@@ -148,8 +148,8 @@
 
 .aktif{
 
-    background:#dcf5e3;
-    color:#16753b;
+    background:#dbeafe;
+    color:#1d4ed8;
 
 }
 
@@ -167,7 +167,7 @@
 .btn-edit{
 
     text-decoration:none;
-    color:#284139;
+    color:#0D2A45;
     font-weight:600;
     margin-right:10px;
 
@@ -206,7 +206,7 @@
 
 .empty h3{
 
-    color:#284139;
+    color:#0D2A45;
     margin-top:15px;
 
 }

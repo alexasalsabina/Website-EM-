@@ -68,7 +68,7 @@
         <a href="{{ route('galeri.index') }}" class="navbar__link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">GALERI</a>
 
         <div class="navbar__item">
-            <a href="{{ route('event.karnaval') }}" class="navbar__link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
+            <a href="{{ route('event.index') }}" class="navbar__link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
                 EVENT
             </a>
         </div>

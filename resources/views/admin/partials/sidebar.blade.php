@@ -28,8 +28,14 @@
             Agenda
         </a>
 
+        <a href="{{ route('admin.event.index') }}"
+            class="{{ request()->routeIs('admin.event.*') ? 'active' : '' }}">
+            <span>🎉</span>
+            Event
+        </a>
+
         <a href="{{ route('admin.galeri-kategori.index') }}"
-            class="{{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
+            class="{{ request()->routeIs('admin.galeri.*', 'admin.galeri-kategori.*', 'admin.galeri-foto.*') ? 'active' : '' }}">
             <span>🖼️</span>
             Galeri
         </a>

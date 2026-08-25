@@ -11,8 +11,8 @@
         Potensi Desa
     </h1>
 
-    <a href="#" class="bg-green-700 text-white px-5 py-2 rounded-lg">
-        + Tambah Potensi
+    <a href="{{ route('admin.profil.index') }}" class="bg-green-700 text-white px-5 py-2 rounded-lg">
+        Kembali ke Profil Desa
     </a>
 
 </div>

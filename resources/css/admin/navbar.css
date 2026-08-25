@@ -14,7 +14,7 @@
 
 .topbar-left h2{
     font-size: 28px;
-    color: #214f39;
+    color: #0D2A45;
     font-weight: 700;
     margin: 0;
 }
@@ -41,7 +41,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg,#2e7d32,#4caf50);
+    background: linear-gradient(135deg,#0D2A45,#3F6A93);
 
     display: flex;
     justify-content: center;
@@ -54,7 +54,7 @@
 
 .admin-profile strong{
     display:block;
-    color:#214f39;
+    color:#0D2A45;
     font-size:16px;
 }
 
