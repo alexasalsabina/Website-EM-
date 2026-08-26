@@ -6,10 +6,10 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid agenda-create">
 
     {{-- Header --}}
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="agenda-create__heading">
 
         <div>
 
@@ -23,8 +23,8 @@
 
         </div>
 
-        <a href="{{ route('admin.agenda.index') }}" class="btn btn-secondary">
-            ← Kembali
+        <a href="{{ route('admin.agenda.index') }}" class="berita-create__back">
+            <span aria-hidden="true">←</span> Kembali
         </a>
 
     </div>
@@ -210,7 +210,7 @@
 
                 <button
                     type="submit"
-                    class="btn btn-success">
+                    class="btn btn-primary">
 
                     Simpan Agenda
 

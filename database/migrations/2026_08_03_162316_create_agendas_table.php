@@ -8,15 +8,20 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('agendas', function (Blueprint $table) {
-            $table->string('status')->default('draft')->after('lokasi');
+        Schema::create('agendas', function (Blueprint $table) {
+            $table->id();
+            $table->string('judul');
+            $table->date('tanggal');
+            $table->string('hari')->nullable();
+            $table->time('waktu')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::table('agendas', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('agendas');
     }
 };

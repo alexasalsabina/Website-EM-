@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\GaleriKategoriController;
 use App\Http\Controllers\Admin\GaleriFotoController;
 use App\Http\Controllers\DataDesaController;
 use App\Http\Controllers\ProfilDesaController;
+use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
 
 Route::get('/', fn () => view('home'))->name('home');
 
@@ -22,15 +25,14 @@ Route::get('/', fn () => view('home'))->name('home');
 
 Route::prefix('berita')->name('berita.')->group(function () {
 
-    Route::get('/berita', fn () => view('berita.berita'))->name('berita');
-
-    Route::get('/artikel', fn () => view('berita.artikel'))->name('artikel');
-
-    Route::get('/opini', fn () => view('berita.opini'))->name('opini');
-
+    Route::get('/berita', [BeritaController::class, 'publicIndex'])->name('berita');
+    Route::get('/artikel', [BeritaController::class, 'publicArtikel'])->name('artikel');
+    Route::get('/opini', [BeritaController::class, 'publicOpini'])->name('opini');
+    
     Route::get('/agenda', [AgendaController::class, 'publicIndex'])->name('agenda');
-
     Route::get('/agenda/{slug}', [AgendaController::class, 'show'])->name('agenda.show');
+    Route::get('/{slug}', [BeritaController::class, 'publicShow'])->name('detail');
+
 
 });
 
@@ -163,13 +165,8 @@ Route::prefix('data')->name('data.')->group(function () {
 */
 
 Route::prefix('event')->name('event.')->group(function () {
-
-    Route::get('/karnaval-kemerdekaan', fn () => view('event.karnaval-kemerdekaan'))->name('karnaval-kemerdekaan');
-
-    Route::get('/karnaval', fn () => view('event.karnaval'))->name('karnaval');
-
-    Route::get('/hut-desa', fn () => view('event.hut-desa'))->name('hut-desa');
-
+    Route::get('/', [EventController::class, 'index'])->name('index');
+    Route::get('/{slug}', [EventController::class, 'show'])->name('show');
 });
 
 Route::get('/produk-hukum', fn () => view('produkhukum'))->name('produkhukum');
@@ -205,6 +202,8 @@ Route::middleware('auth')
         Route::resource('berita', BeritaController::class);
 
         Route::resource('agenda', AgendaController::class);
+
+        Route::resource('event', AdminEventController::class)->except(['show']);
 
         /*
         |----------------------------------------------------------
@@ -251,43 +250,44 @@ Route::middleware('auth')
                 Route::get('/', [ProfilDesaController::class,'index'])
                     ->name('index');
 
-                Route::get('/sambutan', [ProfilDesaController::class, 'sambutan'])
-                    ->name('sambutan');
+                Route::get('/sambutan/edit', [ProfilDesaController::class, 'sambutanEdit'])
+                    ->name('sambutan.edit');
 
-                Route::get('/struktur', [ProfilDesaController::class, 'struktur'])
-                    ->name('struktur');
+                Route::put('/sambutan', [ProfilDesaController::class, 'sambutanUpdate'])
+                    ->name('sambutan.update');
+
+                Route::resource('struktur', \App\Http\Controllers\PerangkatDesaController::class)
+                    ->names('struktur')
+                    ->except(['show']);
 
                 Route::get('/potensi', [ProfilDesaController::class, 'potensi'])
                     ->name('potensi');
 
-                Route::get('/inovasi', [ProfilDesaController::class, 'inovasi'])
-                    ->name('inovasi');
+                Route::resource('inovasi', \App\Http\Controllers\InovasiDesaController::class)
+                    ->names('inovasi')
+                    ->except(['show']);
 
-                Route::get('/prestasi', [ProfilDesaController::class, 'prestasi'])
-                    ->name('prestasi');
+                Route::resource('prestasi', \App\Http\Controllers\PrestasiController::class)
+                    ->names('prestasi')
+                    ->except(['show']);
             });
 
         Route::prefix('data-desa')
             ->name('data-desa.')
             ->group(function () {
 
-            Route::get('/', [DataDesaController::class, 'index'])->name('index');
+                Route::get('/', [\App\Http\Controllers\Admin\DataDesaController::class, 'index'])
+                    ->name('index');
 
-            Route::get('/anggaran', [DataDesaController::class, 'anggaran'])->name('anggaran');
+                Route::get('/statistik', [\App\Http\Controllers\Admin\DataDesaController::class, 'statistik'])
+                    ->name('statistik');
 
-            Route::get('/dana-desa', [DataDesaController::class, 'danaDesa'])->name('dana');
-
-            Route::get('/peraturan', [DataDesaController::class, 'peraturan'])->name('peraturan');
-
-            Route::get('/monografi', [DataDesaController::class, 'monografi'])->name('monografi');
-
-            Route::get('/aset', [DataDesaController::class, 'aset'])->name('aset');
-
-            Route::get('/statistik', [DataDesaController::class, 'statistik'])->name('statistik');
-
-            Route::get('/integrasi', [DataDesaController::class, 'integrasi'])->name('integrasi');
-        });
-        
+                Route::get('/statistik/{kategori}', [\App\Http\Controllers\Admin\DataDesaController::class, 'editStatistik'])
+                    ->name('statistik.edit'); 
+                
+                Route::put('/statistik/{kategori}', [\App\Http\Controllers\Admin\DataDesaController::class, 'updateStatistik'])
+                    ->name('statistik.update');
+            });
     });
 
 require __DIR__.'/auth.php';

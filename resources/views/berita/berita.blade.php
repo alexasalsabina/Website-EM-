@@ -15,13 +15,25 @@
             subtitle="Berita dan pengumuman penting yang dirancang agar mudah dibaca dan cepat diakses oleh warga desa."
         />
 
-        <div class="berita__tabbar" role="tablist" aria-label="Kategori berita">
-            <button type="button" id="berita-tab-terbaru" class="berita__tab" data-berita-tab="terbaru" role="tab" aria-controls="panel-terbaru" aria-selected="false">Terbaru</button>
-            <button type="button" id="berita-tab-populer" class="berita__tab" data-berita-tab="populer" role="tab" aria-controls="panel-populer" aria-selected="false">Populer</button>
-            <button type="button" id="berita-tab-agenda" class="berita__tab" data-berita-tab="agenda" role="tab" aria-controls="panel-agenda" aria-selected="false">Agenda</button>
-            <span class="berita__tab-indicator" aria-hidden="true"></span>
-        </div>
+        @if($beritas->count() > 0)
 
+<<<<<<< HEAD
+            @php
+                $hero = $beritas->first();
+                $lainnya = $beritas->skip(1);
+            @endphp
+
+            <div class="berita__top">
+                <div class="berita__hero is-active">
+                    <x-article-card
+                        href="{{ route('berita.detail', $hero->slug) }}"
+                        image="{{ $hero->thumbnail ? asset('storage/'.$hero->thumbnail) : 'images/jatisari.png' }}"
+                        date="{{ $hero->created_at->translatedFormat('d F Y') }}"
+                        title="{{ $hero->judul }}"
+                        excerpt="{{ Str::limit(strip_tags($hero->isi), 160) }}"
+                        class="article-card--hero"
+                    />
+=======
         <div class="berita__top">
             <div class="berita__hero" data-berita-panel="terbaru" id="panel-terbaru" role="tabpanel" aria-labelledby="berita-tab-terbaru">
                 <x-article-card
@@ -82,10 +94,50 @@
                             </a>
                         </li>
                     </ul>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
                 </div>
-            </aside>
-        </div>
 
+<<<<<<< HEAD
+                <aside class="berita__sidebar" aria-label="Headline terbaru">
+                    <div class="berita__sidebar-card">
+                        <p class="berita__sidebar-title">Headline Terbaru</p>
+                        <ul class="berita__headline-list">
+                            @foreach($beritas->skip(1)->take(4) as $item)
+                                <li>
+                                    <a href="{{ route('berita.detail', $item->slug) }}" class="berita__headline-item">
+                                        <span class="berita__headline-date">{{ $item->created_at->translatedFormat('d M Y') }}</span>
+                                        <strong>{{ $item->judul }}</strong>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="berita__cards">
+                @foreach($beritas->skip(1) as $berita)
+                    <x-article-card
+                        href="{{ route('berita.detail', $berita->slug) }}"
+                        image="{{ $berita->thumbnail ? asset('storage/'.$berita->thumbnail) : 'images/jatisari.png' }}"
+                        date="{{ $berita->created_at->translatedFormat('d F Y') }}"
+                        title="{{ $berita->judul }}"
+                        excerpt="{{ Str::limit(strip_tags($berita->isi), 140) }}"
+                    />
+                @endforeach
+            </div>
+
+            <div class="mt-6">
+                {{ $beritas->links() }}
+            </div>
+
+        @else
+            <div class="berita__empty text-center py-10">
+                <p class="text-gray-500">Belum ada berita yang dipublikasikan.</p>
+            </div>
+        @endif
+
+=======
         <div class="berita__cards">
             <x-article-card
                 href="javascript:void(0)"
@@ -115,6 +167,7 @@
                 excerpt="Pencanangan ruang publik baru di desa bertujuan untuk memberikan tempat yang nyaman bagi warga untuk belajar dan berolahraga."
             />
         </div>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
     </div>
 </section>
 @endsection

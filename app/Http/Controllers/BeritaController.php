@@ -15,13 +15,24 @@ class BeritaController extends Controller
      * ============================================
      */
 
-    public function publicIndex()
+    public function publicIndex($kategori = 'Berita', $view = 'berita.berita')
     {
         $beritas = Berita::where('status', 'publish')
+            ->where('kategori', $kategori)
             ->latest()
             ->paginate(6);
 
-        return view('berita.berita', compact('beritas'));
+        return view($view, compact('beritas'));
+    }
+
+    public function publicArtikel()
+    {
+        return $this->publicIndex('Artikel', 'berita.artikel');
+    }
+
+    public function publicOpini()
+    {
+        return $this->publicIndex('Opini', 'berita.opini');
     }
 
     public function publicShow($slug)
@@ -62,6 +73,7 @@ class BeritaController extends Controller
 
         return view('admin.berita.index', compact('beritas'));
     }
+
     public function create()
     {
         return view('admin.berita.create');

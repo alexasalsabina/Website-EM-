@@ -98,7 +98,7 @@
 
                     @if($berita->status == 'publish')
 
-                        <span class="badge bg-success">
+                        <span class="badge bg-primary">
                             Publish
                         </span>
 

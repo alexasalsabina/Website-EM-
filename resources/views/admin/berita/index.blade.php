@@ -9,14 +9,14 @@
     {{-- Header --}}
     <div class="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-green-800">Kelola Berita</h1>
+            <h1 class="text-2xl font-bold text-blue-900">Kelola Berita</h1>
             <p class="text-gray-500 mt-1">
                 Tambah, edit, dan hapus berita Desa Jatisari.
             </p>
         </div>
 
         <a href="{{ route('admin.berita.create') }}"
-           class="bg-green-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-800 transition whitespace-nowrap">
+           class="bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-900 transition whitespace-nowrap">
             + Tambah Berita
         </a>
     </div>
@@ -28,10 +28,10 @@
             name="search"
             value="{{ request('search') }}"
             placeholder="Cari berita..."
-            class="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-600"
+            class="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700"
         >
         <button type="submit"
-                class="bg-green-700 text-white px-5 py-2 rounded-lg font-semibold hover:bg-green-800 transition">
+                class="bg-blue-800 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-900 transition">
             Cari
         </button>
     </form>
@@ -58,7 +58,7 @@
                         {{-- Status + kategori --}}
                         <div class="mb-2 flex items-center gap-2">
                             @if($berita->status == 'publish')
-                                <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Publish</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Publish</span>
                             @else
                                 <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">Draft</span>
                             @endif
@@ -84,7 +84,7 @@
 
                         <div class="flex items-center justify-between border-t pt-3">
                             <a href="{{ route('admin.berita.edit', $berita->id) }}"
-                               class="text-green-700 font-semibold hover:underline text-sm">
+                               class="text-blue-800 font-semibold hover:underline text-sm">
                                 Edit
                             </a>
 
@@ -113,10 +113,6 @@
             <div class="text-5xl mb-4">📰</div>
             <h3 class="text-lg font-semibold text-gray-700 mb-1">Belum ada berita</h3>
             <p class="text-gray-500 mb-4">Silakan tambahkan berita pertama.</p>
-            <a href="{{ route('admin.berita.create') }}"
-               class="inline-block bg-green-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-800 transition">
-                + Tambah Berita
-            </a>
         </div>
     @endif
 

@@ -1,6 +1,6 @@
 <section class="hero" id="hero">
     <div class="hero__slides">
-        <a href="{{ route('event.hut-desa') }}" class="hero__slide is-active" data-index="0">
+        <a href="{{ route('event.index') }}" class="hero__slide is-active" data-index="0">
             <img src="{{ asset('images/wisata.jpg') }}" alt="HUT Desa Jatisari" class="hero__img">
             
             <!-- Gradasi pudar merata dari kiri ke kanan -->

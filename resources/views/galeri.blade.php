@@ -42,7 +42,11 @@
                         <p class="folder-card__desc">Dokumentasi perlombaan, jalan sehat, dan upacara peringatan kemerdekaan.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
+<<<<<<< HEAD
+                            <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+=======
                             <a href="{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
                         </div>
                     </div>
                 </div>
@@ -61,7 +65,11 @@
                         <p class="folder-card__desc">Penampilan pertunjukan tarian tradisional dan musik warga desa.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
+<<<<<<< HEAD
+                            <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+=======
                             <a href="{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
                         </div>
                     </div>
                 </div>
@@ -80,7 +88,11 @@
                         <p class="folder-card__desc">Aksi kebersihan rutin lingkungan RT/RW Desa Jatisari.</p>
                         <div class="folder-card__actions">
                             <span class="folder-card__action">Buka Album &rarr;</span>
+<<<<<<< HEAD
+                            <a href="{{ route('event.index') }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+=======
                             <a href="{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}" class="btn btn--primary btn--sm" onclick="event.stopPropagation()">Lihat Berita</a>
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
                         </div>
                     </div>
                 </div>
@@ -134,19 +146,31 @@
                 src: "{{ asset('images/lapangan.jpeg') }}",
                 title: "HUT KEMERDEKAAN RI - KARNAVAL DESA",
                 caption: "Kemeriahan pawai dan karnaval warga dalam memperingati HUT Kemerdekaan RI.",
+<<<<<<< HEAD
+                newsUrl: "{{ route('event.index') }}"
+=======
                 newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "LOMBA RAKYAT ANTAR RT",
                 caption: "Keseruan lomba balap karung dan makan kerupuk anak-anak desa.",
+<<<<<<< HEAD
+                newsUrl: "{{ route('event.index') }}"
+=======
                 newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "MALAM PUNCAK HUT RI",
                 caption: "Penyerahan hadiah lomba dan panggung hiburan masyarakat.",
+<<<<<<< HEAD
+                newsUrl: "{{ route('event.index') }}"
+=======
                 newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             }
         ],
         'album-pentas-seni': [
@@ -154,13 +178,21 @@
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "PENTAS SENI - TARI TRADISIONAL",
                 caption: "Pertunjukan seni tari daerah oleh pemuda-pemudi Desa Jatisari.",
+<<<<<<< HEAD
+                newsUrl: "{{ route('event.index') }}"
+=======
                 newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             },
             {
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "PERTUNJUKAN MUSIK BAMBU",
                 caption: "Alunan musik tradisional kreasi seni warga desa.",
+<<<<<<< HEAD
+                newsUrl: "{{ route('event.index') }}"
+=======
                 newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             }
         ],
         'album-kerja-bakti': [
@@ -168,7 +200,11 @@
                 src: "{{ asset('images/karnaval.png') }}",
                 title: "GOTONG ROYONG LINGKUNGAN",
                 caption: "Kegiatan kerja bakti serentak membersihkan fasilitas umum desa.",
+<<<<<<< HEAD
+                newsUrl: "{{ route('event.index') }}"
+=======
                 newsUrl: "{{ Route::has('event.karnaval') ? route('event.karnaval') : '#' }}"
+>>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
             }
         ]
     };

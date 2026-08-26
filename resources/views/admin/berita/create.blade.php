@@ -6,26 +6,26 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid berita-create">
 
     {{-- Header --}}
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="berita-create__heading">
 
         <div>
 
-            <h2 class="fw-bold mb-1">
+            <div class="berita-create__eyebrow">Ruang redaksi</div>
+            <h2>
                 Tambah Berita
             </h2>
 
-            <p class="text-muted mb-0">
+            <p>
                 Tambahkan berita baru untuk website Desa Jatisari.
             </p>
 
         </div>
 
-        <a href="{{ route('admin.berita.index') }}" class="btn btn-secondary">
-
-            ← Kembali
+        <a href="{{ route('admin.berita.index') }}" class="berita-create__back">
+            <span aria-hidden="true">←</span> Kembali
 
         </a>
 
@@ -35,7 +35,7 @@
     {{-- Error --}}
     @if($errors->any())
 
-        <div class="alert alert-danger">
+        <div class="berita-create__error">
 
             <ul class="mb-0">
 
@@ -199,7 +199,7 @@
 
                 <button
                     type="submit"
-                    class="btn btn-success">
+                    class="btn btn-primary">
 
                     Simpan Berita
 

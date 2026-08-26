@@ -17,7 +17,7 @@
 
     font-size:30px;
     font-weight:700;
-    color:#284139;
+    color:#0D2A45;
 
 }
 
@@ -33,7 +33,7 @@
 
 .btn-tambah{
 
-    background:#284139;
+    background:#0D2A45;
     color:white;
     padding:13px 22px;
     border-radius:12px;
@@ -46,7 +46,7 @@
 
 .btn-tambah:hover{
 
-    background:#3c5c4d;
+    background:#1a3f63;
 
 }
 
@@ -85,7 +85,7 @@
 
 .btn-cari{
 
-    background:#809076;
+    background:#3F6A93;
     color:white;
     border:none;
     padding:0 25px;
@@ -112,10 +112,10 @@
 
 .agenda-table th{
 
-    background:#f5f7f5;
+    background:#f0f4f8;
     padding:16px;
     text-align:left;
-    color:#284139;
+    color:#0D2A45;
 
 }
 
@@ -165,8 +165,8 @@
 
 .aktif{
 
-    background:#dff5e5;
-    color:#16753b;
+    background:#dbeafe;
+    color:#1d4ed8;
 
 }
 
@@ -190,7 +190,7 @@
 
 .btn-edit{
 
-    color:#284139;
+    color:#0D2A45;
     text-decoration:none;
     font-weight:600;
     margin-right:10px;
@@ -228,6 +228,6 @@
 .empty h3{
 
     margin-top:15px;
-    color:#284139;
+    color:#0D2A45;
 
 }

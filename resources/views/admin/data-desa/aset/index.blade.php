@@ -8,8 +8,8 @@
 
     <h2>Kelola Aset Desa</h2>
 
-    <a href="#" class="btn btn-success mt-3">
-        + Tambah Aset
+    <a href="{{ route('admin.data-desa.index') }}" class="btn btn-success mt-3">
+        Kembali ke Data Desa
     </a>
 
 </div>

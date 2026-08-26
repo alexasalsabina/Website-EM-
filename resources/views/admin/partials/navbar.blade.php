@@ -6,14 +6,6 @@
             ☰
         </button>
 
-        <div>
-            <h2>@yield('page-title', 'Dashboard')</h2>
-
-            <small>
-                Selamat Datang di Dashboard Administrator Desa Jatisari
-            </small>
-        </div>
-
     </div>
 
     <div class="topbar-right">
