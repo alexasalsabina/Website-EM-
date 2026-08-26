@@ -147,21 +147,22 @@
         
         <a href="{{ route('home') }}" class="custom-nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">HOME</a>
 
-        <!-- BERITA -->
-        <div class="navbar__item dropdown-container" style="position: relative !important;">
-            <button type="button" class="custom-nav-link dropdown-toggle-btn {{ request()->routeIs('berita.*') ? 'is-active' : '' }}">
-                BERITA
-                <svg class="navbar__caret" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 10px; height: 10px;">
-                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <div class="custom-dropdown-menu">
-                <a href="{{ route('berita.berita') }}" class="custom-dropdown-item {{ request()->routeIs('berita.berita') ? 'is-active' : '' }}">Berita</a>
-                <a href="{{ route('berita.artikel') }}" class="custom-dropdown-item {{ request()->routeIs('berita.artikel') ? 'is-active' : '' }}">Artikel</a>
-                <a href="{{ route('berita.opini') }}" class="custom-dropdown-item {{ request()->routeIs('berita.opini') ? 'is-active' : '' }}">Opini</a>
-                <a href="{{ route('berita.agenda') }}" class="custom-dropdown-item {{ request()->routeIs('berita.agenda') ? 'is-active' : '' }}">Agenda</a>
-            </div>
-        </div>
+<!-- BERITA -->
+<div class="navbar__item dropdown-container" style="position: relative !important;">
+    <button type="button" class="custom-nav-link dropdown-toggle-btn {{ request()->routeIs('berita.*') ? 'is-active' : '' }}">
+        BERITA
+        <svg class="navbar__caret" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 10px; height: 10px;">
+            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <div class="custom-dropdown-menu">
+        <a href="{{ route('berita.berita') }}" class="custom-dropdown-item {{ request()->routeIs('berita.berita') ? 'is-active' : '' }}">Berita</a>
+        <a href="{{ route('berita.artikel') }}" class="custom-dropdown-item {{ request()->routeIs('berita.artikel') ? 'is-active' : '' }}">Artikel</a>
+        <a href="{{ route('berita.opini') }}" class="custom-dropdown-item {{ request()->routeIs('berita.opini') ? 'is-active' : '' }}">Opini</a>
+        <a href="{{ route('berita.agenda') }}" class="custom-dropdown-item {{ request()->routeIs('berita.agenda') ? 'is-active' : '' }}">Agenda</a>
+    </div>
+</div>
 
         <!-- PROFIL -->
         <div class="navbar__item dropdown-container" style="position: relative !important;">
