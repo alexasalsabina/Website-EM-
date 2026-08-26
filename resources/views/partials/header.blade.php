@@ -1,23 +1,21 @@
-<header class="navbar" id="navbar" style="background: linear-gradient(90deg, #08233a 0%, #0b2d49 50%, #08233a 100%) !important; border-radius: 0 0 28px 28px !important; padding: 14px 32px !important; min-height: auto !important; height: auto !important; display: flex !important; align-items: center !important; justify-content: space-between !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; border-top: none !important; position: absolute !important; top: 0 !important; left: 18px !important; width: calc(100% - 36px) !important; box-sizing: border-box !important; margin: 0 !important; box-shadow: 0 8px 24px rgba(2, 16, 30, 0.28) !important;">
+<!-- Header Utama -->
+<header class="navbar" id="navbar" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 9999 !important; background: linear-gradient(90deg, #08233a 0%, #0b2d49 50%, #08233a 100%) !important; border-radius: 0 !important; padding: 12px 24px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; border: none !important; border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important; box-sizing: border-box !important; margin: 0 !important; transition: all 0.3s ease-in-out !important; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;">
     
-    <!-- CSS Penyesuaian Ukuran Font & Menaikkan Gambar Bawah -->
     <style>
-        /* Reset total container agar gambar slider di bawahnya langsung terangkat ke atas */
-        header.navbar, 
-        .navbar-container, 
-        .navbar-wrapper {
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            outline: none !important;
-            min-height: 0 !important;
-            margin-bottom: 0 !important;
+        /* Efek saat halaman di-scroll ke bawah (Melayang/Sticky Effect) */
+        header.navbar.is-scrolled {
+            background: rgba(8, 35, 58, 0.95) !important; /* Efek sedikit transparan */
+            backdrop-filter: blur(12px) !important;       /* Blur latar belakang */
+            -webkit-backdrop-filter: blur(12px) !important;
+            padding: 8px 24px !important;                 /* Header sedikit mengecil agar ramping */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
         }
 
-        /* Otomatis menaikkan elemen slider/banner yang persis ada di bawah navbar */
-        header.navbar + * {
-            margin-top: 0 !important;
-            padding-top: 0 !important;
+        /* Container & Alignment Reset */
+        header.navbar, .navbar-container, .navbar-wrapper {
+            background-image: none !important;
+            min-height: 0 !important;
+            margin-bottom: 0 !important;
         }
 
         .navbar, .navbar * {
@@ -32,25 +30,21 @@
             opacity: 0 !important;
         }
 
-        .navbar__menu {
-            transform: translateY(6px) !important;
-        }
-
-        /* Ukuran Font Menu Diperbesar 3px (1.15rem) */
+        /* Ukuran Font Menu Navigasi */
         .custom-nav-link {
             position: relative !important;
             text-transform: uppercase !important;
             font-weight: 700 !important;
-            font-size: 1.15rem !important; /* Diperbesar dari sebelumnya */
+            font-size: 1rem !important;
             letter-spacing: 0.5px !important;
             text-decoration: none !important;
             color: rgba(255, 255, 255, 0.9) !important;
-            padding: 4px 6px !important;
+            padding: 6px 10px !important;
             line-height: 1.2 !important;
             transition: color 0.2s ease-in-out !important;
             display: flex !important;
             align-items: center !important;
-            gap: 6px !important;
+            gap: 5px !important;
             background: transparent !important;
             border: none !important;
             cursor: pointer !important;
@@ -69,9 +63,9 @@
         .custom-nav-link.is-active::before {
             content: '' !important;
             position: absolute !important;
-            bottom: -6px !important;
-            left: 0 !important;
-            right: 0 !important;
+            bottom: -4px !important;
+            left: 10px !important;
+            right: 10px !important;
             height: 3px !important;
             background-color: #ffffff !important;
             border-radius: 2px !important;
@@ -122,7 +116,7 @@
             transform: rotate(180deg) !important;
         }
 
-        /* Avatar Profil Diperbesar Menyeimbangkan Font Baru */
+        /* Avatar Profil */
         .nav-user-avatar {
             width: 36px;
             height: 36px;
@@ -142,19 +136,16 @@
         }
     </style>
 
-    <!-- Logo & Nama Desa (Diperbesar Proporsional) -->
+    <!-- Logo & Nama Desa -->
     <a href="{{ url('/') }}" class="navbar__brand" style="display: flex !important; align-items: center !important; gap: 10px !important; text-decoration: none !important; color: #ffffff !important; flex-shrink: 0 !important;">
-        <img src="{{ asset('images/logo.png') }}" alt="logo " style="height: 64px; width: auto;">
-        <span style="font-weight: 700 !important; font-size: 1.35rem !important; letter-spacing: -0.2px; white-space: nowrap !important; line-height: 1;">Desa Jatisari</span>
+        <img src="{{ asset('images/logo.png') }}" alt="logo" style="height: 44px; width: auto; transition: height 0.3s ease;">
+        <span style="font-weight: 700 !important; font-size: 1.25rem !important; letter-spacing: -0.2px; white-space: nowrap !important; line-height: 1;">Desa Jatisari</span>
     </a>
 
-    <!-- Menu Navigasi Sisi Kanan -->
-    <nav class="navbar__menu" id="navbarMenu" style="display: flex !important; align-items: center !important; gap: 16px !important;">
+    <!-- Menu Navigasi -->
+    <nav class="navbar__menu" id="navbarMenu" style="display: flex !important; align-items: center !important; gap: 10px !important;">
         
-        <!-- HOME -->
-        <a href="{{ route('home') }}" class="custom-nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">
-           HOME
-        </a>
+        <a href="{{ route('home') }}" class="custom-nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">HOME</a>
 
         <!-- BERITA -->
         <div class="navbar__item dropdown-container" style="position: relative !important;">
@@ -164,7 +155,6 @@
                     <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-
             <div class="custom-dropdown-menu">
                 <a href="{{ route('berita.berita') }}" class="custom-dropdown-item {{ request()->routeIs('berita.berita') ? 'is-active' : '' }}">Berita</a>
                 <a href="{{ route('berita.artikel') }}" class="custom-dropdown-item {{ request()->routeIs('berita.artikel') ? 'is-active' : '' }}">Artikel</a>
@@ -181,7 +171,6 @@
                     <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-
             <div class="custom-dropdown-menu">
                 <a href="{{ route('profil.sejarah') }}" class="custom-dropdown-item {{ request()->routeIs('profil.sejarah') ? 'is-active' : '' }}">Sejarah</a>
                 <a href="{{ route('profil.visi-misi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.visi-misi') ? 'is-active' : '' }}">Visi & Misi</a>
@@ -200,7 +189,6 @@
                     <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-
             <div class="custom-dropdown-menu">
                 <a href="{{ route('data.anggaran') }}" class="custom-dropdown-item {{ request()->routeIs('data.anggaran') ? 'is-active' : '' }}">Anggaran</a>
                 <a href="{{ route('data.dana-desa') }}" class="custom-dropdown-item {{ request()->routeIs('data.dana-desa') ? 'is-active' : '' }}">Dana Desa</a>
@@ -214,35 +202,27 @@
 
         <!-- PRODUK HUKUM -->
         <a href="{{ route('produkhukum') }}" class="custom-nav-link {{ request()->routeIs('produkhukum') ? 'is-active' : '' }}">
-           PRODUK HUKUM
+            PRODUK HUKUM
         </a>
 
-<<<<<<< HEAD
-        <div class="navbar__item">
-            <a href="{{ route('event.index') }}" class="navbar__link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
-                EVENT
-            </a>
-        </div>
-=======
         <!-- PPDI -->
         <a href="{{ route('ppdi') }}" class="custom-nav-link {{ request()->routeIs('ppdi') ? 'is-active' : '' }}">
-           PPDI
+            PPDI
         </a>
->>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
 
         <!-- GALERI -->
         <a href="{{ route('galeri.index') }}" class="custom-nav-link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">
-           GALERI
+            GALERI
         </a>
 
         <!-- EVENT -->
         <a href="{{ route('event.karnaval') }}" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
-           EVENT
+            EVENT
         </a>
 
         <!-- KONTAK -->
         <a href="{{ route('kontak') }}" class="custom-nav-link {{ request()->routeIs('kontak') ? 'is-active' : '' }}">
-           KONTAK
+            KONTAK
         </a>
 
         <!-- Profile Icon -->
@@ -259,11 +239,22 @@
     </button>
 </header>
 
-<!-- JavaScript Interaktif Dropdown -->
+<!-- JavaScript Interaktif -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle-btn');
+        const navbar = document.getElementById('navbar');
 
+        // Deteksi Scroll untuk Efek Sticky & Blur Header
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 20) {
+                navbar.classList.add('is-scrolled');
+            } else {
+                navbar.classList.remove('is-scrolled');
+            }
+        });
+
+        // Event listener Dropdown Menu
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle-btn');
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -273,7 +264,9 @@
                 document.querySelectorAll('.custom-dropdown-menu').forEach(menu => {
                     if (menu !== currentMenu) {
                         menu.classList.remove('show');
-                        menu.closest('.dropdown-container').classList.remove('is-open');
+                        if (menu.closest('.dropdown-container')) {
+                            menu.closest('.dropdown-container').classList.remove('is-open');
+                        }
                     }
                 });
 
