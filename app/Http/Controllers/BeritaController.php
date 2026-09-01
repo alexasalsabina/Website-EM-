@@ -94,7 +94,7 @@ class BeritaController extends Controller
 
             'status' => 'required',
 
-            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:8192',
 
         ]);
 

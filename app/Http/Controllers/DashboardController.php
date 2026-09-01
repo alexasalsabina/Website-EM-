@@ -63,6 +63,7 @@ class DashboardController extends Controller
 
             return $query->count();
         } catch (\Throwable $e) {
+            \Log::error('Error in safeCount: ' . $e->getMessage());
             return 0;
         }
     }

@@ -11,7 +11,12 @@ class GaleriController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+        $kategoris = GaleriKategori::withCount('fotos')->get();
+        // Diubah dari 'foto' menjadi 'fotos'
+=======
         // Memuat relasi foto sekaligus menghitung jumlah foto
+>>>>>>> d2435a78a8c32de77e7fc798e9a0db84e0851cab
         $kategoris = GaleriKategori::with('fotos')
             ->withCount('fotos')
             ->get();

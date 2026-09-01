@@ -17,10 +17,12 @@
 
         @if($beritas->count() > 0)
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> d2435a78a8c32de77e7fc798e9a0db84e0851cab
             @php
                 $hero = $beritas->first();
-                $lainnya = $beritas->skip(1);
             @endphp
 
             <div class="berita__top">
@@ -33,6 +35,10 @@
                         excerpt="{{ Str::limit(strip_tags($hero->isi), 160) }}"
                         class="article-card--hero"
                     />
+<<<<<<< HEAD
+                </div>
+
+=======
 
         <div class="berita__top">
             <div class="berita__hero" data-berita-panel="terbaru" id="panel-terbaru" role="tabpanel" aria-labelledby="berita-tab-terbaru">
@@ -98,6 +104,7 @@
                 </div>
 
 
+>>>>>>> d2435a78a8c32de77e7fc798e9a0db84e0851cab
                 <aside class="berita__sidebar" aria-label="Headline terbaru">
                     <div class="berita__sidebar-card">
                         <p class="berita__sidebar-title">Headline Terbaru</p>
@@ -136,6 +143,8 @@
                 <p class="text-gray-500">Belum ada berita yang dipublikasikan.</p>
             </div>
         @endif
+<<<<<<< HEAD
+=======
 
 
         <div class="berita__cards">
@@ -168,6 +177,7 @@
             />
         </div>
 
+>>>>>>> d2435a78a8c32de77e7fc798e9a0db84e0851cab
     </div>
 </section>
 @endsection
