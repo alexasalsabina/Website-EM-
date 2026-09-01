@@ -29,9 +29,7 @@ section,
 .agenda,
 .kontak,
 .galeri,
-.event {
-  padding-top: 5rem !important;
-}
+
 
 /* Kembalikan halaman Home ke posisi semula tanpa spasi atas */
 .hero,
