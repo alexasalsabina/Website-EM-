@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset Universal Font & Sizing */
+.gallery-page,
+.gallery-page *,
+.gallery-modal,
+.gallery-modal * {
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Base Wrapper */
+.gallery-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 0 5rem 0;
+  margin-top: 0;
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 36%, #12395A 100%);
+  color: #f4efe4;
+  overflow: hidden;
+}
+
+/* Background Glowing Ambient Accent */
+.gallery-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 12% 14%, rgba(244, 239, 228, 0.12), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(190, 238, 140, 0.10), transparent 16%);
+  pointer-events: none;
+}
+
+/* 1. Hero Banner Full Width (Tanpa Gap & Fade Smooth) */
+.gallery-hero {
+  position: relative;
+  width: 100%;
+  padding: 8rem 1.5rem 5rem;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    #071C34 0%, 
+    rgba(7, 28, 52, 0.75) 30%, 
+    rgba(7, 28, 52, 0.4) 60%, 
+    rgba(7, 28, 52, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.gallery-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-hero__title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 0.8rem;
+  color: #ffffff;
+}
+
+.gallery-hero__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Container Inner */
+.gallery-page__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+/* Section Header */
+.gallery-section__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.gallery-section__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4efe4;
+  margin: 0;
+}
+
+.gallery-section__divider {
+  width: 50px;
+  height: 3px;
+  background-color: #beee8c;
+  margin: 0.6rem 0 0.8rem;
+  border-radius: 2px;
+}
+
+.gallery-section__subtitle {
+  font-size: 0.95rem;
+  color: rgba(244, 239, 228, 0.75);
+  margin: 0;
+}
+
+/* 2. Grid Album / Folder Card */
+.gallery-folders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.folder-card {
+  background: rgba(244, 239, 228, 0.08);
+  border: 1px solid rgba(244, 239, 228, 0.14);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.folder-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(190, 238, 140, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  background: rgba(244, 239, 228, 0.12);
+}
+
+.folder-card__cover-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.folder-card__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.folder-card:hover .folder-card__cover {
+  transform: scale(1.06);
+}
+
+.folder-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(7, 28, 52, 0.85);
+  border: 1px solid rgba(190, 238, 140, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #beee8c;
+}
+
+.folder-card__info {
+  padding: 1.4rem;
+}
+
+.folder-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.folder-card__desc {
+  margin: 0 0 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(244, 239, 228, 0.8);
+}
+
+/* Actions Wrapper (Buka Album Rata Kiri & Lihat Berita Rata Kanan) */
+.folder-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mendorong Buka Album ke kiri & Lihat Berita ke kanan */
+  width: 100%;
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+.folder-card__action {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #beee8c;
+  display: inline-block;
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.folder-card:hover .folder-card__action {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   3. LIGHTBOX MODAL STYLING
+   ========================================== */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gallery-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 28, 52, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.gallery-modal__content {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 960px;
+  background: rgba(13, 42, 69, 0.95);
+  border: 1px solid rgba(244, 239, 228, 0.15);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.gallery-modal__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   DISPLAY GAMBAR UTAMA MODAL (FULL COVER)
+   ========================================== */
+.gallery-modal__viewer {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  max-height: 400px;
+  min-height: 250px;
+  background: #041224;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Memastikan foto tidak meluap keluar dari sudut melengkung */
+}
+
+.gallery-modal__img-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0; /* Hilangkan padding agar gambar menyentuh semua pinggiran */
+}
+
+.gallery-modal__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mengisi penuh seluruh container tanpa menyisakan ruang hitam */
+  object-position: center; /* Memastikan fokus gambar berada di tengah */
+  border-radius: 0; /* Ikut memotong sesuai kontainer utama */
+}
+
+.gallery-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(7, 28, 52, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #beee8c;
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.gallery-modal__nav:hover {
+  background: #beee8c;
+  color: #071C34;
+}
+
+.gallery-modal__nav--prev { left: 15px; }
+.gallery-modal__nav--next { right: 15px; }
+
+.gallery-modal__footer {
+  padding: 1.5rem 2rem;
+  background: rgba(7, 28, 52, 0.95);
+  border-top: 1px solid rgba(244, 239, 228, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.gallery-modal__counter {
+  font-size: 0.75rem;
+  color: #beee8c;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.gallery-modal__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.gallery-modal__caption {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(244, 239, 228, 0.8);
+}
+
+/* Button Component */
+.btn--primary {
+  display: inline-block;
+  background: #beee8c;
+  color: #071C34;
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.88rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn--primary:hover {
+  background: #aadb78;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gallery-folders { grid-template-columns: repeat(2, 1fr); }
+  .gallery-modal__viewer { height: 360px; }
+}
+
+@media (max-width: 600px) {
+  .gallery-folders { grid-template-columns: 1fr; }
+  .gallery-modal__viewer { height: 280px; }
+  .gallery-modal__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gallery-modal__footer .btn--primary {
+    width: 100%;
+    text-align: center;
+  }
+}

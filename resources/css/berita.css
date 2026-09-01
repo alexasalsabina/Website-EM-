@@ -1,0 +1,251 @@
+/* ==========================================================
+   Styling untuk halaman berita
+   ========================================================== */
+
+.berita {
+  position: relative;
+  min-height: 100vh;
+  padding: 5rem 1.5rem 5rem;
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 36%, #12395A 100%);
+  color: #f4efe4;
+  overflow: hidden;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+.berita::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 14%, rgba(244, 239, 228, 0.14), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.12), transparent 16%);
+  pointer-events: none;
+}
+
+.berita__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.berita__tabbar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 0.8rem;
+  margin: 0 auto 1.5rem;
+  background: rgba(244, 239, 228, 0.08);
+  border: 1px solid rgba(244, 239, 228, 0.16);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(244, 239, 228, 0.06);
+  position: relative;
+  width: fit-content;
+}
+
+.berita__tab {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: transparent;
+  color: rgba(244, 239, 228, 0.82);
+  font-weight: 700;
+  padding: 1rem 1.25rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.berita__tab.is-active,
+.berita__tab:hover {
+  color: #071C34;
+}
+
+.berita__tab:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 4px;
+}
+
+.berita__tab-indicator {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  height: calc(100% - 8px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  transition: left 0.28s ease, width 0.28s ease;
+  pointer-events: none;
+}
+
+.berita__tabbar:focus-within .berita__tab-indicator {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.18);
+}
+
+.berita__top {
+  display: grid;
+  grid-template-columns: minmax(360px, 1.4fr) minmax(280px, 0.9fr);
+  gap: 1.8rem;
+}
+
+.berita__hero {
+  min-height: 100%;
+  display: none;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.berita__hero[data-berita-panel].is-active,
+.berita__hero.is-active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.berita__sidebar {
+  display: grid;
+  gap: 1rem;
+}
+
+.berita__sidebar-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.8rem;
+  border-radius: 32px;
+  background: rgba(244, 239, 228, 0.08);
+  border: 1px solid rgba(244, 239, 228, 0.14);
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.12);
+}
+
+.berita__sidebar-title {
+  margin: 0;
+  color: rgba(244, 239, 228, 0.78);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.berita__headline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.berita__headline-item {
+  display: block;
+  padding: 1rem 1rem 1rem 1.2rem;
+  border-radius: 24px;
+  background: rgba(8, 35, 58, 0.9);
+  border: 1px solid rgba(142, 216, 248, 0.16);
+  color: #f4efe4;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(2, 16, 30, 0.12);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.berita__headline-item:hover,
+.berita__headline-item:focus-visible {
+  background: rgba(11, 55, 86, 0.98);
+  border-color: rgba(142, 216, 248, 0.58);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 26px rgba(2, 16, 30, 0.28);
+  outline: none;
+}
+
+.berita__headline-date {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.berita__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+}
+
+.artikel-page__cards .article-card {
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  color: #f4efe4;
+}
+
+.artikel-page__cards .article-card__media {
+  width: 100%;
+  height: 112px;
+  min-height: 112px;
+  border-radius: 18px;
+}
+
+.artikel-page .section-heading__eyebrow,
+.artikel-page .section-heading__title,
+.artikel-page .section-heading__subtitle,
+.artikel-page .article-card__date,
+.artikel-page .article-card__title,
+.artikel-page .article-card__excerpt {
+  color: #f4efe4 !important;
+}
+
+.artikel-page .section-heading {
+  padding-left: 24px;
+}
+
+.artikel-page .article-card__content,
+.artikel-page .article-card__content strong,
+.artikel-page .article-card__content span,
+.artikel-page .article-card__content h3,
+.artikel-page .article-card__content p {
+  color: #f4efe4 !important;
+}
+
+.artikel-page__cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.artikel-page__cards .article-card__content {
+  align-content: start;
+}
+
+.artikel-page .section-heading {
+  text-align: center;
+}
+
+.artikel-page__heading .section-heading {
+  width: 100%;
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.artikel-page__heading .section-heading__subtitle {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .artikel-page__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .artikel-page__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .artikel-page__cards .article-card {
+    aspect-ratio: auto;
+    min-height: 260px;
+  }
+}

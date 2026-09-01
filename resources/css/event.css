@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset Universal Font & Sizing */
+.event,
+.event *,
+.event *::before,
+.event *::after {
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Base Wrapper Section */
+.event {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 0 5rem 0;
+  margin-top: 0;
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 36%, #12395A 100%);
+  color: #f4efe4;
+  overflow: hidden;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 12% 14%, rgba(244, 239, 228, 0.14), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(190, 238, 140, 0.12), transparent 16%);
+  pointer-events: none;
+}
+
+/* 1. Hero Banner Full Width (Tanpa Gap & Fade Smooth ke Navbar) */
+.event__hero-banner {
+  position: relative;
+  width: 100%;
+  border-radius: 0 !important;
+  padding: 6rem 1.5rem 5rem;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  border: none !important;
+  box-shadow: none;
+}
+
+/* Gradient Overlay untuk Gradasi Atas Smooth */
+.event__hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    #071C34 0%, 
+    rgba(7, 28, 52, 0.25) 0%,
+    rgba(7, 28, 52, 0.45) 30%, 
+    rgba(7, 28, 52, 0.35) 60%, 
+    rgba(7, 28, 52, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.event__hero-banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.event__hero-banner-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 0.8rem;
+  color: #ffffff;
+}
+
+.event__hero-banner-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* Inner Container */
+.event__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* 2. Section Header Center Aligned */
+.event__section-header--center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.event__section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4efe4;
+  margin: 0;
+}
+
+.event__section-divider {
+  width: 50px;
+  height: 3px;
+  background-color: #beee8c;
+  margin: 0.6rem 0 0.8rem;
+  border-radius: 2px;
+}
+
+.event__section-subtitle {
+  font-size: 0.95rem;
+  color: rgba(244, 239, 228, 0.75);
+  margin: 0;
+}
+
+/* 3. Glassmorphism Card Style */
+.event__sidebar-card,
+.event__item-card {
+  background: rgba(244, 239, 228, 0.08);
+  border: 1px solid rgba(244, 239, 228, 0.14);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.event__sidebar-title {
+  margin: 0 0 1.2rem;
+  color: rgba(244, 239, 228, 0.78);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.12);
+  padding-bottom: 0.6rem;
+}
+
+.event__item-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+}
+
+.event__item-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.22);
+  border-color: rgba(190, 238, 140, 0.35);
+  background: rgba(244, 239, 228, 0.12);
+}
+
+.event__item-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.event__item-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event__date-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(7, 28, 52, 0.9);
+  border: 1px solid rgba(190, 238, 140, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.event__date-badge-day {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #beee8c;
+  line-height: 1;
+}
+
+.event__date-badge-month {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(244, 239, 228, 0.8);
+  text-transform: uppercase;
+}
+
+.event__item-content {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.event__item-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f4efe4;
+}
+
+.event__meta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: rgba(244, 239, 228, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.event__item-excerpt {
+  font-size: 0.85rem;
+  color: rgba(244, 239, 228, 0.85);
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+/* 5. Kalender & Event Terdekat Layout */
+.event__top {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.4fr);
+  gap: 1.8rem;
+  align-items: stretch;
+}
+
+.event__nearest-body {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.event__nearest-img {
+  width: 40%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.event__nearest-info {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.event__nearest-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.6rem 0;
+}
+
+.event__tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(190, 238, 140, 0.18);
+  color: #beee8c;
+  border: 1px solid rgba(190, 238, 140, 0.35);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* Wadah Deskripsi Rapi, Elegan & Tidak Flat */
+.event__nearest-desc-box {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1.1rem;
+  background: rgba(244, 239, 228, 0.05);
+  border-left: 3px solid #beee8c;
+  border-radius: 0 12px 12px 0;
+  backdrop-filter: blur(6px);
+}
+
+.event__nearest-desc-box p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(244, 239, 228, 0.9);
+  font-weight: 400;
+}
+
+/* Kalender Grid Mini */
+.event__calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.event__calendar-header button {
+  background: rgba(244, 239, 228, 0.1);
+  border: 1px solid rgba(244, 239, 228, 0.2);
+  color: #f4efe4;
+  border-radius: 8px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.event__calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.event__calendar-grid span {
+  padding: 6px 0;
+  border-radius: 8px;
+}
+
+.event__calendar-grid span.active {
+  background: #beee8c;
+  color: #071C34;
+  font-weight: 800;
+}
+
+/* 6. Galeri Grid */
+.event__gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.event__gallery-item {
+  text-align: center;
+}
+
+.event__gallery-item img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(244, 239, 228, 0.14);
+}
+
+.event__gallery-item p {
+  font-size: 0.8rem;
+  margin-top: 0.6rem;
+  font-weight: 600;
+  color: rgba(244, 239, 228, 0.85);
+}
+
+.event__gallery-action {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Button UI Components */
+.btn--primary {
+  display: inline-block;
+  background: #beee8c;
+  color: #071C34;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn--primary:hover {
+  background: #aadb78;
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  display: inline-block;
+  background: transparent;
+  color: #f4efe4;
+  border: 1px solid rgba(244, 239, 228, 0.3);
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.btn--outline:hover {
+  border-color: #beee8c;
+  color: #beee8c;
+  background: rgba(190, 238, 140, 0.08);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .event__cards--grid4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .event__gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .event__top {
+    grid-template-columns: 1fr;
+  }
+  .event__cards--grid4 {
+    grid-template-columns: 1fr;
+  }
+  .event__nearest-body {
+    flex-direction: column;
+  }
+  .event__nearest-img,
+  .event__nearest-info {
+    width: 100%;
+  }
+  .event__gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

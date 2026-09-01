@@ -1,7 +1,7 @@
 :root {
-  --jt-forest: #123822;
-  --jt-forest-dark: #0a2416;
-  --jt-forest-mid: #1e5233;
+  --jt-forest: #0D2A45;
+  --jt-forest-dark: #071C34;
+  --jt-forest-mid: #12395A;
   --jt-cream: #f4efe4;
   --jt-mist: rgba(244, 239, 228, 0.82);
 }
@@ -40,14 +40,14 @@ body {
   background:
     linear-gradient(90deg,
       var(--jt-forest) 0%,
-      rgba(18, 56, 34, 0.75) 22%,
-      rgba(18, 56, 34, 0.25) 45%,
-      rgba(18, 56, 34, 0.05) 65%
+      rgba(7, 28, 52, 0.78) 22%,
+      rgba(13, 42, 69, 0.3) 45%,
+      rgba(13, 42, 69, 0.08) 65%
     ),
     linear-gradient(180deg,
-      rgba(10, 36, 22, 0.15) 0%,
-      rgba(10, 36, 22, 0.05) 30%,
-      rgba(10, 36, 22, 0.55) 100%
+      rgba(7, 28, 52, 0.16) 0%,
+      rgba(7, 28, 52, 0.06) 30%,
+      rgba(7, 28, 52, 0.6) 100%
     );
 }
 
@@ -127,7 +127,7 @@ body {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background: var(--jt-forest);
+  background: #ffffff;
   transition: width 0.25s ease;
 }
 
@@ -362,6 +362,7 @@ body {
     position: static;
     transform: none;
     box-shadow: none;
+    z-index: 1102;
     background: rgba(18, 56, 34, 0.06);
     max-height: 0;
     padding: 0 0.5rem;

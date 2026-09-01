@@ -1,0 +1,222 @@
+.inovasi {
+  position: relative;
+  min-height: 100vh;
+  padding: 5rem 1.5rem 5rem;
+  background: linear-gradient(180deg, #071C34 0%, #0D2A45 38%, #12395A 100%);
+  color: #f4efe4;
+  font-family: "Poppins", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.inovasi::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(244, 239, 228, 0.12), transparent 22%),
+    radial-gradient(circle at 90% 10%, rgba(127, 177, 221, 0.16), transparent 18%);
+  pointer-events: none;
+}
+
+.inovasi__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.inovasi__hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.inovasi__hero-copy {
+  max-width: 620px;
+}
+
+.inovasi__eyebrow {
+  margin: 0 0 1rem;
+  color: rgba(244, 239, 228, 0.78);
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.inovasi__title {
+  margin: 0;
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  line-height: 1.02;
+}
+
+.inovasi__subtitle {
+  margin: 1.5rem 0 0;
+  color: rgba(244, 239, 228, 0.88);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.9;
+}
+
+.inovasi__hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.inovasi__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.95rem 1rem;
+  border-radius: 999px;
+  background: rgba(244, 239, 228, 0.08);
+  border: 1px solid rgba(244, 239, 228, 0.18);
+  color: #f4efe4;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.inovasi__hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(244, 239, 228, 0.14);
+}
+
+.inovasi__hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.inovasi__cards {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+}
+
+.inovasi__card {
+  background: rgba(244, 239, 228, 0.08);
+  border: 1px solid rgba(244, 239, 228, 0.16);
+  border-radius: 28px;
+  padding: 1.9rem;
+  display: grid;
+  gap: 1rem;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.inovasi__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+  border-color: rgba(127, 177, 221, 0.28);
+}
+
+.inovasi__card-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: rgba(127, 177, 221, 0.2);
+  color: #071C34;
+}
+
+.inovasi__card-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.inovasi__card-text {
+  margin: 0;
+  color: rgba(244, 239, 228, 0.92);
+  line-height: 1.8;
+  font-size: 0.98rem;
+}
+
+.inovasi__section {
+  margin-top: 3rem;
+}
+
+.inovasi__section-title {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+
+.inovasi__section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.inovasi__section-card {
+  background: rgba(10, 36, 22, 0.95);
+  border: 1px solid rgba(190, 238, 140, 0.12);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 18px 62px rgba(0, 0, 0, 0.18);
+}
+
+.inovasi__section-card h3 {
+  margin: 0 0 1rem;
+  color: #f4efe4;
+  font-size: 1.45rem;
+}
+
+.inovasi__section-card p,
+.inovasi__section-card ul {
+  margin: 0;
+  color: rgba(244, 239, 228, 0.88);
+  line-height: 1.85;
+}
+
+.inovasi__section-card ul {
+  padding-left: 1.4rem;
+  margin-top: 1rem;
+}
+
+.inovasi__section-card li {
+  margin-bottom: 0.9rem;
+}
+
+.inovasi__note {
+  margin-top: 2rem;
+  padding: 1.7rem 1.8rem;
+  border-radius: 26px;
+  background: rgba(244, 239, 228, 0.06);
+  border: 1px solid rgba(244, 239, 228, 0.16);
+}
+
+.inovasi__note h4 {
+  margin: 0 0 0.8rem;
+  color: #f4efe4;
+}
+
+.inovasi__note p {
+  margin: 0;
+  color: rgba(244, 239, 228, 0.9);
+}
+
+@media (max-width: 960px) {
+  .inovasi__hero,
+  .inovasi__section-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .inovasi {
+    padding: 3rem 1.2rem 3rem;
+  }
+
+  .inovasi__hero {
+    gap: 1.5rem;
+  }
+}

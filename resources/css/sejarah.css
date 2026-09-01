@@ -1,101 +1,614 @@
+/* =========================================================
+   SEJARAH DESA — styles
+   Palet: navy gelap + gold, mengikuti desain referensi
+   ========================================================= */
+
+:root {
+    --sejarah-navy: #0d1b2f;
+    --sejarah-navy-soft: #13233c;
+    --sejarah-navy-card: #16283f;
+    --sejarah-border: rgba(255, 255, 255, 0.08);
+    --sejarah-gold: #d9a441;
+    --sejarah-gold-soft: #e8c47c;
+    --sejarah-text: #e8ecf1;
+    --sejarah-text-muted: #a9b4c4;
+    --sejarah-radius: 18px;
+}
+
+/* RESET PADDING & MARGIN ATAS SECTION */
 .sejarah {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  font-family: "Poppins", system-ui, sans-serif;
-  color: #f4efe4;
-  padding: 8vh 6vw 10vh;
-}
-
-.sejarah__bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center 55%;
-}
-
-.sejarah__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 36, 22, 0.55) 0%,
-    rgba(10, 36, 22, 0.2) 35%,
-    rgba(10, 36, 22, 0.6) 100%
-  );
+    position: relative;
+    background: var(--sejarah-navy);
+    padding: 90px 0 96px !important; /* Jarak dari header fixed */
+    margin-top: 0 !important;
+    display: flow-root;
+    font-family: 'Poppins', sans-serif;
+    color: var(--sejarah-text);
 }
 
 .sejarah__inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1300px;
-  margin: 0 auto;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* ---------- HERO ---------- */
+.sejarah__hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+}
+
+.sejarah__hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 0;
+}
+
+.sejarah__hero-left > *:first-child {
+    margin-top: 0;
 }
 
 .sejarah__title {
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-  font-weight: 800;
-  margin: 0 0 5vh;
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--sejarah-text);
 }
 
+.sejarah__title span {
+    color: var(--sejarah-gold);
+}
+
+.sejarah__subtitle {
+    font-size: 1rem;
+    color: var(--sejarah-text-muted);
+    max-width: 42ch;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.sejarah__quote {
+    position: relative;
+    background: var(--sejarah-navy-soft);
+    border: 1px solid var(--sejarah-border);
+    border-radius: var(--sejarah-radius);
+    padding: 28px 28px 22px;
+    margin-top: 8px;
+}
+
+.sejarah__quote-mark {
+    display: block;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--sejarah-gold);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.sejarah__quote-text {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--sejarah-text);
+    margin: 0 0 14px;
+}
+
+.sejarah__quote-source {
+    display: block;
+    color: var(--sejarah-gold-soft);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ---------- HERO RIGHT (DESKTOP) ---------- */
+.sejarah__hero-right {
+    position: relative;
+    z-index: 10;
+    margin-top: 0 !important; /* Diubah ke 0 agar rata atas dengan judul */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* KARTU FOTO ATAS (POJOK ATAS MEMBULAT 20PX) */
+.sejarah__photo {
+    position: relative;
+    background: var(--sejarah-navy-card);
+    border: 1px solid var(--sejarah-border);
+    border-radius: 20px !important; /* Membulatkan 4 sudut kartu secara utuh */
+    overflow: hidden !important;   /* Memotong foto & badge agar rapi mengikuti lekukan 20px */
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    margin: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+.sejarah__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.02) contrast(1.02);
+}
+
+/* BADGE KETERANGAN FOTO (POJOK BAWAH MEMBULAT 20PX) */
+.sejarah__photo-badge {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: rgba(17, 33, 54, 0.95);
+    color: var(--sejarah-gold-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 16px 18px;
+    border: none;
+    border-top: 1px solid var(--sejarah-border); /* Garis batas antara foto dan teks badge */
+    border-radius: 0 0 20px 20px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+/* ---------- CARD: ASAL-USUL ---------- */
 .sejarah__card {
-  position: relative;
-  width: min(760px, 92%);
-  padding: 2.4rem 2.6rem;
-  border-radius: 28px;
-  background: rgba(150, 170, 140, 0.32);
-  backdrop-filter: blur(8px);
-  margin-bottom: 5vh;
+    background: var(--sejarah-navy-card);
+    border: 1px solid var(--sejarah-border);
+    border-radius: var(--sejarah-radius);
+    padding: 34px;
 }
 
-.sejarah__card--right {
-  margin-left: auto;
+.sejarah__card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 26px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--sejarah-border);
 }
 
-.sejarah__card--left {
-  margin-right: auto;
+.sejarah__card-title span::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--sejarah-gold);
+    border-radius: 2px;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
-.sejarah__leaf {
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 30px;
+.sejarah__origin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
 }
 
-.sejarah__text {
-  margin: 0;
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  line-height: 1.7;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+.sejarah__origin-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
 }
 
-/* Reveal animation, dikontrol lewat sejarah.js */
+.sejarah__origin-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.sejarah__origin-icon {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid var(--sejarah-gold);
+    color: var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sejarah__origin-item p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--sejarah-text-muted);
+}
+
+.sejarah__origin-text {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+}
+
+.sejarah__origin-text p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--sejarah-text-muted);
+}
+
+/* ---------- DUSUN SECTION ---------- */
+.sejarah__section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 22px;
+}
+
+.sejarah__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.sejarah__grid-item {
+    background: var(--sejarah-navy-card);
+    border: 1px solid var(--sejarah-border);
+    border-radius: var(--sejarah-radius);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sejarah__grid-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(217, 164, 65, 0.12);
+    color: var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.sejarah__grid-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--sejarah-text);
+}
+
+.sejarah__grid-item p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--sejarah-text-muted);
+    margin: 0;
+}
+
+.sejarah__tokoh-btn {
+    align-self: flex-start;
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--sejarah-gold);
+    color: var(--sejarah-navy);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.82rem;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sejarah__tokoh-btn:hover {
+    background: var(--sejarah-gold-soft);
+    transform: translateY(-1px);
+}
+
+.sejarah__tokoh-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.sejarah__tokoh-btn.is-open svg {
+    transform: rotate(90deg);
+}
+
+/* =========================================================
+   MODAL: DAFTAR TOKOH
+   ========================================================= */
+.tokoh-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.tokoh-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tokoh-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 18, 32, 0.55);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.tokoh-modal__panel {
+    position: relative;
+    width: 100%;
+    max-width: 1040px;
+    max-height: 85vh;
+    padding: 26px 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: translateY(24px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.32s ease, opacity 0.32s ease;
+}
+
+.tokoh-modal.is-open .tokoh-modal__panel {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.tokoh-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 26px;
+}
+
+.tokoh-modal__header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sejarah-text);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tokoh-modal__close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--sejarah-border);
+    background: rgba(13, 27, 47, 0.6);
+    color: var(--sejarah-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tokoh-modal__close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--sejarah-text);
+}
+
+.tokoh-modal__track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 40px calc(50% - 105px) 44px;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    user-select: none;
+    flex: 1 1 auto;
+    scrollbar-width: none;
+}
+
+.tokoh-modal__track::-webkit-scrollbar {
+    display: none;
+}
+
+.tokoh-modal__track.is-dragging {
+    cursor: grabbing;
+}
+
+.tokoh-card {
+    flex: 0 0 auto;
+    width: 165px;
+    height: 250px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    background: #1c3350;
+    border: 1px solid var(--sejarah-border);
+    border-radius: 18px;
+    padding: 20px 16px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    opacity: 0.55;
+    transform: scale(0.88);
+    transform-origin: center center;
+    transition: width 0.32s ease, height 0.32s ease, transform 0.32s ease,
+        opacity 0.32s ease, background 0.32s ease, box-shadow 0.32s ease;
+    will-change: transform, opacity;
+}
+
+.tokoh-card.step-1 {
+    width: 182px;
+    height: 280px;
+    opacity: 0.8;
+    background: #274468;
+    transform: scale(0.95);
+}
+
+.tokoh-card.step-0,
+.tokoh-card.is-active {
+    width: 210px;
+    height: 320px;
+    opacity: 1;
+    background: linear-gradient(160deg, #2d5480, #1c3350);
+    border-color: var(--sejarah-gold);
+    box-shadow: 0 24px 46px rgba(0, 0, 0, 0.45);
+    transform: scale(1);
+}
+
+.tokoh-card__photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(217, 164, 65, 0.1);
+    flex: 0 0 auto;
+    transition: width 0.32s ease, height 0.32s ease;
+}
+
+.tokoh-card.step-0 .tokoh-card__photo,
+.tokoh-card.is-active .tokoh-card__photo {
+    width: 112px;
+    height: 112px;
+}
+
+.tokoh-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.tokoh-card__placeholder {
+    color: var(--sejarah-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tokoh-card__name {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--sejarah-text);
+    line-height: 1.35;
+}
+
+.tokoh-card.step-0 .tokoh-card__name,
+.tokoh-card.is-active .tokoh-card__name {
+    font-size: 1.15rem;
+}
+
+.tokoh-card__role {
+    font-size: 0.88rem;
+    color: var(--sejarah-text-muted);
+}
+
+.tokoh-modal__hint {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--sejarah-text-muted);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- REVEAL ANIMATION ---------- */
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 [data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 720px) {
-  .sejarah__card {
-    width: 100%;
-    padding: 1.8rem 1.6rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
     opacity: 1;
-    transform: none;
-    transition: none;
-  }
+    transform: translateY(0);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+    .sejarah {
+        padding-top: 80px !important;
+    }
+
+    .sejarah__hero {
+        grid-template-columns: 1fr;
+    }
+
+    .sejarah__hero-right {
+        margin-top: 20px !important;
+    }
+
+    .sejarah__origin {
+        grid-template-columns: 1fr;
+    }
+
+    .sejarah__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .sejarah {
+        padding: 60px 0 64px !important;
+    }
+
+    .sejarah__card {
+        padding: 24px;
+    }
+
+    .sejarah__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tokoh-card {
+        width: 130px;
+        height: 200px;
+        padding: 16px 12px 18px;
+    }
+
+    .tokoh-card.step-1 {
+        width: 145px;
+        height: 220px;
+    }
+
+    .tokoh-card.step-0,
+    .tokoh-card.is-active {
+        width: 168px;
+        height: 258px;
+    }
+
+    .tokoh-card__photo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tokoh-card.step-0 .tokoh-card__photo,
+    .tokoh-card.is-active .tokoh-card__photo {
+        width: 88px;
+        height: 88px;
+    }
+
+    .tokoh-modal__track {
+        padding: 30px calc(50% - 84px) 34px;
+    }
 }

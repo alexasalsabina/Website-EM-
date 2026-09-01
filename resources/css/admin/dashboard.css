@@ -1,0 +1,217 @@
+.dashboard-container {
+    padding: 25px;
+    background: #f5f7fa;
+}
+
+
+/* HEADER DASHBOARD */
+
+.dashboard-header {
+    background: white;
+    border-radius: 18px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+
+.dashboard-header h1 {
+    color:#0D2A45;
+    font-size:28px;
+    font-weight:700;
+}
+
+
+.dashboard-header p {
+    color:#3F6A93;
+}
+
+
+
+/* WELCOME CARD */
+
+.welcome-card {
+
+    background:linear-gradient(
+        135deg,
+        #0D2A45,
+        #3F6A93
+    );
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.welcome-card h2 {
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+/* CARD GRID */
+
+.dashboard-grid {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+/* CARD */
+
+.dashboard-card {
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.dashboard-card:hover {
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* ICON */
+
+.card-icon {
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:12px;
+
+    background:#3F6A93;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+.dashboard-card h3 {
+
+    color:#0D2A45;
+
+    font-size:18px;
+
+}
+
+
+
+.dashboard-card .jumlah {
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#BB6B30;
+
+}
+
+
+
+.dashboard-card p {
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+
+
+/* BUTTON */
+
+.card-link {
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:#0D2A45;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+}
+
+
+
+.card-link:hover {
+
+    color:#BB6B30;
+
+}
+
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .dashboard-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+
+
+@media(max-width:600px){
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

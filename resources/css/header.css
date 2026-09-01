@@ -1,36 +1,80 @@
+/* =========================================================
+   1. RESET & LAYOUT DASAR
+   ========================================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+main, 
+.content-wrapper,
+.container-fluid {
+    padding-top: 105px;
+}
+
+main:has(.hero) {
+    padding-top: 0;
+}
+
+/* =========================================================
+   2. NAVBAR UTAMA (FULL WIDTH)
+   ========================================================= */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
+    top: 0;                   /* Ditempelkan ke atas */
+    left: 0;                  /* Ditempelkan penuh ke kiri */
+    right: 0;                 /* Ditempelkan penuh ke kanan */
+    width: 100%;              /* Memastikan panjang penuh */
+    z-index: 1000;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(10, 20, 12, 0.35);
-    backdrop-filter: blur(6px);
-    transition: background 0.3s ease, padding 0.3s ease;
+    gap: 18px;
+    
+    padding: 12px 30px;       /* Padding disamakan kiri & kanan */
+    margin: 0;
+    
+    background: rgba(11, 30, 49, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    border-radius: 0;         /* Dibuat siku agar pas dengan ujung layar */
+    
+    border: none;             /* Menghilangkan garis tepi float */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Garis batas bawah saja */
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
 }
 
 .navbar.is-scrolled {
-    background: rgba(8, 18, 10, 0.95);
-    padding: 10px 40px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    background: rgba(8, 22, 36, 0.98);
+    padding: 10px 30px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
-
-/* Brand */
+/* =========================================================
+   3. BRAND / LOGO (DESA JATISARI: 22px)
+   ========================================================= */
 .navbar__brand {
     display: flex;
     align-items: center;
     gap: 12px;
     text-decoration: none;
     color: #ffffff;
+    flex-shrink: 0;
 }
 
 .navbar__logo {
-    height: 42px;
+    height: 44px;                     /* Diturunkan 4px agar pas dengan teks 22px */
     width: auto;
+    object-fit: contain;
 }
 
 .navbar__brand-text {
@@ -39,88 +83,94 @@
     line-height: 1.2;
 }
 
+/* TULISAN DESA JATISARI (22px) */
 .navbar__brand-text strong {
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 22px !important;       
+    font-weight: 800;
     color: #ffffff;
+    letter-spacing: 0.4px;
 }
 
-.navbar__brand-text small {
-    font-size: 12px;
-    color: #cfd8d0;
-    font-weight: 400;
-}
-
-/* Menu */
+/* =========================================================
+   4. MENU NAVIGASI (DITURUNKAN JADI 17.5px)
+   ========================================================= */
 .navbar__menu {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1 1 auto;
+    justify-content: center;
 }
 
+.navbar__item {
+    position: relative;
+    list-style: none;
+}
+
+/* LINK MENU UTAMA (17.5px) */
 .navbar__link {
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 14px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #eef2ee;
+    gap: 7px;
+    padding: 8px 14px;
+    font-size: 17.5px !important;     
+    font-weight: 700;
+    color: #ffffff !important;
     text-decoration: none;
-    background: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: transparent;
     border: none;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: background 0.2s ease, color 0.2s ease;
 }
 
 .navbar__link:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.navbar__link.is-active {
-    color: #ffffff;
-}
-
+/* Indicator Garis Bawah Menu Aktif */
 .navbar__link.is-active::after {
     content: '';
     position: absolute;
     left: 14px;
     right: 14px;
-    bottom: 4px;
-    height: 2px;
-    background: #7cc576;
+    bottom: 1px;
+    height: 3px;
+    background: #ffffff;
     border-radius: 2px;
 }
 
-/* Dropdown */
-.navbar__item--dropdown {
-    position: relative;
-}
-
 .navbar__caret {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
+    fill: #ffffff;
     transition: transform 0.2s ease;
 }
 
-.navbar__item--dropdown.is-open .navbar__caret {
+.navbar__item--dropdown:hover .navbar__caret {
     transform: rotate(180deg);
 }
 
+/* SUB-MENU DROPDOWN (16.5px) */
 .navbar__dropdown {
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
-    min-width: 200px;
-    background: #10241a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
+    min-width: 230px;
+    background: #0b1e31;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
     padding: 8px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
+    z-index: 1102;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -128,15 +178,15 @@
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
-.navbar__item--dropdown.is-open .navbar__dropdown {
+.navbar__item--dropdown:hover .navbar__dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
 .navbar__dropdown-link {
-    padding: 10px 12px;
-    font-size: 14px;
+    padding: 10px 14px;
+    font-size: 16.5px !important;    
     font-weight: 500;
     color: #e5ece6;
     text-decoration: none;
@@ -145,101 +195,52 @@
 }
 
 .navbar__dropdown-link:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.12);
     color: #ffffff;
 }
 
-.navbar__dropdown-link.is-active {
-    color: #7cc576;
-    font-weight: 700;
+/* =========================================================
+   5. PROFILE ICON & RESPONSIVE
+   ========================================================= */
+.navbar__profile {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-/* Mobile toggle */
-.navbar__toggle {
-    display: none;
-    flex-direction: column;
+.navbar__profile-btn {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 5px;
-    width: 40px;
-    height: 40px;
-    background: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     border: none;
     cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease;
 }
 
-.navbar__toggle span {
-    display: block;
+.navbar__profile-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.navbar__profile-btn svg {
     width: 22px;
-    height: 2px;
-    background: #ffffff;
-    border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    height: 22px;
+    fill: #ffffff;
 }
 
-.navbar__toggle.is-open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.navbar__toggle.is-open span:nth-child(2) {
-    opacity: 0;
-}
-
-.navbar__toggle.is-open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .navbar {
-        padding: 14px 20px;
-    }
-
-    .navbar__toggle {
-        display: flex;
-    }
-
-    .navbar__menu {
-        position: fixed;
         top: 0;
-        right: -100%;
-        height: 100vh;
-        width: min(320px, 80vw);
-        background: #0a140c;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 90px 24px 24px;
-        gap: 4px;
-        transition: right 0.3s ease;
-        overflow-y: auto;
-    }
-
-    .navbar__menu.is-open {
+        left: 0;
         right: 0;
-        box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
-    }
-
-    .navbar__link {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .navbar__item--dropdown {
-        width: 100%;
-    }
-
-    .navbar__dropdown {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none;
-        box-shadow: none;
+        border-radius: 0;
         border: none;
-        background: rgba(255, 255, 255, 0.03);
-        margin-top: 4px;
-    }
-
-    .navbar__item--dropdown.is-open .navbar__dropdown {
-        display: flex;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 14px 20px;
     }
 }

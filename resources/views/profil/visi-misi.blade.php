@@ -1,57 +1,108 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visi & Misi - Desa Jatisari</title>
+@extends('layouts.app')
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+@section('title', 'Visi & Misi - Desa Jatisari')
 
-    @vite([
-        'resources/css/homepage.css',
-        'resources/css/visimisi.css',
-        'resources/js/homepage.js',
-        'resources/js/visimisi.js',
-    ])
-</head>
-<body>
+@push('styles')
+    @vite(['resources/css/homepage.css', 'resources/css/visimisi.css'])
+@endpush
 
-    @include('components.homepage.header')
-
+@section('content')
     <section class="visimisi" id="visimisi">
-        <div class="visimisi__bg" style="background-image: url('{{ asset('images/visi-misi-bg.jpg') }}');"></div>
+        <div class="visimisi__bg" style="background-image: url('{{ asset('images/pemandangan.jpeg') }}');"></div>
         <div class="visimisi__overlay"></div>
 
         <div class="visimisi__content">
 
+            <!-- Visi Block -->
             <div class="visimisi__block" data-reveal>
                 <span class="visimisi__badge">visi</span>
                 <blockquote class="visimisi__quote">
-                    &ldquo;Desa Jatisari sebagai Desa Wisata yang mampu mengelolah potensi Desa dan
-                    pembangunan berkelanjutan untuk mewujudkan masyarakat yang sejahtera&rdquo;
+                    &ldquo;TERWUJUDNYA MASYARAKAT DESA JATISARI YANG
+                    AGAMIS, MAJU, SEHAT, BERDAYA SAING, BERAHLAK MULIA
+                    DAN BERMARTABAT.&rdquo;
                 </blockquote>
             </div>
 
+            <!-- Misi Block -->
             <div class="visimisi__block" data-reveal>
-                <span class="visimisi__badge">Misi</span>
-                <ol class="visimisi__list">
-                    <li data-reveal>Mewujudkan tata kelola pemerintahan yang baik</li>
-                    <li data-reveal>Mengembangkan kegiatan keagamaan</li>
-                    <li data-reveal>Meningkatkan kualitas pendidikan dan sumber daya manusia</li>
-                    <li data-reveal>Mengembangkan teknologi informasi</li>
-                    <li data-reveal>Pembangunan infrastruktur, sarana dan prasarana</li>
-                    <li data-reveal>Mengembangkan seluruh usaha potensi desa</li>
-                    <li data-reveal>Meningkatkan kualitas dan membangun kesadaran kesehatan masyarakat</li>
-                    <li data-reveal>Meningkatkan perekonomian dan kesejahteraan masyarakat</li>
-                    <li data-reveal>Membangun kerjasama dan kemitraan strategis</li>
-                </ol>
+                <span class="visimisi__badge">misi</span>
+                <p class="visimisi__intro">
+                    &ldquo;Misi adalah sesuatu yang harus diemban atau dilaksanakan oleh Pemerintah Desa
+                    sesuai dengan Visi yang ditetapkan, agar tujuan Pemerintah Desa dapat terlaksana
+                    dan berhasil dengan baik sekaligus merupakan pernyataan yang menetapkan tujuan dan 
+                    sasaran Desa yang hendak dicapai, pernyataan Misi membawa Desa kepada suatu tujuan,
+                    maka Pemerintah Desa Jatisari menetapkan Pernyataan Misi sebagai berikut:&rdquo;
+                </p>
+
+                @php
+                    $misi = [
+                        'Keagamaan' => [
+                            'Menggiatkan kegiatan-kegiatan keagamaan warga di Dusun, Madrasah, dan sarana lainnya.',
+                            'Menggambarkan warna prasarana yang menunjang kegiatan keagamaan.',
+                            'Berkoordinasi dengan para Ulama beserta Dinas terkait untuk peningkatan mutu dan kualitas pendidikan beragama baik yang formal dan non formal.',
+                        ],
+                        'Pelayanan' => [
+                            'Meningkatkan mutu dan kwalitas pelayanan publik dengan sasaran mempermudah masyarakat dalam pengurusan surat menyurat tanpa biaya administrasi, baik itu akte kelahiran, KTP, KK dan lainya, dengan cara melibatkan/mengangkat warga yang berkompeten di bidang tersebut.',
+                            'Mendatangi warga yang sewaktu-waktu membutuhkan tanda tangan, kerumah-rumah warga yang berhalangan atau sakit dengan cara memasang atau menempel no telfon di setiap titik sebagai sarana untuk mempermudah warga yang sewaktu waktu membutuhkan pelayanan kami.',
+                            'Mengupayakan alat transportasi untuk kebutuhan sosial masyarakat desa Jatisari.',
+                        ],
+                        'Hukum' => [
+                            'Meningkatkan kesadaran hukum kepada warga dengan cara bekerja sama dengan instansi terkait untuk mendorong dan membimbing masyarakat desa Jatisari dalam menyadari betapa pentingnya faham, sadar dan taat pada Hukum.',
+                            'Berkoordinasi dengan pihak berwenang dalam menerapkan tindakan hukum kepada siapapun yang melanggar hukum dengan mengedepankan azas kekeluargaan.',
+                            'Semaksimal mungkin menyelesaikan segala bentuk permasalahan warga dengan azas musyawarah dan kekeluargaan dengan kedua belah pihak.',
+                        ],
+                        'Kesehatan' => [
+                            'Menumbuhkan rasa peduli dan rasa memiliki terhadap lingkungan masing-masing dengan cara membuang sampah pada tempatnya.',
+                            'Menyediakan fasilitas bak sampah di wilayah masing-masing guna untuk mempermudah masyarakat membuang sampah.',
+                            'Membentuk team khusus yang bertugas mengambil sampah kewilayah-wilayah tersebut, yang mana sebelumnya kami berkoordinasi dengan dinas terkait.',
+                            'Pengadaan mobil siaga bagi desa.',
+                        ],
+                        'Pemberdayaan' => [
+                            'Mengubah kelompok ekonomi konsumtif menjadi kelompok ekonomi produktif.',
+                            'Meningkatkan partisipasi masyarakat melalui lembaga/organisasi masyarakat yang bergerak di bidang ekonomi, sosial, budaya, dan politik untuk mendorong kemandirian masyarakat.',
+                            'Membangun dan meningkatkan hasil pertanian dengan jalan penataan pengairan, perbaikan jalan sawah/jalan usaha tani, pemupukan, dan pola tanam yang baik.',
+                            'Membangun dan mendorong usaha-usaha untuk pengembangan dan optimalisasi sektor pertanian, perkebunan, peternakan, dan perikanan, baik tahap produksi maupun tahap pengolahan hasilnya.',
+                        ],
+                        'Pembangunan' => [
+                            'Melanjutkan program desa yang belum terealisasi baik itu fisik atau non fisik.',
+                            'Membangun kehidupan masyarakat yang lebih baik dan sejahtera.',
+                            'Meningkatkan kehidupan masyarakat yang semakin layak, adil dan merata serta member perhatian utama pada kebutuhan dasar dan terpenuhinya sarana prasarana umum.',
+                            'Berusaha semaksimal mungkin agar desa Jatisari mempunyai PAD (Pendapatan Asli Desa).',
+                            'Membangun dan mendorong majunya bidang pendidikan baik formal maupun informal yang mudah diakses dan dinikmati seluruh warga masyarakat tanpa terkecuali yang mampu menghasilkan insan intelektual, inovatif dan enterpreneur (wirausahawan).',
+                        ],
+                    ];
+                @endphp
+
+                <div class="visimisi__accordion">
+                    @foreach ($misi as $bidang => $poin)
+                        @php $parentIndex = $loop->iteration; @endphp
+                        <div class="visimisi__item">
+                            <button type="button" class="visimisi__item-toggle">
+                                <span class="visimisi__item-title">
+                                    <span class="visimisi__item-number">{{ $parentIndex }}.</span> 
+                                    Misi Bidang {{ $bidang }}
+                                </span>
+                                <span class="visimisi__item-icon">+</span>
+                            </button>
+                            <div class="visimisi__item-content">
+                                <ul class="visimisi__sublist">
+                                    @foreach ($poin as $subIndex => $p)
+                                        <li>
+                                            <span class="visimisi__sublist-num">{{ $parentIndex }}.{{ $subIndex + 1 }}</span>
+                                            <span class="visimisi__sublist-text">{{ $p }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
 
         </div>
     </section>
+@endsection
 
-    @include('components.homepage.footer')
-
-</body>
-</html>
+@push('scripts')
+    @vite(['resources/js/homepage.js', 'resources/js/visimisi.js'])
+@endpush
