@@ -309,8 +309,6 @@
         <!-- EVENT -->
         <a href="{{ route('event.index') }}" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
            EVENT
-        <a href="#" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
-            EVENT
         </a>
 
         <!-- KONTAK -->
