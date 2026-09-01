@@ -19,7 +19,7 @@
 .sejarah {
     position: relative;
     background: var(--sejarah-navy);
-    padding: 0 0 96px !important;
+    padding: 90px 0 96px !important; /* Jarak dari header fixed */
     margin-top: 0 !important;
     display: flow-root;
     font-family: 'Poppins', sans-serif;
@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
     gap: 18px;
-    padding-top: 48px; /* Memberi jarak aman teks kiri dari header */
+    padding-top: 0;
 }
 
 .sejarah__hero-left > *:first-child {
@@ -110,25 +110,29 @@
     font-weight: 500;
 }
 
-/* ---------- HERO RIGHT (PAKSA MENTOK KE PALING ATAS) ---------- */
+/* ---------- HERO RIGHT (DESKTOP) ---------- */
 .sejarah__hero-right {
     position: relative;
-    /* Transform melepaskan foto dari batasan grid agar mentok ke atas */
-    transform: translateY(-80px); 
-    margin-bottom: -80px; /* Menjaga agar elemen di bawahnya tidak ketarik */
     z-index: 10;
+    margin-top: 0 !important; /* Diubah ke 0 agar rata atas dengan judul */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
+/* KARTU FOTO ATAS (POJOK ATAS MEMBULAT 20PX) */
 .sejarah__photo {
     position: relative;
     background: var(--sejarah-navy-card);
     border: 1px solid var(--sejarah-border);
-    border-top: none;
-    border-radius: 0 0 var(--sejarah-radius) var(--sejarah-radius);
-    overflow: hidden;
-    height: 100%;
-    min-height: 420px; /* Tinggi foto ditambah agar menutup rapat space header */
-    margin-top: 0;
+    border-radius: 20px !important; /* Membulatkan 4 sudut kartu secara utuh */
+    overflow: hidden !important;   /* Memotong foto & badge agar rapi mengikuti lekukan 20px */
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    margin: 0;
+    box-shadow: none;
+    box-sizing: border-box;
 }
 
 .sejarah__photo img {
@@ -136,24 +140,28 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    filter: saturate(1.02) contrast(1.02);
 }
 
+/* BADGE KETERANGAN FOTO (POJOK BAWAH MEMBULAT 20PX) */
 .sejarah__photo-badge {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
+    position: static;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    background: rgba(13, 27, 47, 0.85);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    width: 100%;
+    background: rgba(17, 33, 54, 0.95);
     color: var(--sejarah-gold-soft);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--sejarah-border);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 16px 18px;
+    border: none;
+    border-top: 1px solid var(--sejarah-border); /* Garis batas antara foto dan teks badge */
+    border-radius: 0 0 20px 20px;
+    box-shadow: none;
+    box-sizing: border-box;
 }
 
 /* ---------- CARD: ASAL-USUL ---------- */
@@ -539,25 +547,15 @@
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 992px) {
     .sejarah {
-        margin-top: 0 !important;
+        padding-top: 80px !important;
     }
 
     .sejarah__hero {
         grid-template-columns: 1fr;
     }
 
-    .sejarah__hero-left {
-        padding-top: 16px;
-    }
-
     .sejarah__hero-right {
-        transform: none !important;
-        margin-bottom: 0 !important;
-    }
-
-    .sejarah__photo {
-        min-height: 220px;
-        border-radius: var(--sejarah-radius);
+        margin-top: 20px !important;
     }
 
     .sejarah__origin {
@@ -571,7 +569,7 @@
 
 @media (max-width: 560px) {
     .sejarah {
-        padding: 0 0 64px !important;
+        padding: 60px 0 64px !important;
     }
 
     .sejarah__card {

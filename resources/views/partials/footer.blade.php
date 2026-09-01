@@ -101,7 +101,7 @@
 
         <!-- BARIS BAWAH: Watermark Copyright (Rata Tengah) -->
         <div class="border-t border-gray-200 pt-4 text-xs text-gray-600 text-center">
-            <p>© {{ date('Y') }} Jatisari - Website ini dibangun oleh <strong class="font-bold text-gray-900">Himpunan Departemen Teknik Elektro dan Informatika</strong> dan dikelola oleh <strong class="font-bold text-gray-900">PSID Jatisari</strong></p>
+            <p>© {{ date('Y') }} Jatisari - Website ini dibangun oleh <strong class="font-bold text-gray-900">Himpunan Mahasiswa Departemen Teknik Elektro dan Informatika</strong> dan dikelola oleh <strong class="font-bold text-gray-900">PSID Jatisari</strong></p>
         </div>
 
     </div>
