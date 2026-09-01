@@ -4,10 +4,10 @@
     <style>
         /* Efek saat halaman di-scroll ke bawah (Melayang/Sticky Effect) */
         header.navbar.is-scrolled {
-            background: rgba(8, 35, 58, 0.95) !important; /* Efek sedikit transparan */
-            backdrop-filter: blur(12px) !important;       /* Blur latar belakang */
+            background: rgba(8, 35, 58, 0.95) !important;
+            backdrop-filter: blur(12px) !important;
             -webkit-backdrop-filter: blur(12px) !important;
-            padding: 8px 24px !important;                 /* Header sedikit mengecil agar ramping */
+            padding: 8px 24px !important;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
         }
 
@@ -64,17 +64,6 @@
         }
 
         /* Indikator Garis Bawah Aktif */
-        .custom-nav-link.is-active::before {
-            content: '' !important;
-            position: absolute !important;
-            bottom: -4px !important;
-            left: 18px !important;
-            right: 18px !important;
-            height: 3px !important;
-            background: #ffffff !important;
-            border-radius: 999px !important;
-        }
-
         .custom-nav-link.is-active::before {
             content: '' !important;
             position: absolute !important;
@@ -265,9 +254,9 @@
     <!-- Menu Navigasi -->
     <nav class="navbar__menu" id="navbarMenu" style="display: flex !important; align-items: center !important; gap: 12px !important;">
         
-        <a href="{{ route('home') }}" class="custom-nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">HOME</a>
+        <a href="{{ Route::has('home') ? route('home') : url('/') }}" class="custom-nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">HOME</a>
 
-        <a href="{{ route('berita.berita') }}" class="custom-nav-link {{ request()->routeIs('berita.*') ? 'is-active' : '' }}">BERITA</a>
+        <a href="{{ Route::has('berita.berita') ? route('berita.berita') : '#' }}" class="custom-nav-link {{ request()->routeIs('berita.*') ? 'is-active' : '' }}">BERITA</a>
 
         <!-- PROFIL -->
         <div class="navbar__item dropdown-container" style="position: relative !important;">
@@ -278,12 +267,11 @@
                 </svg>
             </button>
             <div class="custom-dropdown-menu">
-                <a href="{{ route('profil.sejarah') }}" class="custom-dropdown-item {{ request()->routeIs('profil.sejarah') ? 'is-active' : '' }}">Sejarah</a>
-                <a href="{{ route('profil.visi-misi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.visi-misi') ? 'is-active' : '' }}">Visi & Misi</a>
-                <a href="{{ route('profil.kelembagaan') }}" class="custom-dropdown-item {{ request()->routeIs('profil.kelembagaan') ? 'is-active' : '' }}">Kelembagaan</a>
-                <a href="{{ route('profil.potensi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.potensi') ? 'is-active' : '' }}">Potensi</a>
-                <a href="{{ route('profil.inovasi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.inovasi') ? 'is-active' : '' }}">Inovasi</a>
-                <a href="{{ route('profil.prestasi') }}" class="custom-dropdown-item {{ request()->routeIs('profil.prestasi') ? 'is-active' : '' }}">Prestasi</a>
+                <a href="{{ Route::has('profil.sejarah') ? route('profil.sejarah') : '#' }}" class="custom-dropdown-item {{ request()->routeIs('profil.sejarah') ? 'is-active' : '' }}">Sejarah</a>
+                <a href="{{ Route::has('profil.visi-misi') ? route('profil.visi-misi') : '#' }}" class="custom-dropdown-item {{ request()->routeIs('profil.visi-misi') ? 'is-active' : '' }}">Visi & Misi</a>
+                <a href="{{ Route::has('profil.kelembagaan') ? route('profil.kelembagaan') : '#' }}" class="custom-dropdown-item {{ request()->routeIs('profil.kelembagaan') ? 'is-active' : '' }}">Kelembagaan</a>
+                <a href="{{ Route::has('profil.potensi') ? route('profil.potensi') : '#' }}" class="custom-dropdown-item {{ request()->routeIs('profil.potensi') ? 'is-active' : '' }}">Potensi</a>
+                <a href="{{ Route::has('profil.struktur-desa') ? route('profil.struktur-desa') : '#' }}" class="custom-dropdown-item {{ request()->routeIs('profil.struktur-desa') ? 'is-active' : '' }}">Struktur Desa</a>
             </div>
         </div>
 
@@ -296,28 +284,28 @@
                 </svg>
             </button>
             <div class="custom-dropdown-menu">
-                <a href="{{ route('data.peraturan-desa') }}" class="custom-dropdown-item {{ request()->routeIs('data.peraturan-desa') ? 'is-active' : '' }}">Peraturan Desa</a>
-                <a href="{{ route('data.statistik-penduduk') }}" class="custom-dropdown-item {{ request()->routeIs('data.statistik-penduduk') ? 'is-active' : '' }}">Statistik Penduduk</a>
+                <a href="{{ Route::has('data.peraturan-desa') ? route('data.peraturan-desa') : '#' }}" class="custom-dropdown-item {{ request()->routeIs('data.peraturan-desa') ? 'is-active' : '' }}">Peraturan Desa</a>
+                <a href="{{ Route::has('data.statistik-penduduk') ? route('data.statistik-penduduk') : '#' }}" class="custom-dropdown-item {{ request()->routeIs('data.statistik-penduduk') ? 'is-active' : '' }}">Statistik Penduduk</a>
             </div>
         </div>
 
         <!-- GALERI -->
-        <a href="{{ route('galeri.index') }}" class="custom-nav-link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">
+        <a href="{{ Route::has('galeri.index') ? route('galeri.index') : (Route::has('galeri') ? route('galeri') : '#') }}" class="custom-nav-link {{ request()->routeIs('galeri*') ? 'is-active' : '' }}">
             GALERI
         </a>
 
         <!-- EVENT -->
-        <a href="{{ route('event.index') }}" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
-           EVENT
+        <a href="{{ Route::has('event.index') ? route('event.index') : (Route::has('event') ? route('event') : '#') }}" class="custom-nav-link {{ request()->routeIs('event*') ? 'is-active' : '' }}">
+            EVENT
         </a>
 
         <!-- KONTAK -->
-        <a href="{{ route('kontak') }}" class="custom-nav-link {{ request()->routeIs('kontak') ? 'is-active' : '' }}">
+        <a href="{{ Route::has('kontak') ? route('kontak') : '#' }}" class="custom-nav-link {{ request()->routeIs('kontak') ? 'is-active' : '' }}">
             KONTAK
         </a>
 
         <!-- Profile Icon -->
-        <a href="{{ route('login') }}" class="nav-user-avatar" aria-label="Masuk ke akun">
+        <a href="{{ Route::has('login') ? route('login') : '#' }}" class="nav-user-avatar" aria-label="Masuk ke akun">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
             </svg>
