@@ -309,11 +309,8 @@
         <!-- EVENT -->
         <a href="{{ route('event.index') }}" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
            EVENT
-<<<<<<< HEAD
         <a href="#" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
             EVENT
-=======
->>>>>>> c00b170a6c5a64d0e896f8a6ab8f0c36a746010b
         </a>
 
         <!-- KONTAK -->
