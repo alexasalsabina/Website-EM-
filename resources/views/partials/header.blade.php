@@ -296,13 +296,8 @@
                 </svg>
             </button>
             <div class="custom-dropdown-menu">
-                <a href="{{ route('data.anggaran') }}" class="custom-dropdown-item {{ request()->routeIs('data.anggaran') ? 'is-active' : '' }}">Anggaran</a>
-                <a href="{{ route('data.dana-desa') }}" class="custom-dropdown-item {{ request()->routeIs('data.dana-desa') ? 'is-active' : '' }}">Dana Desa</a>
                 <a href="{{ route('data.peraturan-desa') }}" class="custom-dropdown-item {{ request()->routeIs('data.peraturan-desa') ? 'is-active' : '' }}">Peraturan Desa</a>
-                <a href="{{ route('data.monografi') }}" class="custom-dropdown-item {{ request()->routeIs('data.monografi') ? 'is-active' : '' }}">Monografi</a>
-                <a href="{{ route('data.aset-desa') }}" class="custom-dropdown-item {{ request()->routeIs('data.aset-desa') ? 'is-active' : '' }}">Aset Desa</a>
                 <a href="{{ route('data.statistik-penduduk') }}" class="custom-dropdown-item {{ request()->routeIs('data.statistik-penduduk') ? 'is-active' : '' }}">Statistik Penduduk</a>
-                <a href="{{ route('data.integrasi-data-desa') }}" class="custom-dropdown-item {{ request()->routeIs('data.integrasi-data-desa') ? 'is-active' : '' }}">Integrasi Data Desa</a>
             </div>
         </div>
 
@@ -314,8 +309,11 @@
         <!-- EVENT -->
         <a href="{{ route('event.index') }}" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
            EVENT
+<<<<<<< HEAD
         <a href="#" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
             EVENT
+=======
+>>>>>>> c00b170a6c5a64d0e896f8a6ab8f0c36a746010b
         </a>
 
         <!-- KONTAK -->

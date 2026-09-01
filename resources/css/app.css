@@ -17,6 +17,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Menyamakan jarak atas untuk semua halaman */
+main,
+section,
+.berita,
+.profildesa,
+.agenda,
+.kontak
+.berita,
+.profil,
+.agenda,
+.kontak,
+.galeri,
+.event {
+  padding-top: 5rem !important;
+}
+
+/* Kembalikan halaman Home ke posisi semula tanpa spasi atas */
+.hero,
+.homepage {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
 .global-loader {
   position: fixed;
   inset: 0;
