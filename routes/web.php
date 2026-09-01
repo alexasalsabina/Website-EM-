@@ -46,31 +46,21 @@ Route::prefix('berita')->name('berita.')->group(function () {
 Route::prefix('profil')->name('profil.')->group(function () {
 
     Route::get('/sejarah', fn () => view('profil.sejarah'))->name('sejarah');
-
     Route::get('/visi-misi', fn () => view('profil.visi-misi'))->name('visi-misi');
-
     Route::get('/kelembagaan', fn () => view('profil.kelembagaan'))->name('kelembagaan');
 
     Route::prefix('kelembagaan')->name('kelembagaan.')->group(function () {
-
         Route::get('/karang-taruna', fn () => view('profil.kelembagaan.karang-taruna'))->name('karangtaruna');
-
         Route::get('/lpm', fn () => view('profil.kelembagaan.lpm'))->name('lpm');
-
         Route::get('/pkk', fn () => view('profil.kelembagaan.pkk'))->name('pkk');
-
     });
 
    
     Route::get('/monografi', fn () => view('profil.monografi'))->name('monografi');
-    
     Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
 
     // Route Detail Potensi
-    Route::get('/potensi/{kategori}', [ProfilDesaController::class, 'potensiDetail'])->name('potensi.detail');
-
     Route::get('/inovasi', fn () => view('profil.inovasi'))->name('inovasi');
-
     Route::get('/prestasi', fn () => view('profil.prestasi'))->name('prestasi');
 
     // Tokoh-tokoh desa
@@ -78,6 +68,8 @@ Route::prefix('profil')->name('profil.')->group(function () {
         ->name('tokoh');
 
 });
+
+Route::get('/profil/potensi/{kategori}', [ProfilDesaController::class, 'potensiDetail'])->name('potensi.detail');
 
 /*
 |--------------------------------------------------------------------------
