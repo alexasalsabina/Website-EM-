@@ -13,6 +13,7 @@ use App\Http\Controllers\DataDesaController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PotensiController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 
 Route::get('/', fn () => view('home'))->name('home');
