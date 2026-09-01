@@ -24,7 +24,6 @@
             <div class="berita__top">
                 <div class="berita__hero is-active">
                     <x-article-card
-                        href="{{ route('berita.detail', $hero->slug) }}"
                         image="{{ $hero->thumbnail ? asset('storage/'.$hero->thumbnail) : 'images/jatisari.png' }}"
                         date="{{ $hero->created_at->translatedFormat('d F Y') }}"
                         title="{{ $hero->judul }}"
@@ -37,7 +36,6 @@
             <div class="berita__cards">
                 @foreach($beritas->skip(1) as $berita)
                     <x-article-card
-                        href="{{ route('berita.detail', $berita->slug) }}"
                         image="{{ $berita->thumbnail ? asset('storage/'.$berita->thumbnail) : 'images/jatisari.png' }}"
                         date="{{ $berita->created_at->translatedFormat('d F Y') }}"
                         title="{{ $berita->judul }}"

@@ -144,13 +144,6 @@
   padding-bottom: 0.6rem;
 }
 
-/* 4. Agenda Grid 4 Kolom */
-.event__cards--grid4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.4rem;
-}
-
 .event__item-card {
   display: flex;
   flex-direction: column;

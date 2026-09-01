@@ -57,39 +57,6 @@
 
         </a>
 
-        {{-- Agenda --}}
-        <a href="{{ route('admin.agenda.index') }}"
-           class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition duration-300">
-
-            <div class="flex justify-between items-start">
-
-                <div>
-                    <h3 class="text-xl font-semibold">📅 Agenda</h3>
-
-                    <p class="text-3xl font-bold text-blue-900 mt-3">
-                        {{ $stats['agenda']['total'] }}
-                    </p>
-                    <p class="text-gray-500 text-sm">
-                        {{ $stats['agenda']['label'] }}
-                        @if($stats['agenda']['mendatang'] > 0)
-                            <span class="text-blue-800 font-medium">
-                                · {{ $stats['agenda']['mendatang'] }} mendatang
-                            </span>
-                        @endif
-                    </p>
-                </div>
-
-                <span class="text-4xl">📅</span>
-
-            </div>
-
-            <div class="mt-5">
-                <span class="text-blue-800 font-semibold">Kelola →</span>
-            </div>
-
-        </a>
-
-
         {{-- Event --}}
         <a href="{{ route('admin.event.index') }}"
            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition duration-300">
