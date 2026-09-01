@@ -204,29 +204,21 @@
            PRODUK HUKUM
         </a>
 
-<<<<<<< HEAD
-        <div class="navbar__item">
-            <a href="{{ route('event.index') }}" class="navbar__link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
-                EVENT
-            </a>
-        </div>
-=======
         <!-- PPDI -->
         <a href="{{ route('ppdi') }}" class="custom-nav-link {{ request()->routeIs('ppdi') ? 'is-active' : '' }}">
            PPDI
         </a>
->>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
 
         <!-- GALERI -->
         <a href="{{ route('galeri.index') }}" class="custom-nav-link {{ request()->routeIs('galeri') ? 'is-active' : '' }}">
            GALERI
         </a>
 
-        <!-- EVENT -->
-        <a href="{{ route('event.karnaval') }}" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
-           EVENT
-        </a>
-
+                    <!-- EVENT -->
+            <a href="#" class="custom-nav-link {{ request()->routeIs('event.*') ? 'is-active' : '' }}">
+            EVENT
+            </a>
+            
         <!-- KONTAK -->
         <a href="{{ route('kontak') }}" class="custom-nav-link {{ request()->routeIs('kontak') ? 'is-active' : '' }}">
            KONTAK
