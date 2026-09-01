@@ -1,5 +1,5 @@
 <section class="quick-menu">
-    <a href="{{ route('berita.agenda') }}" class="quick-menu__item">
+    <a href="{{ route('berita.berita') }}" class="quick-menu__item">
         <span class="quick-menu__icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 11V14C5 14.6 5.4 15 6 15H8L12 19V6L8 10H6C5.4 10 5 10.4 5 11Z"

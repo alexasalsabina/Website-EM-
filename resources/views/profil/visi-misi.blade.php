@@ -8,7 +8,7 @@
 
 @section('content')
     <section class="visimisi" id="visimisi">
-        <div class="visimisi__bg" style="background-image: url('{{ asset('images/jatisari.png') }}');"></div>
+        <div class="visimisi__bg" style="background-image: url('{{ asset('images/pemandangan.jpeg') }}');"></div>
         <div class="visimisi__overlay"></div>
 
         <div class="visimisi__content">

@@ -17,7 +17,7 @@
 
 @push('styles')
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     @vite([
         'resources/css/sejarah.css',
@@ -52,12 +52,12 @@
 
                 <div class="sejarah__hero-right">
                     <div class="sejarah__photo">
-                        <img src="{{ asset('images/hutdesa.png') }}" alt="HUT Desa Jatisari Tahunan">
+                        <img src="{{ asset('images/kantor desa.jpg') }}" alt="Kantor Desa Jatisari">
                         <div class="sejarah__photo-badge">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z" fill="currentColor"/>
                             </svg>
-                            <span>HUT Desa Jatisari Tahunan</span>
+                            <span>Kantor Desa Jatisari</span>
                         </div>
                     </div>
                 </div>
@@ -119,11 +119,6 @@
                             datang lagi Buyut Jum'ah, Mbah Landou, Mbah Sambisari, dan yang
                             terakhir Syeh Mahmud bin Yusuf yang lebih dikenal sebagai Mbah
                             Jagopati dari Serang Banten.
-                        </p>
-                        <p>
-                            Desa Jatisari dinamakan demikian karena mengambil nama dari Hutan
-                            Jati (alas jati) yang pada masa itu ditebang habis hingga tinggal
-                            'sarinya'.
                         </p>
                     </div>
                 </div>

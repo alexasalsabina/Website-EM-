@@ -75,7 +75,7 @@
                     <h4>Jam Pelayanan</h4>
                     <p>
                         Senin - Jumat <br>
-                        08.00 - 15.00 WIB
+                        08.00 - 16.00 WIB
                     </p>
                 </div>
             </div>

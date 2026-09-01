@@ -34,14 +34,27 @@ document.addEventListener('DOMContentLoaded', () => {
     toggles.forEach((btn) => {
         btn.addEventListener('click', () => {
             const item = btn.closest('.visimisi__item');
+            const content = item.querySelector('.visimisi__item-content');
             const isOpen = item.classList.contains('is-open');
 
             // opsional: tutup item lain saat satu dibuka (accordion style)
             document.querySelectorAll('.visimisi__item.is-open').forEach((el) => {
-                if (el !== item) el.classList.remove('is-open');
+                if (el !== item) {
+                    el.classList.remove('is-open');
+                    const otherContent = el.querySelector('.visimisi__item-content');
+                    if (otherContent) otherContent.style.maxHeight = '0';
+                }
             });
 
-            item.classList.toggle('is-open', !isOpen);
+            if (!isOpen) {
+                // Membuka accordion
+                item.classList.add('is-open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+                // Menutup accordion
+                item.classList.remove('is-open');
+                content.style.maxHeight = '0';
+            }
         });
     });
 });

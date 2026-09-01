@@ -15,16 +15,15 @@
     --sejarah-radius: 18px;
 }
 
+/* RESET PADDING & MARGIN ATAS SECTION */
 .sejarah {
     position: relative;
     background: var(--sejarah-navy);
-    padding: 64px 0 96px;
+    padding: 0 0 96px !important;
+    margin-top: 0 !important;
+    display: flow-root;
     font-family: 'Poppins', sans-serif;
     color: var(--sejarah-text);
-    /* PENTING: jangan pakai overflow:hidden di sini.
-       overflow:hidden pada parent akan meng-clip elemen position:fixed
-       di dalamnya (modal daftar tokoh) mengikuti posisi scroll section ini,
-       makanya sebelumnya modal terlihat "kepotong"/nyangkut saat halaman discroll. */
 }
 
 .sejarah__inner {
@@ -42,12 +41,20 @@
     grid-template-columns: 1.1fr 0.9fr;
     gap: 40px;
     align-items: start;
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
 }
 
 .sejarah__hero-left {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    padding-top: 48px; /* Memberi jarak aman teks kiri dari header */
+}
+
+.sejarah__hero-left > *:first-child {
+    margin-top: 0;
 }
 
 .sejarah__title {
@@ -103,17 +110,25 @@
     font-weight: 500;
 }
 
+/* ---------- HERO RIGHT (PAKSA MENTOK KE PALING ATAS) ---------- */
 .sejarah__hero-right {
     position: relative;
+    /* Transform melepaskan foto dari batasan grid agar mentok ke atas */
+    transform: translateY(-80px); 
+    margin-bottom: -80px; /* Menjaga agar elemen di bawahnya tidak ketarik */
+    z-index: 10;
 }
 
 .sejarah__photo {
     position: relative;
-    border-radius: var(--sejarah-radius);
+    background: var(--sejarah-navy-card);
+    border: 1px solid var(--sejarah-border);
+    border-top: none;
+    border-radius: 0 0 var(--sejarah-radius) var(--sejarah-radius);
     overflow: hidden;
     height: 100%;
-    min-height: 260px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    min-height: 420px; /* Tinggi foto ditambah agar menutup rapat space header */
+    margin-top: 0;
 }
 
 .sejarah__photo img {
@@ -132,12 +147,13 @@
     gap: 8px;
     background: rgba(13, 27, 47, 0.85);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     color: var(--sejarah-gold-soft);
     font-size: 0.8rem;
     font-weight: 600;
     padding: 8px 14px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--sejarah-border);
 }
 
 /* ---------- CARD: ASAL-USUL ---------- */
@@ -302,7 +318,7 @@
 }
 
 /* =========================================================
-   MODAL: DAFTAR TOKOH (overlay blur + carousel geser)
+   MODAL: DAFTAR TOKOH
    ========================================================= */
 .tokoh-modal {
     position: fixed;
@@ -335,8 +351,6 @@
     width: 100%;
     max-width: 1040px;
     max-height: 85vh;
-    /* sengaja tanpa background/border/shadow di sini —
-       jadi yang terlihat cuma halaman blur + kartu tokoh mengambang */
     padding: 26px 0 22px;
     display: flex;
     flex-direction: column;
@@ -392,8 +406,6 @@
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    /* padding kiri/kanan = setengah lebar viewport track dikurangi setengah lebar kartu,
-       supaya kartu pertama & terakhir tetap bisa berada tepat di tengah */
     padding: 40px calc(50% - 105px) 44px;
     cursor: grab;
     -webkit-overflow-scrolling: touch;
@@ -410,8 +422,6 @@
     cursor: grabbing;
 }
 
-/* ---------- Kartu bertahap: tengah besar & terang, makin ke pinggir
-   makin kecil & gelap (mirip referensi gambar carousel) ---------- */
 .tokoh-card {
     flex: 0 0 auto;
     width: 165px;
@@ -436,7 +446,6 @@
     will-change: transform, opacity;
 }
 
-/* satu langkah dari tengah */
 .tokoh-card.step-1 {
     width: 182px;
     height: 280px;
@@ -445,7 +454,6 @@
     transform: scale(0.95);
 }
 
-/* tepat di tengah / aktif */
 .tokoh-card.step-0,
 .tokoh-card.is-active {
     width: 210px;
@@ -516,17 +524,7 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 560px) {
-    .tokoh-modal__panel {
-        padding: 20px 18px 18px;
-    }
-
-    .tokoh-card {
-        width: 130px;
-    }
-}
-
-/* ---------- reveal animation hook (dipakai sejarah.js) ---------- */
+/* ---------- REVEAL ANIMATION ---------- */
 [data-reveal] {
     opacity: 0;
     transform: translateY(16px);
@@ -540,12 +538,26 @@
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 992px) {
+    .sejarah {
+        margin-top: 0 !important;
+    }
+
     .sejarah__hero {
         grid-template-columns: 1fr;
     }
 
+    .sejarah__hero-left {
+        padding-top: 16px;
+    }
+
+    .sejarah__hero-right {
+        transform: none !important;
+        margin-bottom: 0 !important;
+    }
+
     .sejarah__photo {
         min-height: 220px;
+        border-radius: var(--sejarah-radius);
     }
 
     .sejarah__origin {
@@ -559,7 +571,7 @@
 
 @media (max-width: 560px) {
     .sejarah {
-        padding: 40px 0 64px;
+        padding: 0 0 64px !important;
     }
 
     .sejarah__card {
@@ -570,8 +582,6 @@
         grid-template-columns: 1fr;
     }
 
-    /* kartu tokoh dikecilkan lagi khusus di layar sempit
-       supaya tidak overflow / kepotong di HP */
     .tokoh-card {
         width: 130px;
         height: 200px;

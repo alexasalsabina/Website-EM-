@@ -164,7 +164,6 @@
 }
 
 .visimisi__item.is-open .visimisi__item-content {
-    max-height: 200px; /* sesuaikan kalau teksnya panjang */
     padding: 0 20px 16px;
 }
 
