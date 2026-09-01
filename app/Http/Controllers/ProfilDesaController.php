@@ -70,4 +70,37 @@ class ProfilDesaController extends Controller
     {
         return view('admin.profil.prestasi.index');
     }
+    public function potensiDetail($kategori)
+{
+    $dataPotensi = [
+        'pertanian' => [
+            'judul' => 'Pertanian dan Hortikultura',
+            'deskripsi' => 'Lahan subur di Jatisari mendukung tanaman pangan dan sayuran lokal, serta komoditas unggulan masyarakat.',
+            'gambar' => 'images/pertanian.jpg'
+        ],
+        'wisata' => [
+            'judul' => 'Wisata Alam & Budaya',
+            'deskripsi' => 'Lingkungan asri, tradisi lokal, dan ruang publik desa memberi peluang wisata alam serta event kebudayaan.',
+            'gambar' => 'images/wisata.jpg'
+        ],
+        'umkm' => [
+            'judul' => 'UMKM Kreatif',
+            'deskripsi' => 'Usaha mikro dan kerajinan lokal terus berkembang dengan dukungan pelatihan dan pemasaran digital.',
+            'gambar' => 'images/umkm.jpg'
+        ],
+        'pendidikan' => [
+            'judul' => 'Pendidikan & Keterampilan',
+            'deskripsi' => 'Pusat belajar desa dan kegiatan literasi memperkuat talent lokal serta menyiapkan generasi muda.',
+            'gambar' => 'images/pendidikan.jpg'
+        ],
+    ];
+
+    if (!array_key_exists($kategori, $dataPotensi)) {
+        abort(404);
+    }
+
+    $detail = $dataPotensi[$kategori];
+
+    return view('potensi-detail', compact('detail'));
+}
 }

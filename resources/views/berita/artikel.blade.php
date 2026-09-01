@@ -3,7 +3,7 @@
 @section('title', 'Artikel Desa Jatisari')
 
 @push('styles')
-<<<<<<< HEAD
+
     @vite(['resources/css/berita.css'])
 @endpush
 
@@ -39,7 +39,7 @@
         @endif
 
     </div>
-=======
+
 	@vite(['resources/css/berita.css'])
 @endpush
 
@@ -80,6 +80,6 @@
 			/>
 		</div>
 	</div>
->>>>>>> 9187e30ca5d32e25153e8d7d4978ad72fb7f1811
+
 </section>
 @endsection

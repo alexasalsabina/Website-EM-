@@ -65,6 +65,9 @@ Route::prefix('profil')->name('profil.')->group(function () {
     
     Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
 
+    // Route Detail Potensi
+    Route::get('/potensi/{kategori}', [ProfilDesaController::class, 'potensiDetail'])->name('potensi.detail');
+
     Route::get('/inovasi', fn () => view('profil.inovasi'))->name('inovasi');
 
     Route::get('/prestasi', fn () => view('profil.prestasi'))->name('prestasi');
