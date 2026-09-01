@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agenda;
 use App\Models\Berita;
 use App\Models\StatistikDesa;
 use App\Models\GaleriFoto;
@@ -17,17 +16,6 @@ class DashboardController extends Controller
             'berita' => [
                 'total'   => $this->safeCount(Berita::class),
                 'label'   => 'berita dipublikasikan',
-            ],
-            'agenda' => [
-                'total'      => $this->safeCount(Agenda::class),
-                'mendatang'  => $this->safeCount(Agenda::class, function ($query) {
-                    if (Schema::hasColumn('agenda', 'tanggal')) {
-                        $query->whereDate('tanggal', '>=', now()->toDateString());
-                    } elseif (Schema::hasColumn('agendas', 'tanggal')) {
-                        $query->whereDate('tanggal', '>=', now()->toDateString());
-                    }
-                }),
-                'label'      => 'agenda terjadwal',
             ],
             'event' => [
                 'total' => $this->safeCount(\App\Models\Event::class),  

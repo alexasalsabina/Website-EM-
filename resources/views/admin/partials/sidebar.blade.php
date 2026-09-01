@@ -22,12 +22,6 @@
             Berita
         </a>
 
-        <a href="{{ route('admin.agenda.index') }}"
-            class="{{ request()->routeIs('admin.agenda.*') ? 'active' : '' }}">
-            <span>📅</span>
-            Agenda
-        </a>
-
         <a href="{{ route('admin.event.index') }}"
             class="{{ request()->routeIs('admin.event.*') ? 'active' : '' }}">
             <span>🎉</span>

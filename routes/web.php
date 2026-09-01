@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\GaleriController; // <-- Galeri publik
 use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
 use App\Http\Controllers\Admin\GaleriKategoriController;
@@ -30,11 +29,6 @@ Route::prefix('berita')->name('berita.')->group(function () {
     Route::get('/artikel', [BeritaController::class, 'publicArtikel'])->name('artikel');
     Route::get('/opini', [BeritaController::class, 'publicOpini'])->name('opini');
     
-    Route::get('/agenda', [AgendaController::class, 'publicIndex'])->name('agenda');
-    Route::get('/agenda/{slug}', [AgendaController::class, 'show'])->name('agenda.show');
-    Route::get('/{slug}', [BeritaController::class, 'publicShow'])->name('detail');
-
-
 });
 
 /*
@@ -197,7 +191,6 @@ Route::middleware('auth')
 
         Route::resource('berita', BeritaController::class);
 
-        Route::resource('agenda', AgendaController::class);
 
         Route::resource('event', AdminEventController::class)->except(['show']);
 

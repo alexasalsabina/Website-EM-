@@ -24,7 +24,6 @@
             <div class="berita__top">
                 <div class="berita__hero is-active">
                     <x-article-card
-                        href="{{ route('berita.detail', $hero->slug) }}"
                         image="{{ $hero->thumbnail ? asset('storage/'.$hero->thumbnail) : 'images/jatisari.png' }}"
                         date="{{ $hero->created_at->translatedFormat('d F Y') }}"
                         title="{{ $hero->judul }}"
@@ -32,28 +31,11 @@
                         class="article-card--hero"
                     />
                 </div>
-
-                <aside class="berita__sidebar" aria-label="Headline terbaru">
-                    <div class="berita__sidebar-card">
-                        <p class="berita__sidebar-title">Headline Terbaru</p>
-                        <ul class="berita__headline-list">
-                            @foreach($beritas->skip(1)->take(4) as $item)
-                                <li>
-                                    <a href="{{ route('berita.detail', $item->slug) }}" class="berita__headline-item">
-                                        <span class="berita__headline-date">{{ $item->created_at->translatedFormat('d M Y') }}</span>
-                                        <strong>{{ $item->judul }}</strong>
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </aside>
             </div>
 
             <div class="berita__cards">
                 @foreach($beritas->skip(1) as $berita)
                     <x-article-card
-                        href="{{ route('berita.detail', $berita->slug) }}"
                         image="{{ $berita->thumbnail ? asset('storage/'.$berita->thumbnail) : 'images/jatisari.png' }}"
                         date="{{ $berita->created_at->translatedFormat('d F Y') }}"
                         title="{{ $berita->judul }}"
