@@ -40,6 +40,55 @@
     padding-top: 10px;
 }
 
+.sambutan__headline {
+    border-left: 4px solid #e8523f;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    background: #f7f7f5;
+}
+
+.sambutan__eyebrow {
+    color: #e8523f;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.sambutan__headline-title {
+    color: #0d2a45;
+    font-size: 1.45rem;
+    margin: 5px 0 14px;
+}
+
+.sambutan__headline-item {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-top: 1px solid #deded9;
+    color: #222;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.sambutan__headline-item:hover {
+    color: #e8523f;
+}
+
+.sambutan__headline-date {
+    flex: 0 0 auto;
+    color: #777;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.sambutan__headline-empty {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
 .sambutan__quote-icon {
     font-size: 3.5rem;
     color: #1a1a1a;

@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PotensiController;
+use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 
 Route::get('/', fn () => view('home'))->name('home');
@@ -28,6 +29,7 @@ Route::prefix('berita')->name('berita.')->group(function () {
     Route::get('/berita', [BeritaController::class, 'publicIndex'])->name('berita');
     Route::get('/artikel', [BeritaController::class, 'publicArtikel'])->name('artikel');
     Route::get('/opini', [BeritaController::class, 'publicOpini'])->name('opini');
+    Route::get('/detail/{slug}', [BeritaController::class, 'publicShow'])->name('show');
     
 });
 
@@ -190,7 +192,8 @@ Route::middleware('auth')
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
 
-        Route::resource('berita', BeritaController::class);
+        Route::resource('berita', BeritaController::class)
+            ->parameters(['berita' => 'berita']);
 
 
         Route::resource('event', AdminEventController::class)->except(['show']);

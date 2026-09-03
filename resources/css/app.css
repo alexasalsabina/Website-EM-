@@ -40,6 +40,7 @@ section,
   position: fixed;
   inset: 0;
   z-index: 9999;
+  pointer-events: none;
   display: grid;
   place-items: center;
   background: rgba(7, 28, 52, 0.97);

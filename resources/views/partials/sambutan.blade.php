@@ -2,6 +2,17 @@
     <div class="sambutan__container">
         <h2 class="sambutan__heading">Pemerintah Desa Jatisari</h2>
 
+        @php
+            try {
+                $kabarHangat = \App\Models\Berita::where('status', 'publish')
+                    ->latest()
+                    ->take(3)
+                    ->get();
+            } catch (\Throwable $exception) {
+                $kabarHangat = collect();
+            }
+        @endphp
+
         <div class="sambutan__content">
             <div class="sambutan__photo">
                 <img src="{{ asset('images/kepala desa.png') }}" alt="Kepala Desa Jatisari" class="sambutan__img">

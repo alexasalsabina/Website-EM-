@@ -24,6 +24,7 @@
             <div class="berita__top">
                 <div class="berita__hero is-active">
                     <x-article-card
+                        href="{{ route('berita.show', $hero->slug) }}"
                         image="{{ $hero->thumbnail ? asset('storage/'.$hero->thumbnail) : 'images/jatisari.png' }}"
                         date="{{ $hero->created_at->translatedFormat('d F Y') }}"
                         title="{{ $hero->judul }}"
@@ -31,11 +32,32 @@
                         class="article-card--hero"
                     />
                 </div>
+
+                <aside class="berita__sidebar" aria-label="Headline berita">
+                    <div class="berita__sidebar-card">
+                        <h2 class="berita__sidebar-title">Kabar Terbaru</h2>
+                        <ul class="berita__headline-list">
+                            @forelse($beritas->skip(1)->take(3) as $headline)
+                                <li>
+                                    <a href="{{ route('berita.show', $headline->slug) }}" class="berita__headline-item">
+                                        <span class="berita__headline-date">
+                                            {{ $headline->created_at->translatedFormat('d F Y') }}
+                                        </span>
+                                        {{ $headline->judul }}
+                                    </a>
+                                </li>
+                            @empty
+                                <li class="berita__headline-item">Belum ada kabar terbaru lainnya.</li>
+                            @endforelse
+                        </ul>
+                    </div>
+                </aside>
             </div>
 
             <div class="berita__cards">
                 @foreach($beritas->skip(1) as $berita)
                     <x-article-card
+                        href="{{ route('berita.show', $berita->slug) }}"
                         image="{{ $berita->thumbnail ? asset('storage/'.$berita->thumbnail) : 'images/jatisari.png' }}"
                         date="{{ $berita->created_at->translatedFormat('d F Y') }}"
                         title="{{ $berita->judul }}"
