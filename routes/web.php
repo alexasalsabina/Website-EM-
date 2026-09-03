@@ -52,6 +52,7 @@ Route::prefix('profil')->name('profil.')->group(function () {
    
     Route::get('/monografi', fn () => view('profil.monografi'))->name('monografi');
     Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
+    Route::get('/struktur-desa', [PerangkatDesaController::class, 'publicIndex'])->name('struktur-desa');
 
     // Route Detail Potensi
     Route::get('/inovasi', fn () => view('profil.inovasi'))->name('inovasi');

@@ -15,7 +15,7 @@
         font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         background-color: #f8f9fa;
         min-height: 100vh;
-        margin-top: -110px !important;
+        margin-top: 0 !important;
         padding-top: 0 !important;
     }
     

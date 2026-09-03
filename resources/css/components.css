@@ -2,7 +2,10 @@
   display: grid;
   gap: 0.8rem;
   max-width: 760px;
+  margin-top: 2rem;
   margin-bottom: 2.5rem;
+  padding-top: 0;
+  transform: none;
 }
 
 .section-heading__eyebrow {
@@ -18,6 +21,7 @@
   margin: 0;
   font-size: clamp(2.8rem, 4vw, 4.4rem);
   line-height: 1.02;
+  transform: none;
 }
 
 .section-heading__subtitle {

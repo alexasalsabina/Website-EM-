@@ -23,13 +23,11 @@ section,
 .berita,
 .profildesa,
 .agenda,
-.kontak
-.berita,
-.profil,
-.agenda,
 .kontak,
-.galeri,
-
+.profil,
+.galeri {
+  padding-top: 0;
+}
 
 /* Kembalikan halaman Home ke posisi semula tanpa spasi atas */
 .hero,

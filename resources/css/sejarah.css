@@ -19,7 +19,7 @@
 .sejarah {
     position: relative;
     background: var(--sejarah-navy);
-    padding: 90px 0 96px !important; /* Jarak dari header fixed */
+    padding: 110px 0 96px !important; /* Jarak dari header fixed */
     margin-top: 0 !important;
     display: flow-root;
     font-family: 'Poppins', sans-serif;

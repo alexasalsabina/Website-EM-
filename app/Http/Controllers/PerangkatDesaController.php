@@ -15,6 +15,16 @@ class PerangkatDesaController extends Controller
         return view('admin.profil.struktur.index', compact('perangkatDesas'));
     }
 
+    public function publicIndex()
+    {
+        $perangkatDesas = PerangkatDesa::where('status', 'aktif')
+            ->orderBy('urutan')
+            ->orderBy('nama')
+            ->get();
+
+        return view('profil.struktur-desa', compact('perangkatDesas'));
+    }
+
     public function create()
     {
         return view('admin.profil.struktur.create');
