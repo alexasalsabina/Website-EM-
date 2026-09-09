@@ -35,8 +35,8 @@
                     <h4>Alamat</h4>
                     <p>
                         Kantor Desa Jatisari <br>
-                        Kecamatan ... <br>
-                        Kabupaten ...
+                        Kecamatan Tajinan <br>
+                        Kabupaten Malang
                     </p>
                 </div>
             </div>
@@ -55,7 +55,11 @@
 
                 <div class="contact-text">
                     <h4>WhatsApp</h4>
-                    <p>08xxxxxxxxxx</p>
+                    <p>
+                        <a href="https://wa.me/6283131410301?text=Halo%20Desa%20Jatisari" target="_blank" rel="noopener noreferrer">
+                            083131410301
+                        </a>
+                    </p>
                 </div>
             </div>
 

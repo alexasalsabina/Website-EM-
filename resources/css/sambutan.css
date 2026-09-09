@@ -19,12 +19,13 @@
 .sambutan__content {
     display: grid;
     grid-template-columns: 420px 1fr;
-    gap: 60px;
+    gap: 32px;
     align-items: start;
 }
 
 .sambutan__photo {
     width: 100%;
+    margin-right: 8px;
 }
 
 .sambutan__img {
@@ -37,7 +38,7 @@
 }
 
 .sambutan__text {
-    padding-top: 10px;
+    padding-top: 0;
 }
 
 .sambutan__headline {

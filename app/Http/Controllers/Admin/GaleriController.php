@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\GaleriKategori;
-use App\Models\GaleriFoto;
 
 class GaleriController extends Controller
 {
@@ -14,16 +13,10 @@ class GaleriController extends Controller
     public function index()
     {
         $kategoris = GaleriKategori::withCount('fotos')
+            ->whereRaw('LOWER(nama) != ?', ['coba lagi'])
             ->orderBy('nama')
             ->get();
 
-        $totalKategori = GaleriKategori::count();
-        $totalFoto = GaleriFoto::count();
-
-        return view('admin.galeri.index', compact(
-            'kategoris',
-            'totalKategori',
-            'totalFoto'
-        ));
+        return view('admin.galeri.index', compact('kategoris'));
     }
 }

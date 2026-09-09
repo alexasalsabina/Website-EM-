@@ -87,6 +87,37 @@
             </div>
 
             <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Foto Event</label>
+
+                @if($event->fotos->isNotEmpty())
+                    <div class="mb-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                        @foreach($event->fotos as $foto)
+                            <div>
+                                <img src="{{ asset('storage/' . $foto->foto) }}"
+                                     alt="{{ $event->judul }}"
+                                     class="h-24 w-full rounded-lg object-cover">
+                                <div class="mt-2 flex items-center justify-between text-xs">
+                                    <a href="{{ route('admin.event.foto.edit', [$event, $foto]) }}" class="font-semibold text-blue-800 hover:underline">Edit</a>
+                                    <button type="submit" form="delete-foto-{{ $foto->id }}"
+                                            onclick="return confirm('Hapus foto ini?');"
+                                            class="font-semibold text-red-600 hover:underline">Hapus</button>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
+                  <input type="file" name="foto[]" accept="image/*" multiple
+                      id="eventPhotoInput" data-max-files="{{ 50 - $event->fotos->count() }}"
+                       class="w-full rounded-lg border border-gray-300 px-4 py-2.5 file:mr-3 file:rounded file:border-0 file:bg-blue-800 file:px-4 file:py-2 file:text-white">
+                <p class="mt-2 text-sm text-gray-500">
+                    {{ 50 - $event->fotos->count() }} slot foto tersisa. Pilih maksimal 50 foto secara keseluruhan, maksimal 4 MB per foto.
+                </p>
+                  <p id="eventPhotoCount" class="mt-1 text-sm font-semibold text-blue-800"></p>
+                <p id="eventPhotoNames" class="mt-1 text-xs text-gray-500"></p>
+            </div>
+
+            <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
                 <textarea name="deskripsi" rows="6"
                           class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-700"
@@ -107,5 +138,44 @@
         </div>
     </form>
 
+    {{-- Form hapus foto DISEMBUNYIKAN di sini, di luar form utama. Tombol "Hapus" di atas terhubung via attribute form="..." --}}
+    @foreach($event->fotos as $foto)
+        <form id="delete-foto-{{ $foto->id }}" action="{{ route('admin.event.foto.destroy', [$event, $foto]) }}" method="POST" class="hidden">
+            @csrf
+            @method('DELETE')
+        </form>
+    @endforeach
+
 </div>
+
+@push('scripts')
+<script>
+    (() => {
+        const input = document.getElementById('eventPhotoInput');
+        if (!input) return;
+        const countMessage = document.getElementById('eventPhotoCount');
+        const namesMessage = document.getElementById('eventPhotoNames');
+        const maxFiles = Number(input.dataset.maxFiles);
+        let selectedFiles = [];
+
+        input.addEventListener('change', () => {
+            const incomingFiles = Array.from(input.files);
+            const knownFiles = new Set(selectedFiles.map((file) => `${file.name}-${file.size}-${file.lastModified}`));
+            const newFiles = incomingFiles.filter((file) => !knownFiles.has(`${file.name}-${file.size}-${file.lastModified}`));
+            selectedFiles = [...selectedFiles, ...newFiles];
+
+            if (selectedFiles.length > maxFiles) {
+                selectedFiles = selectedFiles.slice(0, maxFiles);
+                alert(`Maksimal ${maxFiles} foto yang dapat dipilih.`);
+            }
+
+            const dataTransfer = new DataTransfer();
+            selectedFiles.forEach((file) => dataTransfer.items.add(file));
+            input.files = dataTransfer.files;
+            countMessage.textContent = `${selectedFiles.length} foto dipilih untuk diunggah.`;
+            namesMessage.textContent = selectedFiles.map((file) => file.name).join(', ');
+        });
+    })();
+</script>
+@endpush
 @endsection

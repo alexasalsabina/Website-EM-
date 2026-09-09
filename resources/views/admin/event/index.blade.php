@@ -39,7 +39,15 @@
     </form>
 
     <div class="bg-white rounded-xl shadow-md p-6">
-        @forelse($events as $event)
+        @if($events->isEmpty())
+            <div class="flex flex-col items-center justify-center py-16 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center text-3xl mb-4">
+                    🎉
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-1">Belum ada event</h3>
+                <p class="text-gray-500">Silakan tambahkan event pertama.</p>
+            </div>
+        @else
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 @foreach($events as $event)
                     <div class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition duration-300">
@@ -68,6 +76,10 @@
                                 {{ $event->deskripsi }}
                             </p>
 
+                            <p class="mb-4 text-xs font-semibold text-gray-500">
+                                🖼️ {{ $event->fotos->count() }} foto event
+                            </p>
+
                             <div class="flex items-center justify-between border-t pt-3">
                                 <a href="{{ route('admin.event.edit', $event->id) }}"
                                    class="text-blue-800 font-semibold hover:underline text-sm">
@@ -89,15 +101,7 @@
                     </div>
                 @endforeach
             </div>
-        @empty
-            <div class="flex flex-col items-center justify-center py-16 text-center">
-                <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center text-3xl mb-4">
-                    🎉
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-1">Belum ada event</h3>
-                <p class="text-gray-500">Silakan tambahkan event pertama.</p>
-            </div>
-        @endforelse
+        @endif
     </div>
 
 </div>

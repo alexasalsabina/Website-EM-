@@ -1,18 +1,24 @@
+@php
+    $totalLakiLaki = (int) (\App\Models\StatistikDesa::where('kategori', 'gender')->where('label', 'Laki-laki')->value('jumlah') ?? 0);
+    $totalPerempuan = (int) (\App\Models\StatistikDesa::where('kategori', 'gender')->where('label', 'Perempuan')->value('jumlah') ?? 0);
+    $totalPenduduk = $totalLakiLaki + $totalPerempuan;
+@endphp
+
 <section class="statistik" id="statistik">
     <div class="statistik__inner">
         <h2 class="statistik__title">Statistik Penduduk Desa Jatisari</h2>
 
         <div class="statistik__grid">
             <div class="statistik__item">
-                <span class="statistik__number" data-target="3118">0</span>
+                <span class="statistik__number" data-target="{{ $totalPenduduk }}">0</span>
                 <span class="statistik__label">Penduduk</span>
             </div>
             <div class="statistik__item">
-                <span class="statistik__number" data-target="1247">0</span>
+                <span class="statistik__number" data-target="{{ $totalLakiLaki }}">0</span>
                 <span class="statistik__label">Laki-laki</span>
             </div>
             <div class="statistik__item">
-                <span class="statistik__number" data-target="1871">0</span>
+                <span class="statistik__number" data-target="{{ $totalPerempuan }}">0</span>
                 <span class="statistik__label">Perempuan</span>
             </div>
         </div>

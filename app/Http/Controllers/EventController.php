@@ -19,7 +19,17 @@ class EventController extends Controller
             fn ($event) => $event->tanggal->greaterThanOrEqualTo(Carbon::today())
         ) ?? $events->last();
 
-        return view('event.index', compact('events', 'eventTerdekat'));
+        $calendarEvents = $events->map(fn ($event) => [
+            'title' => $event->judul,
+            'date' => $event->tanggal->format('Y-m-d'),
+            'time' => $event->waktu,
+            'location' => $event->lokasi,
+            'description' => \Illuminate\Support\Str::limit($event->deskripsi, 150),
+            'thumbnail' => $event->thumbnail ? asset('storage/' . $event->thumbnail) : asset('images/karnaval.png'),
+            'url' => route('event.show', $event->slug),
+        ])->values();
+
+        return view('event.index', compact('events', 'eventTerdekat', 'calendarEvents'));
     }
 
     public function show(string $slug)

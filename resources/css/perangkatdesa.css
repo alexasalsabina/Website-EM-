@@ -28,6 +28,7 @@
 .perangkat__inner {
   position: relative;
   z-index: 2;
+  padding-top: 5rem;
 }
 
 .perangkat__badge {
@@ -37,7 +38,8 @@
   border-radius: 999px;
   background: rgba(80, 110, 80, 0.4);
   backdrop-filter: blur(6px);
-  margin-bottom: 5vh;
+  margin-top: 0.25rem;
+  margin-bottom: 4.5rem;
 }
 
 .perangkat__badge strong {
@@ -68,7 +70,7 @@
 
 .orgchart {
   display: table;
-  margin: 0 auto;
+  margin: 1.5rem auto 0;
   text-align: center;
 }
 
@@ -80,7 +82,7 @@
 .orgchart li {
   display: table-cell;
   vertical-align: top;
-  padding: 46px 14px 0;
+  padding: 110px 14px 0;
 }
 
 /* garis horizontal & vertikal penghubung antar-saudara */
@@ -91,7 +93,7 @@
   top: 0;
   right: 50%;
   width: 50%;
-  height: 46px;
+  height: 110px;
   border-top: 2px solid rgba(244, 239, 228, 0.45);
 }
 
@@ -128,13 +130,17 @@
 }
 
 /* garis vertikal dari parent turun ke grup anak */
+.orgchart > ul > li > ul {
+  margin-top: 110px;
+}
+
 .orgchart > ul > li > ul::before {
   content: "";
   position: absolute;
-  top: -46px;
+  top: -110px;
   left: 50%;
   width: 0;
-  height: 46px;
+  height: 110px;
   border-left: 2px solid rgba(244, 239, 228, 0.45);
 }
 

@@ -4,6 +4,87 @@
 
 @push('styles')
     @vite(['resources/css/potensi.css'])
+    <style>
+        /* Penyesuaian khusus tampilan di dalam kartu agar gambar di samping penjelasan */
+        .potensi__card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .potensi__card:hover {
+            transform: translateY(-4px);
+        }
+
+        .potensi__card-image {
+            flex: 0 0 40%;
+            max-width: 40%;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .potensi__card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .potensi__card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .potensi__card-label {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .potensi__card-title {
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+
+        .potensi__card-text {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .potensi__card {
+                flex-direction: column;
+            }
+            .potensi__card-image {
+                max-width: 100%;
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -16,70 +97,32 @@
         />
 
         <div class="potensi__highlight">
-    <!-- Pertanian -->
-    <a href="{{ route('potensi.detail', 'pertanian') }}" class="text-decoration-none d-block">
-        <x-feature-card
-            label="Pertanian"
-            title="Pertanian dan Hortikultura"
-            description="Lahan subur di Jatisari mendukung tanaman pangan dan sayuran lokal, serta komoditas yang dapat menjadi sumber penghasilan tambahan bagi keluarga petani."
-        >
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 7h16v4H4z" />
-                <path d="M4 11v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6" />
-                <path d="M8 11V5a4 4 0 0 1 8 0v6" />
-            </svg>
-        </x-feature-card>
-    </a>
-
-    <!-- Wisata -->
-    <a href="{{ route('potensi.detail', 'wisata') }}" class="text-decoration-none d-block">
-        <x-feature-card
-            label="Wisata"
-            title="Wisata Alam & Budaya"
-            description="Lingkungan asri, tradisi lokal, dan ruang publik desa memberi peluang wisata alam serta event kebudayaan yang menarik wisatawan sekitar."
-        >
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15V8a2 2 0 0 0-2-2h-1V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2H5a2 2 0 0 0-2 2v7" />
-                <path d="M3 12h18" />
-                <path d="M7 19h10" />
-                <path d="M9 15h6" />
-            </svg>
-        </x-feature-card>
-    </a>
-
-    <!-- UMKM -->
-    <a href="{{ route('potensi.detail', 'umkm') }}" class="text-decoration-none d-block">
-        <x-feature-card
-            label="UMKM"
-            title="UMKM Kreatif"
-            description="Usaha mikro dan kerajinan lokal terus berkembang dengan dukungan pelatihan, pemasaran digital, serta kolaborasi antar pelaku usaha desa."
-        >
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 7h16v12H4z" />
-                <path d="M8 7v12" />
-                <path d="M16 7v12" />
-                <path d="M4 11h16" />
-                <path d="M4 15h16" />
-            </svg>
-        </x-feature-card>
-    </a>
-
-    <!-- Pendidikan -->
-    <a href="{{ route('potensi.detail', 'pendidikan') }}" class="text-decoration-none d-block">
-        <x-feature-card
-            label="Pendidikan"
-            title="Pendidikan & Keterampilan"
-            description="Pusat belajar desa dan kegiatan literasi memperkuat talent lokal, menyiapkan generasi muda yang siap berinovasi dan berwirausaha."
-        >
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 20h16" />
-                <path d="M4 16h16" />
-                <path d="M8 16V4h8v12" />
-                <path d="M10 11h4" />
-            </svg>
-        </x-feature-card>
-    </a>
-</div>
+            @forelse($potensi as $item)
+                <a href="{{ route('potensi.detail', $item->slug) }}" class="potensi__card-link">
+                    <article class="potensi__card">
+                        <!-- Gambar di sebelah kiri -->
+                        <div class="potensi__card-image">
+                            @if($item->foto)
+                                <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul }}">
+                            @else
+                                <span>🌾</span>
+                            @endif
+                        </div>
+                        
+                        <!-- Penjelasan di sebelah kanan gambar -->
+                        <div class="potensi__card-content">
+                            <span class="potensi__card-label">
+                                {{ isset($item->created_at) ? \Carbon\Carbon::parse($item->created_at)->format('d F Y') : 'Potensi Desa' }}
+                            </span>
+                            <h3 class="potensi__card-title">{{ $item->judul }}</h3>
+                            <p class="potensi__card-text">{{ $item->isi }}</p>
+                        </div>
+                    </article>
+                </a>
+            @empty
+                <p>Belum ada potensi desa yang tersedia.</p>
+            @endforelse
+        </div>
 
         <div class="potensi__details">
             <div class="potensi__details-card" data-page-animate>

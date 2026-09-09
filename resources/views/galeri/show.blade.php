@@ -3,19 +3,34 @@
 {{-- SISTEM DETEKSI DATA & PENGELOMPOKAN --}}
 @php
     $fotosDb = $kategori->fotos ?? collect();
+    $isEvent = isset($kategori->judul);
+    $galleryTitle = $isEvent ? $kategori->judul : ($kategori->nama ?? 'Galeri Event');
 
-    // Mengelompokkan foto berdasarkan tahun
+    // Mengambil tahun event/kategori secara aman dari database
+    if ($isEvent && isset($kategori->tanggal)) {
+        $galleryYear = \Carbon\Carbon::parse($kategori->tanggal)->format('Y');
+    } else {
+        $galleryYear = '2024';
+    }
+
+    // Mengelompokkan foto berdasarkan tahun dari database
     if ($fotosDb->isNotEmpty()) {
-        $fotosByTahun = $fotosDb->groupBy(function($item) {
-            return $item->tahun ?? '2024';
+        $fotosByTahun = $fotosDb->groupBy(function($item) use ($isEvent, $kategori, $galleryYear) {
+            if (!empty($item->tahun)) {
+                return $item->tahun;
+            }
+            if (!empty($item->created_at)) {
+                return \Carbon\Carbon::parse($item->created_at)->format('Y');
+            }
+            return $galleryYear;
         });
     } else {
-        // Data cadangan jika database benar-benar kosong
+        // Data cadangan jika database foto belum diisi
         $fotosByTahun = collect([
-            '2024' => collect([
-                (object)['id' => 1, 'judul' => 'Kegiatan 1', 'tahun' => '2024'],
-                (object)['id' => 2, 'judul' => 'Kegiatan 2', 'tahun' => '2024'],
-                (object)['id' => 3, 'judul' => 'Kegiatan 3', 'tahun' => '2024'],
+            $galleryYear => collect([
+                (object)['id' => 1, 'judul' => 'Kegiatan 1', 'tahun' => $galleryYear],
+                (object)['id' => 2, 'judul' => 'Kegiatan 2', 'tahun' => $galleryYear],
+                (object)['id' => 3, 'judul' => 'Kegiatan 3', 'tahun' => $galleryYear],
             ])
         ]);
     }
@@ -40,7 +55,7 @@
     }
     
     .hero-header {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("{{ asset('images/wisata2.jpeg') }}");
+        background-image: linear-gradient(rgba(7, 32, 20, 0.35), rgba(9, 26, 17, 0.7)), url("{{ asset('images/wisata2.jpeg') }}");
         background-size: cover;
         background-position: center 75%; 
         background-repeat: no-repeat;
@@ -49,6 +64,52 @@
         padding: 130px 0 70px 0; 
         position: relative;
         z-index: 1;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .hero-header .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        width: 100%;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .hero-header .btn {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+        transition: all 0.25s ease;
+    }
+
+    .hero-header .btn:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-1px);
+        color: #fff;
+    }
+
+    .hero-header h1 {
+        font-size: clamp(2.2rem, 4vw, 4rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+        color: #ffffff;
+        text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-header p {
+        font-size: clamp(1rem, 1.8vw, 1.4rem);
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.92);
+        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+        max-width: 820px;
+        margin-bottom: 0;
     }
 
     .main-content {
@@ -118,6 +179,30 @@
         border-radius: 50px;
         box-shadow: 0 4px 12px rgba(21, 115, 71, 0.2);
     }
+
+    .foto-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+
+    .foto-grid__item {
+        min-width: 0;
+    }
+
+    @media (max-width: 900px) {
+        .foto-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 600px) {
+        .foto-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 
 <div class="galeri-wrapper">
@@ -125,13 +210,13 @@
     <div class="hero-header text-white">
         <div class="container">
             <div class="mb-3">
-                <a href="{{ route('galeri.index') }}" class="btn btn-sm btn-light rounded-pill px-3 fw-semibold shadow-sm text-success">
+                <a href="{{ route('galeri.index') }}" class="btn btn-sm rounded-pill px-3 fw-semibold shadow-sm">
                     <i class="bi bi-arrow-left me-1"></i> Kembali ke Galeri
                 </a>
             </div>
-            <h1 class="fw-bold display-6 mb-1">{{ $kategori->nama ?? 'Galeri Event' }}</h1>
+            <h1 class="fw-bold display-6 mb-1">{{ $galleryTitle }}</h1>
             <p class="mb-0 text-white-50" style="font-size: 0.95rem;">
-                Dokumentasi perjalanan dan momen berharga {{ $kategori->nama ?? '' }} dari masa ke masa.
+                Dokumentasi perjalanan dan momen berharga {{ $galleryTitle }}.
             </p>
         </div>
     </div>
@@ -150,44 +235,30 @@
                         <hr class="flex-grow-1 ms-3 my-0 opacity-25" style="border-top: 2px dashed #157347;">
                     </div>
 
-                    <!-- GRID MENYAMPING 3 KOTAK (row-cols-md-3 PASTI 3 KOLOM) -->
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- GRID MENYAMPING 3 KOTAK -->
+                    <div class="foto-grid">
                         @foreach ($fotos as $foto)
                             @php
-                                // Otomatis cek nama kolom gambar di DB (foto, gambar, image, path, dll)
                                 $pathFoto = $foto->foto ?? $foto->gambar ?? $foto->image ?? $foto->path ?? $foto->file_path ?? null;
                                 
                                 if (!empty($pathFoto)) {
                                     $imgSrc = \Illuminate\Support\Str::startsWith($pathFoto, 'http') ? $pathFoto : Storage::url($pathFoto);
                                 } else {
-                                    // Gambar sampel otomatis jika file di database kosong
                                     $imgSrc = 'https://picsum.photos/600/450?random=' . ($foto->id ?? $loop->index + 1);
                                 }
                             @endphp
 
-                            <div class="col">
+                            <div class="foto-grid__item">
                                 <div class="card card-foto-besar h-100 shadow-sm">
                                     <!-- Area Gambar Besar -->
-                                    <div class="img-box-besar" data-bs-toggle="modal" data-bs-target="#modalFoto{{ $foto->id ?? $loop->index }}">
-                                        <img src="{{ $imgSrc }}" alt="{{ $foto->judul ?? 'Foto Event' }}">
+                                    <a href="{{ $imgSrc }}" target="_blank" rel="noopener noreferrer" class="img-box-besar d-block">
+                                        <img src="{{ $imgSrc }}" alt="{{ $foto->judul ?? $galleryTitle }}">
                                         <div class="img-overlay">
                                             <span class="btn btn-light rounded-circle p-2 shadow">
                                                 <i class="bi bi-arrows-angle-expand text-success fs-5"></i>
                                             </span>
                                         </div>
-                                    </div>
-
-                                    <!-- Deskripsi Foto -->
-                                    <div class="card-body p-3 d-flex flex-column justify-content-between">
-                                        <div>
-                                            <h6 class="fw-bold text-dark mb-1" style="font-size: 1.05rem;">
-                                                {{ $foto->judul ?? $foto->nama ?? $kategori->nama ?? 'Dokumentasi Foto' }}
-                                            </h6>
-                                            @if (!empty($foto->keterangan ?? $foto->deskripsi))
-                                                <p class="text-muted small mb-0">{{ \Illuminate\Support\Str::limit($foto->keterangan ?? $foto->deskripsi, 90) }}</p>
-                                            @endif
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
@@ -198,33 +269,4 @@
         </div>
     </div>
 </div>
-
-<!-- MODAL POPUP FULLSCREEN -->
-@foreach ($fotosByTahun as $tahun => $fotos)
-    @foreach ($fotos as $foto)
-        @php
-            $pathFotoModal = $foto->foto ?? $foto->gambar ?? $foto->image ?? $foto->path ?? null;
-            $imgModalSrc = !empty($pathFotoModal) ? (\Illuminate\Support\Str::startsWith($pathFotoModal, 'http') ? $pathFotoModal : Storage::url($pathFotoModal)) : 'https://picsum.photos/900/600?random=' . ($foto->id ?? $loop->index + 1);
-        @endphp
-        <div class="modal fade" id="modalFoto{{ $foto->id ?? $loop->index }}" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden; background: #1a1a1a;">
-                    <div class="modal-header border-0 text-white p-3 px-4">
-                        <div>
-                            <h6 class="modal-title fw-bold text-white mb-0">{{ $foto->judul ?? $kategori->nama ?? 'Detail Foto' }}</h6>
-                            <small class="text-white-50"><i class="bi bi-calendar-event me-1"></i> Tahun {{ $foto->tahun ?? '2024' }}</small>
-                        </div>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center p-0 bg-black d-flex justify-content-center align-items-center" style="min-height: 350px;">
-                        <img src="{{ $imgModalSrc }}" class="img-fluid" style="max-height: 78vh; width: auto; object-fit: contain;" alt="Foto">
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-@endforeach
-
-<!-- Script Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

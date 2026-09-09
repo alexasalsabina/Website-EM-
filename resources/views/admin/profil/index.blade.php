@@ -73,6 +73,13 @@
 
         </div>
 
+        <div class="profil-card">
+            <div class="profil-icon">🏢</div>
+            <h3>Kelembagaan</h3>
+            <p>Kelola foto, judul, dan isi kelembagaan.</p>
+            <a href="{{ route('admin.profil.konten.index', 'kelembagaan') }}" aria-label="Kelola kelembagaan desa">Kelola</a>
+        </div>
+
     </div>
     
 </div>

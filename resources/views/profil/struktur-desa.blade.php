@@ -21,6 +21,7 @@
             <div class="orgchart">
                 <ul>
                     <li>
+                        {{-- TINGKAT 1: KEPALA DESA --}}
                         <div class="org-person org-person--lead">
                             @php
                                 $kepala = $perangkatDesas->firstWhere('jabatan', 'Kepala Desa');
@@ -44,11 +45,52 @@
 
                         <ul>
                             @php
-                                $anak = $perangkatDesas->where('jabatan', '!=', 'Kepala Desa')->reject(fn($item) => in_array($item->jabatan, ['Sekretaris Desa', 'Kepala Urusan', 'Kasi', 'Kepala Dusun']))->values();
+                                $sekretaris = $perangkatDesas->firstWhere('jabatan', 'Sekretaris Desa');
+
+                                // Semua perangkat selain Kepala Desa & Sekretaris Desa
+                                $stafLain = $perangkatDesas
+                                    ->whereNotIn('jabatan', ['Kepala Desa', 'Sekretaris Desa'])
+                                    ->reject(function ($item) use ($kepala, $sekretaris) {
+                                        return ($kepala && $item->id === $kepala->id)
+                                            || ($sekretaris && $item->id === $sekretaris->id);
+                                    })
+                                    ->unique(function ($item) {
+                                        return strtolower(trim($item->nama));
+                                    })
+                                    ->values();
                             @endphp
 
-                            @if($anak->isNotEmpty())
-                                @foreach($anak as $item)
+                            @if($sekretaris)
+                                {{-- TINGKAT 2: SEKRETARIS DESA --}}
+                                <li>
+                                    <div class="org-person" data-reveal>
+                                        <img src="{{ $sekretaris->foto ? asset('storage/' . $sekretaris->foto) : asset('images/default-user.png') }}" alt="{{ $sekretaris->nama }}" class="org-photo">
+                                        <div class="org-badge">
+                                            <strong>{{ $sekretaris->nama }}</strong>
+                                            <small>{{ $sekretaris->jabatan }}</small>
+                                        </div>
+                                    </div>
+
+                                    {{-- TINGKAT 3: KAUR / KASI / KADUS / STAF LAINNYA --}}
+                                    @if($stafLain->isNotEmpty())
+                                        <ul>
+                                            @foreach($stafLain as $item)
+                                                <li>
+                                                    <div class="org-person" data-reveal>
+                                                        <img src="{{ $item->foto ? asset('storage/' . $item->foto) : asset('images/default-user.png') }}" alt="{{ $item->nama }}" class="org-photo">
+                                                        <div class="org-badge">
+                                                            <strong>{{ $item->nama }}</strong>
+                                                            <small>{{ $item->jabatan }}</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @else
+                                {{-- Belum ada Sekretaris Desa: staf lain jadi anak langsung Kepala Desa --}}
+                                @foreach($stafLain as $item)
                                     <li>
                                         <div class="org-person" data-reveal>
                                             <img src="{{ $item->foto ? asset('storage/' . $item->foto) : asset('images/default-user.png') }}" alt="{{ $item->nama }}" class="org-photo">

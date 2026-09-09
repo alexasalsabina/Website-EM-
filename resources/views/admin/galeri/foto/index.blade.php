@@ -56,17 +56,9 @@
                     </div>
 
                     <div class="p-5">
-                        <h3 class="font-semibold text-gray-800 mb-1 line-clamp-2">
-                            {{ $foto->judul }}
-                        </h3>
-
-                        @if ($foto->keterangan)
-                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">
-                                {{ Str::limit($foto->keterangan, 60) }}
-                            </p>
-                        @else
-                            <p class="text-gray-400 text-sm mb-4 italic">Tanpa keterangan</p>
-                        @endif
+                        <p class="text-gray-600 text-sm mb-4">
+                            Tahun {{ $foto->tahun }}
+                        </p>
 
                         <div class="flex items-center justify-between border-t pt-3">
                             <a href="{{ route('admin.galeri-foto.edit', [$kategori, $foto]) }}"

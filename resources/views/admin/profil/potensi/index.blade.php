@@ -11,9 +11,7 @@
         Potensi Desa
     </h1>
 
-    <a href="{{ route('admin.profil.index') }}" class="bg-green-700 text-white px-5 py-2 rounded-lg">
-        Kembali ke Profil Desa
-    </a>
+    <a href="{{ route('admin.profil.konten.index', 'potensi') }}" class="mt-4 inline-block rounded-lg bg-green-700 px-5 py-2 text-white">Kelola Data Potensi</a>
 
 </div>
 

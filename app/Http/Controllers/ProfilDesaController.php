@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sambutan;
+use App\Models\ProfilKonten;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,7 +48,7 @@ class ProfilDesaController extends Controller
 
         $sambutan->save();
 
-        return redirect()->route('admin.profil.sambutan.edit')
+        return redirect()->route('admin.profil.index')
             ->with('success', 'Sambutan Kepala Desa berhasil diperbarui.');
     }
 
@@ -58,7 +59,16 @@ class ProfilDesaController extends Controller
 
     public function potensi()
     {
-        return view('admin.profil.potensi.index');
+        return view('profil.potensi', [
+            'potensi' => ProfilKonten::where('kategori', 'potensi')->orderBy('urutan')->get(),
+        ]);
+    }
+
+    public function kelembagaan()
+    {
+        return view('profil.kelembagaan', [
+            'kelembagaan' => ProfilKonten::where('kategori', 'kelembagaan')->orderBy('urutan')->get(),
+        ]);
     }
 
     public function inovasi()
@@ -72,34 +82,7 @@ class ProfilDesaController extends Controller
     }
     public function potensiDetail($kategori)
 {
-    $dataPotensi = [
-        'pertanian' => [
-            'judul' => 'Pertanian dan Hortikultura',
-            'deskripsi' => 'Lahan subur di Jatisari mendukung tanaman pangan dan sayuran lokal, serta komoditas unggulan masyarakat.',
-            'gambar' => 'images/pertanian.jpg'
-        ],
-        'wisata' => [
-            'judul' => 'Wisata Alam & Budaya',
-            'deskripsi' => 'Lingkungan asri, tradisi lokal, dan ruang publik desa memberi peluang wisata alam serta event kebudayaan.',
-            'gambar' => 'images/wisata.jpg'
-        ],
-        'umkm' => [
-            'judul' => 'UMKM Kreatif',
-            'deskripsi' => 'Usaha mikro dan kerajinan lokal terus berkembang dengan dukungan pelatihan dan pemasaran digital.',
-            'gambar' => 'images/umkm.jpg'
-        ],
-        'pendidikan' => [
-            'judul' => 'Pendidikan & Keterampilan',
-            'deskripsi' => 'Pusat belajar desa dan kegiatan literasi memperkuat talent lokal serta menyiapkan generasi muda.',
-            'gambar' => 'images/pendidikan.jpg'
-        ],
-    ];
-
-    if (!array_key_exists($kategori, $dataPotensi)) {
-        abort(404);
-    }
-
-    $detail = $dataPotensi[$kategori];
+    $detail = ProfilKonten::where('kategori', 'potensi')->where('slug', $kategori)->firstOrFail();
 
     return view('potensi-detail', compact('detail'));
 }

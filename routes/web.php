@@ -15,6 +15,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\PotensiController;
 use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\PeraturanDesaController as AdminPeraturanDesaController;
+use App\Models\PeraturanDesa;
+use App\Http\Controllers\Admin\ProfilKontenController;
 
 Route::get('/', fn () => view('home'))->name('home');
 
@@ -43,7 +46,7 @@ Route::prefix('profil')->name('profil.')->group(function () {
 
     Route::get('/sejarah', fn () => view('profil.sejarah'))->name('sejarah');
     Route::get('/visi-misi', fn () => view('profil.visi-misi'))->name('visi-misi');
-    Route::get('/kelembagaan', fn () => view('profil.kelembagaan'))->name('kelembagaan');
+    Route::get('/kelembagaan', [ProfilDesaController::class, 'kelembagaan'])->name('kelembagaan');
 
     Route::prefix('kelembagaan')->name('kelembagaan.')->group(function () {
         Route::get('/karang-taruna', fn () => view('profil.kelembagaan.karang-taruna'))->name('karangtaruna');
@@ -53,7 +56,7 @@ Route::prefix('profil')->name('profil.')->group(function () {
 
    
     Route::get('/monografi', fn () => view('profil.monografi'))->name('monografi');
-    Route::get('/potensi', fn () => view('profil.potensi'))->name('potensi');
+    Route::get('/potensi', [ProfilDesaController::class, 'potensi'])->name('potensi');
     Route::get('/struktur-desa', [PerangkatDesaController::class, 'publicIndex'])->name('struktur-desa');
 
     // Route Detail Potensi
@@ -80,73 +83,29 @@ Route::prefix('data')->name('data.')->group(function () {
 
     Route::get('/dana-desa', fn () => view('data.dana-desa'))->name('dana-desa');
 
-    Route::get('/peraturan-desa', fn () => view('data.peraturan-desa'))->name('peraturan-desa');
+    Route::get('/peraturan-desa', function () {
+        $peraturans = PeraturanDesa::latest('tahun')->latest('id')->get();
+
+        return view('data.peraturan-desa', compact('peraturans'));
+    })->name('peraturan-desa');
+
+    Route::get('/peraturan-desa/{peraturan}', function (PeraturanDesa $peraturan) {
+        return view('data.peraturan-desa-detail', compact('peraturan'));
+    })->name('peraturan-desa.show');
 
     Route::get('/monografi', fn () => view('data.monografi'))->name('monografi');
 
     Route::get('/aset-desa', fn () => view('data.aset-desa'))->name('aset-desa');
 
-    Route::get('/statistik-penduduk', fn () => view('data.statistik-penduduk'))->name('statistik-penduduk');
+        Route::get('/statistik-penduduk', [DataDesaController::class, 'statistikPenduduk'])
+        ->name('statistik-penduduk');
 
-    Route::get('/statistik-penduduk/{kategori}', function (string $kategori) {
-        $categories = [
-            'demografi' => [
-                'title' => 'Demografi Penduduk',
-                'items' => ['Kelompok Usia', 'Jumlah Kepala Keluarga (KK)'],
-            ],
-            'sosial-pendidikan' => [
-                'title' => 'Status Sosial & Pendidikan',
-                'items' => ['Tingkat Pendidikan', 'Status Perkawinan'],
-            ],
-            'ekonomi' => [
-                'title' => 'Pekerjaan / Mata Pencaharian',
-                'items' => ['Mata Pencaharian'],
-                'direct' => true,
-                'directLabel' => 'Mata Pencaharian',
-            ],
-            'inklusi' => [
-                'title' => 'Penyandang Disabilitas',
-                'items' => ['Penyandang Disabilitas'],
-                'direct' => true,
-                'directLabel' => 'Penyandang Disabilitas',
-            ],
-        ];
+    Route::get('/statistik-penduduk/{kategori}', [DataDesaController::class, 'statistikPendudukKategori'])
+        ->name('statistik-penduduk.kategori');
 
-        abort_unless(isset($categories[$kategori]), 404);
-
-        return view('data.statistik-penduduk-pilihan', [
-            'category' => $categories[$kategori],
-            'kategori' => $kategori,
-        ]);
-    })->name('statistik-penduduk.kategori');
-
-    Route::get('/statistik-penduduk/{kategori}/{submenu}', function (string $kategori, string $submenu) {
-        $titles = [
-            'demografi' => 'Demografi Penduduk',
-            'sosial-pendidikan' => 'Status Sosial & Pendidikan',
-            'ekonomi' => 'Pekerjaan / Mata Pencaharian',
-            'inklusi' => 'Penyandang Disabilitas',
-        ];
-
-        $submenuTitles = [
-            'kelompok-usia' => 'Kelompok Usia',
-            'jumlah-kepala-keluarga-kk' => 'Jumlah Kepala Keluarga (KK)',
-            'tingkat-pendidikan' => 'Tingkat Pendidikan',
-            'status-perkawinan' => 'Status Perkawinan',
-            'mata-pencaharian' => 'Mata Pencaharian',
-            'penyandang-disabilitas' => 'Penyandang Disabilitas',
-            'golongan-darah' => 'Golongan Darah',
-        ];
-
-        abort_unless(isset($titles[$kategori]), 404);
-
-        return view('data.statistik-penduduk-data', [
-            'categoryTitle' => $titles[$kategori],
-            'submenuTitle' => $submenuTitles[$submenu] ?? ucwords(str_replace('-', ' ', $submenu)),
-            'kategori' => $kategori,
-        ]);
-    })->name('statistik-penduduk.submenu');
-
+    Route::get('/statistik-penduduk/{kategori}/{submenu}', [DataDesaController::class, 'statistikPendudukSubmenu'])
+        ->name('statistik-penduduk.submenu');
+        
     Route::get('/integrasi-data-desa', fn () => view('data.integrasi-data-desa'))->name('integrasi-data-desa');
 
 });
@@ -174,6 +133,8 @@ Route::get('/ppdi', fn () => view('ppdi'))->name('ppdi');
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
 
+Route::get('/galeri/event/{slug}', [GaleriController::class, 'eventShow'])->name('galeri.event.show');
+
 Route::get('/galeri/{slug}', [GaleriController::class, 'show'])->name('galeri.show');
 
 Route::get('/kontak', fn () => view('kontak'))->name('kontak');
@@ -197,6 +158,13 @@ Route::middleware('auth')
 
 
         Route::resource('event', AdminEventController::class)->except(['show']);
+
+        Route::get('/event/{event}/foto/{foto}/edit', [AdminEventController::class, 'editPhoto'])
+            ->name('event.foto.edit');
+        Route::put('/event/{event}/foto/{foto}', [AdminEventController::class, 'updatePhoto'])
+            ->name('event.foto.update');
+        Route::delete('/event/{event}/foto/{foto}', [AdminEventController::class, 'destroyPhoto'])
+            ->name('event.foto.destroy');
 
         /*
         |----------------------------------------------------------
@@ -253,8 +221,17 @@ Route::middleware('auth')
                     ->names('struktur')
                     ->except(['show']);
 
-                Route::get('/potensi', [ProfilDesaController::class, 'potensi'])
+                Route::get('/potensi', fn () => redirect()->route('admin.profil.konten.index', 'potensi'))
                     ->name('potensi');
+
+                Route::get('/kelembagaan', fn () => redirect()->route('admin.profil.index'))->name('kelembagaan');
+
+                Route::get('/konten/{kategori}', [ProfilKontenController::class, 'index'])->name('konten.index');
+                Route::get('/konten/{kategori}/create', [ProfilKontenController::class, 'create'])->name('konten.create');
+                Route::post('/konten/{kategori}', [ProfilKontenController::class, 'store'])->name('konten.store');
+                Route::get('/konten/{kategori}/{konten}/edit', [ProfilKontenController::class, 'edit'])->name('konten.edit');
+                Route::put('/konten/{kategori}/{konten}', [ProfilKontenController::class, 'update'])->name('konten.update');
+                Route::delete('/konten/{kategori}/{konten}', [ProfilKontenController::class, 'destroy'])->name('konten.destroy');
 
                 Route::resource('inovasi', \App\Http\Controllers\InovasiDesaController::class)
                     ->names('inovasi')
@@ -280,6 +257,10 @@ Route::middleware('auth')
                 
                 Route::put('/statistik/{kategori}', [\App\Http\Controllers\Admin\DataDesaController::class, 'updateStatistik'])
                     ->name('statistik.update');
+
+                Route::resource('peraturan', AdminPeraturanDesaController::class)
+                    ->except(['show'])
+                    ->parameters(['peraturan' => 'peraturan']);
             });
     });
 

@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tambah Event')
-@section('page-title', 'Tambah Event')
+@section('title', 'Tambah Foto Event')
+@section('page-title', 'Tambah Foto Event')
 
 @section('content')
 <div class="p-8">
 
     <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-blue-900">Tambah Event</h1>
+            <h1 class="text-2xl font-bold text-blue-900">Tambah Foto Event</h1>
             <p class="text-gray-500 mt-1">
                 Buat event baru untuk ditampilkan di website Desa Jatisari.
             </p>
@@ -43,7 +43,7 @@
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
                 <input type="date" name="tanggal" value="{{ old('tanggal') }}"
                        class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-700"
                        required>
@@ -53,7 +53,7 @@
                 <label class="block text-sm font-medium text-gray-700 mb-2">Waktu</label>
                 <input type="text" name="waktu" value="{{ old('waktu') }}"
                        class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-700"
-                       placeholder="Contoh: 08.00 WIB - Selesai"
+                      placeholder="Contoh: 08.00 WIB - Selesai"
                        required>
             </div>
 
@@ -81,6 +81,15 @@
             </div>
 
             <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Foto Event</label>
+                  <input type="file" name="foto[]" accept="image/*" multiple id="eventPhotoInput" data-max-files="50"
+                       class="w-full rounded-lg border border-gray-300 px-4 py-2.5 file:mr-3 file:rounded file:border-0 file:bg-blue-800 file:px-4 file:py-2 file:text-white">
+                <p class="mt-2 text-sm text-gray-500">Pilih 1 sampai 50 foto, maksimal 4 MB per foto.</p>
+                  <p id="eventPhotoCount" class="mt-1 text-sm font-semibold text-blue-800"></p>
+                  <p id="eventPhotoNames" class="mt-1 text-xs text-gray-500"></p>
+            </div>
+
+            <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
                 <textarea name="deskripsi" rows="6"
                           class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-700"
@@ -102,4 +111,35 @@
     </form>
 
 </div>
+
+@push('scripts')
+<script>
+    (() => {
+        const input = document.getElementById('eventPhotoInput');
+        if (!input) return;
+        const countMessage = document.getElementById('eventPhotoCount');
+        const namesMessage = document.getElementById('eventPhotoNames');
+        const maxFiles = Number(input.dataset.maxFiles);
+        let selectedFiles = [];
+
+        input.addEventListener('change', () => {
+            const incomingFiles = Array.from(input.files);
+            const knownFiles = new Set(selectedFiles.map((file) => `${file.name}-${file.size}-${file.lastModified}`));
+            const newFiles = incomingFiles.filter((file) => !knownFiles.has(`${file.name}-${file.size}-${file.lastModified}`));
+            selectedFiles = [...selectedFiles, ...newFiles];
+
+            if (selectedFiles.length > maxFiles) {
+                selectedFiles = selectedFiles.slice(0, maxFiles);
+                alert(`Maksimal ${maxFiles} foto yang dapat dipilih.`);
+            }
+
+            const dataTransfer = new DataTransfer();
+            selectedFiles.forEach((file) => dataTransfer.items.add(file));
+            input.files = dataTransfer.files;
+            countMessage.textContent = `${selectedFiles.length} foto dipilih untuk diunggah.`;
+            namesMessage.textContent = selectedFiles.map((file) => file.name).join(', ');
+        });
+    })();
+</script>
+@endpush
 @endsection

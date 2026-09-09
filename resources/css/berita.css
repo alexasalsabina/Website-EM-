@@ -223,9 +223,42 @@
 }
 
 .berita__detail-body {
-  color: rgba(244, 239, 228, 0.9);
-  font-size: 1.05rem;
-  line-height: 1.85;
+  max-width: 72ch;
+  color: rgba(244, 239, 228, 0.96);
+  font-size: 1.15rem;
+  line-height: 2;
+  letter-spacing: 0.01em;
+}
+
+.berita__detail-body p {
+  margin: 0 0 1.35rem;
+}
+
+.berita__detail-body p:last-child {
+  margin-bottom: 0;
+}
+
+.berita__detail-body h2,
+.berita__detail-body h3,
+.berita__detail-body h4 {
+  margin: 2rem 0 0.75rem;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+.berita__detail-body ul,
+.berita__detail-body ol {
+  margin: 0 0 1.35rem;
+  padding-left: 1.5rem;
+}
+
+.berita__detail-body li + li {
+  margin-top: 0.55rem;
+}
+
+.berita__detail-body strong {
+  color: #ffffff;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
@@ -236,6 +269,20 @@
 
   .berita__detail-image {
     min-height: 260px;
+  }
+
+  .berita__detail {
+    padding: 1.35rem 1.1rem 2rem;
+  }
+
+  .berita__detail-title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  .berita__detail-body {
+    font-size: 1.08rem;
+    line-height: 1.9;
   }
 }
 

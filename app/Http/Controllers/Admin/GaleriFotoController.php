@@ -24,20 +24,18 @@ class GaleriFotoController extends Controller
     public function store(Request $request, GaleriKategori $kategori)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
             'tahun' => 'required|integer|min:1900|max:' . (date('Y') + 1),
-            'keterangan' => 'nullable|string',
-            'foto' => 'required|image|max:4096', // max 4MB
+            'foto' => 'required|array|min:1|max:3',
+            'foto.*' => 'required|image|max:4096', // max 4MB per foto
         ]);
 
-        $path = $request->file('foto')->store('galeri', 'public');
-
-        $kategori->fotos()->create([
-            'judul' => $request->judul,
-            'tahun' => $request->tahun,
-            'keterangan' => $request->keterangan,
-            'foto' => $path,
-        ]);
+        foreach ($request->file('foto') as $foto) {
+            $kategori->fotos()->create([
+                'judul' => $kategori->nama,
+                'tahun' => $request->tahun,
+                'foto' => $foto->store('galeri', 'public'),
+            ]);
+        }
 
         return redirect()->route('admin.galeri-foto.index', $kategori)
             ->with('success', 'Foto berhasil ditambahkan.');
@@ -51,13 +49,11 @@ class GaleriFotoController extends Controller
     public function update(Request $request, GaleriKategori $kategori, GaleriFoto $foto)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
             'tahun' => 'required|integer|min:1900|max:' . (date('Y') + 1),
-            'keterangan' => 'nullable|string',
             'foto' => 'nullable|image|max:4096',
         ]);
 
-        $data = $request->only('judul', 'tahun', 'keterangan');
+        $data = $request->only('tahun');
 
         if ($request->hasFile('foto')) {
             if ($foto->foto) {

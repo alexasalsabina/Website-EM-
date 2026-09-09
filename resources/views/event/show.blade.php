@@ -24,7 +24,26 @@
 
             <p style="margin-top:1.5rem; line-height:1.7;">{{ $event->deskripsi }}</p>
 
-            <a href="{{ route('event.index') }}" class="btn btn--outline" style="margin-top:2rem;">← Kembali ke Semua Event</a>
+            @if($event->fotos->isNotEmpty())
+                <div class="event__gallery">
+                    <div class="event__gallery-heading">
+                        <span class="event__gallery-eyebrow">Dokumentasi</span>
+                        <h2>Potret Kegiatan</h2>
+                    </div>
+                    <div class="event__gallery-grid">
+                        @foreach($event->fotos as $foto)
+                            <img src="{{ asset('storage/' . $foto->foto) }}"
+                                 alt="Dokumentasi {{ $event->judul }}"
+                                 class="event__gallery-image">
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:2rem;">
+                <a href="{{ route('event.index') }}" class="btn btn--outline">← Kembali ke Semua Event</a>
+                <a href="{{ route('galeri.event.show', $event->slug) }}" class="btn btn--outline">Lihat Galeri Event →</a>
+            </div>
         </div>
     </div>
 </section>
