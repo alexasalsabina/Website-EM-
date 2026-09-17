@@ -15,7 +15,7 @@
     {{-- CSS tambahan per halaman --}}
     @stack('styles')
 </head>
-<body>
+<body class="min-h-screen flex flex-col bg-[#0b1d33]"> {{-- Menggunakan flex column & set tinggi min 100vh --}}
     <div id="globalLoader" class="global-loader">
         <div class="global-loader__inner">
             <div class="global-loader__ring"></div>
@@ -23,10 +23,12 @@
         </div>
     </div>
 
-    <div id="appContent" class="app-content">
+    {{-- Tambahkan flex-1 dan flex flex-col pada appContent --}}
+    <div id="appContent" class="app-content flex-1 flex flex-col">
         @include('partials.header')
 
-        <main>
+        {{-- main menggunakan flex-1 agar mengambil sisa ruang dan mendorong footer ke bawah --}}
+        <main class="flex-1">
             @yield('content')
         </main>
 
